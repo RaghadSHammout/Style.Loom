@@ -1,21 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
-interface NavBarProps {
-  navLinks: {
-    label: string;
-    path: string;
-  }[];
-  // ... أي props أخرى مثل logo أو market
-} 
+import { useSelector } from 'react-redux';
+import type { RootState } from '../redux/store'; 
 
-function NavBar( ) {
- const navLinks = [
-    { label: "Home", path: "/" },
-    { label: "Products", path: "/products" }
-  ];
-  const btn=' Contact'
-  const logo =  <svg
+function NavBar() {
+  const { navLinks, btn } = useSelector((state: RootState) => state.nav);
+const logo =  <svg
               width="152"
               height="29"
               viewBox="0 0 152 29"
@@ -62,8 +53,8 @@ function NavBar( ) {
                 d="M8.28001 22.3C6.58001 22.3 5.12001 22.01 3.90001 21.43C2.70001 20.85 1.61 19.98 0.630005 18.82L3.33 16.12C3.95 16.94 4.67 17.58 5.49001 18.04C6.31 18.48 7.31001 18.7 8.49001 18.7C9.55001 18.7 10.39 18.49 11.01 18.07C11.65 17.65 11.97 17.07 11.97 16.33C11.97 15.69 11.79 15.17 11.43 14.77C11.07 14.37 10.59 14.03 9.99 13.75C9.41 13.47 8.76 13.22 8.04 13C7.34 12.76 6.63 12.49 5.91001 12.19C5.21 11.89 4.56 11.52 3.96 11.08C3.38 10.62 2.91 10.04 2.55 9.33996C2.19 8.61996 2.01 7.71996 2.01 6.63996C2.01 5.35996 2.32 4.26996 2.94 3.36996C3.56 2.46996 4.41 1.77996 5.49001 1.29996C6.57001 0.819956 7.79001 0.579956 9.15001 0.579956C10.59 0.579956 11.89 0.849956 13.05 1.38996C14.21 1.92996 15.16 2.62996 15.9 3.48996L13.2 6.18996C12.58 5.50996 11.94 5.00996 11.28 4.68996C10.64 4.36996 9.91001 4.20996 9.09 4.20996C8.15001 4.20996 7.41001 4.38996 6.87001 4.74996C6.33 5.10996 6.06001 5.62996 6.06001 6.30996C6.06001 6.88996 6.24001 7.35996 6.60001 7.71996C6.96 8.07996 7.43 8.38996 8.01 8.64996C8.61 8.90996 9.26001 9.15996 9.96001 9.39996C10.68 9.63996 11.39 9.90996 12.09 10.21C12.81 10.51 13.46 10.9 14.04 11.38C14.64 11.86 15.12 12.48 15.48 13.24C15.84 13.98 16.02 14.9 16.02 16C16.02 17.96 15.33 19.5 13.95 20.62C12.57 21.74 10.68 22.3 8.28001 22.3Z"
                 fill="currentColor"
               />
-            </svg>;
-            const market= <svg
+        </svg>;
+const market= <svg
               width="24"
               height="25"
               viewBox="0 0 24 25"
@@ -83,17 +74,20 @@ function NavBar( ) {
                 fill="currentColor"
               />
         </svg>
+const HamburgerMenu=  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7.875C3.5 7.39175 3.89175 7 4.375 7H23.625C24.1082 7 24.5 7.39175 24.5 7.875C24.5 8.35825 24.1082 8.75 23.625 8.75H4.375C3.89175 8.75 3.5 8.35825 3.5 7.875ZM3.5 14C3.5 13.5168 3.89175 13.125 4.375 13.125H23.625C24.1082 13.125 24.5 13.5168 24.5 14C24.5 14.4832 24.1082 14.875 23.625 14.875H4.375C3.89175 14.875 3.5 14.4832 3.5 14ZM13.125 20.125C13.125 19.6418 13.5168 19.25 14 19.25H23.625C24.1082 19.25 24.5 19.6418 24.5 20.125C24.5 20.6082 24.1082 21 23.625 21H14C13.5168 21 13.125 20.6082 13.125 20.125Z" fill="#1A1A1A"/>
+        </svg>
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   return (
     <nav className={`w-full flex justify-center items-end  px-[62px] max-2xl:px-3.5  max-lg:px-4 fixed z-50 `}>
 <div className="w-[70px] h-[70px] relative flex justify-center items-center  mr-[30px]  max-2xl:w-[46px]  max-2xl:h-[46px]  max-2xl:mr-5 max-lg:hidden ">
-<div className="absolute bottom-0 left-0 h-0 w-[40px] border-b border-dashed border-[#404040]  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
-<div className="absolute top-1/2 right-0 h-[40px] w-[40px] -translate-y-1/2 border-r border-dashed border-[#404040]  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
+<div className="absolute bottom-0 left-0 h-0 w-[40px] border-b border-dashed border-Very-Dark-Gray  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
+<div className="absolute top-1/2 right-0 h-[40px] w-[40px] -translate-y-1/2 border-r border-dashed border-Very-Dark-Gray  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
 </div>
-<div className={`w-full flex justify-between items-center font-normal text-lg leading-[1.5] opacity-100 tracking-normal text-center p-[30px] relative border-dashed border-b border-[#262626] max-2xl:p-6 max-lg:pt-10 max-lg:pb-5 max-lg:px-0 max-2xl:text-sm `}>
+<div className={`font-robotmono w-full flex justify-between items-center font-normal text-lg leading-[1.5] opacity-100 tracking-normal text-center p-[30px] relative border-dashed border-b border-dark-15 max-2xl:p-6 max-lg:pt-10 max-lg:pb-5 max-lg:px-0 max-2xl:text-sm`}>
 <div
   className={`flex gap-[14px] transition-all duration-300 ease-in-out ${
-   menuOpen ? " max-lg:flex-col max-lg:absolute max-lg:top-[125px] max-lg:left-0 max-lg:right-0 max-lg:bg-[#1A1A1A] max-lg:z-50 max-lg:py-4 max-lg:px-6 border-[1px] border-primarybg" : "max-lg:hidden"}`}
+   menuOpen ? " max-lg:flex-col max-lg:absolute max-lg:top-[125px] max-lg:left-0 max-lg:right-0 max-lg:bg-dark-10 max-lg:z-50 max-lg:py-4 max-lg:px-6 border-[1px] border-primarybg" : "max-lg:hidden"}`}
 >
   {navLinks.map(({ label, path }) => (
     <NavLink
@@ -102,26 +96,25 @@ function NavBar( ) {
       className={({ isActive }) =>
         `h-[63px] flex  rounded-[12px] max-2xl:rounded-[8px] max-2xl:h-[49px] max-lg:w-fit ${
           isActive
-            ? "bg-[#1A1A1A] px-[30px] py-[18px] max-2xl:px-[24px] max-2xl:py-[14px] max-lg:bg-primarybg"
-            : "px-[24px] py-[18px] border border-dashed border-[#262626] max-2xl:px-5 max-2xl:py-[14px]"}`}>
+            ? "bg-dark-10 px-[30px] py-[18px] max-2xl:px-[24px] max-2xl:py-[14px] max-lg:bg-primarybg"
+            : "px-[24px] py-[18px] border border-dashed border-dark-15 max-2xl:px-5 max-2xl:py-[14px]"}`}>
       {label}
     </NavLink>
   ))}
 </div>
-
 <div className={`${menuOpen ? "max-lg:hidden" : ""}`}>
     <NavLink to={""}>
           {logo} 
       </NavLink>
 </div>
 <div className={`flex gap-3.5 justify-center items-center ${menuOpen ?  "max-lg:flex " : "max-lg:hidden"}`}>
-    <button className={`bg-[#1A1A1A] p-[18px] rounded-[12px] opacity-100 flex justify-center items-center max-2xl:p-[14px] max-2xl:rounded-[8px] max-2xl:h-[48px]  max-2xl:w-[48px]  ${menuOpen ?  "max-lg:h-[56px]  max-lg:w-[56px]  " : ""}`}>
+    <button className={`bg-dark-10 p-[18px] rounded-[12px] opacity-100 flex justify-center items-center max-2xl:p-[14px] max-2xl:rounded-[8px] max-2xl:h-[48px]  max-2xl:w-[48px]  ${menuOpen ?  "max-lg:h-[56px]  max-lg:w-[56px]  " : ""}`}>
      {market}
         </button>
-      <button className={`${menuOpen ? "transition-all duration-300 ease-in-out w-full max-lg:flex max-lg:flex-col max-lg:absolute  max-lg:top-[269px]  max-lg:left-0 right-0 max-lg:bg-[#1A1A1A] max-lg:z-50 max-lg:py-4 max-lg:px-6" : "max-lg:hidden"}`}>
+      <button className={`${menuOpen ? "transition-all duration-300 ease-in-out w-full max-lg:flex max-lg:flex-col max-lg:absolute  max-lg:top-[269px]  max-lg:left-0 right-0 max-lg:bg-dark-10 max-lg:z-50 max-lg:py-4 max-lg:px-6" : "max-lg:hidden"}`}>
     <NavLink
               to={"/contact"}
-              className={`w-[136px] h-[63px] flex justify-center items-center bg-[#AE9B84] text-primarybg px-[30px] py-[18px] rounded-[12px]  max-2xl:py-[14px] max-2xl:rounded-[8px] max-2xl:h-[49px] max-2xl:w-[119px] `}>
+              className={`w-[136px] h-[63px] flex justify-center items-center bg-brown-60 text-primarybg px-[30px] py-[18px] rounded-[12px]  max-2xl:py-[14px] max-2xl:rounded-[8px] max-2xl:h-[49px] max-2xl:w-[119px] `}>
              {btn}
       </NavLink>
           </button>
@@ -129,19 +122,17 @@ function NavBar( ) {
 </div>
 <div onClick={() => setMenuOpen(!menuOpen)} className=" lg:hidden max-lg:flex w-[56px] h-[56px] flex justify-center items-center rotate-0 opacity-100 rounded-[10px] p-[14px] gap-[10px] bg-[#C2B4A3]">
       {menuOpen ? (
-        <IoClose className="w-7 h-7 text-[#1A1A1A]" />   
+        <IoClose className="w-7 h-7 text-dark-10" />   
           ):(
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7.875C3.5 7.39175 3.89175 7 4.375 7H23.625C24.1082 7 24.5 7.39175 24.5 7.875C24.5 8.35825 24.1082 8.75 23.625 8.75H4.375C3.89175 8.75 3.5 8.35825 3.5 7.875ZM3.5 14C3.5 13.5168 3.89175 13.125 4.375 13.125H23.625C24.1082 13.125 24.5 13.5168 24.5 14C24.5 14.4832 24.1082 14.875 23.625 14.875H4.375C3.89175 14.875 3.5 14.4832 3.5 14ZM13.125 20.125C13.125 19.6418 13.5168 19.25 14 19.25H23.625C24.1082 19.25 24.5 19.6418 24.5 20.125C24.5 20.6082 24.1082 21 23.625 21H14C13.5168 21 13.125 20.6082 13.125 20.125Z" fill="#1A1A1A"/>
-      </svg>
+      HamburgerMenu
   )}
 </div>
 </div>
 <div className="w-[70px] h-[70px] relative flex justify-center items-center ml-[30px]  max-2xl:w-[46px]  max-2xl:h-[46px]  max-2xl:ml-5 max-lg:hidden">
-        <div className="absolute bottom-0 right-0 w-[40px] h-0  border-b border-dashed border-[#404040]  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
-        <div className="absolute top-1/2 left-0 h-[40px] w-[40px] -translate-y-1/2 border-l border-dashed border-[#404040]  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
+        <div className="absolute bottom-0 right-0 w-[40px] h-0  border-b border-dashed border-Very-Dark-Gray  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
+        <div className="absolute top-1/2 left-0 h-[40px] w-[40px] -translate-y-1/2 border-l border-dashed border-Very-Dark-Gray  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
 </div>
-    </nav>
+</nav>
 );
 }
 

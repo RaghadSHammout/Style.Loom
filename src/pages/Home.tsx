@@ -43,6 +43,7 @@ function Home() {
         Card.slice(0 , numbercard).map((item , index) => (
               <Cards
                 key={index}
+                index={index}
                 showimage = {ShowImageType.one}
                 img={item.img}
                 img2={item.img2}
@@ -66,6 +67,7 @@ function Home() {
         Card2.map((item , index) => (
           <Cards
           key={index}
+          index={index}
           showimage = {ShowImageType.two}
           steps={item.steps}
           title={item.title}

@@ -1,58 +1,55 @@
-// import ReusableSection from "../components/ReusableSection";
-// import {
-//   sectionData,
-//   sectionData1,
-//   sectionData2,
-//   sectionData3,
-//   sectionData4
-// }from "../components/data/ReusableSectionData"
+import ReusableSection from "../components/ReusableSection";
+import {
+  sectionData,
+  sectionData1,
+  sectionData2,
+  sectionData3,
+  sectionData4
+}from "../components/data/ReusableSectionData"
 
 
 
 function Home() {
   return (
-    <div >
+    <div className='flex justify-center  flex-col pl-[168px] pr-[168px] max-2xl:pl-[80px] max-2xl:pr-[80px] max-lg:pl-[14px] max-lg:pr-[14px]'>
 
       {/* forSection1  */}
- {/* <div className="flex justify-center items-center pt-40">
        <ReusableSection
     {...sectionData1}
 />
 
- </div> */}
+
 
  {/* forSection2  */}
- {/* <div className="flex justify-center items-center pt-40">
        <ReusableSection
     {...sectionData2}
 />
 
- </div> */}
 
  {/* forSection3  */}
- {/* <div className="flex justify-center items-center pt-40">
+
        <ReusableSection
     {...sectionData}
 />
 
- </div> */}
+
 
 
  {/* forSection4  */}
- {/* <div className="flex justify-center items-center pt-40">
+ 
        <ReusableSection
     {...sectionData3}
 />
 
- </div> */}
   {/* forSection5  */}
- {/* <div className="flex justify-center items-center pt-40">
+
        <ReusableSection
     {...sectionData4}
 />
 
- </div> */}
+
     </div>
+
   )
 }
 

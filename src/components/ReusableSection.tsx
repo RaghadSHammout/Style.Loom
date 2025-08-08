@@ -9,25 +9,26 @@ function ReusableSection({
     activeTab,
     onChange,
     showTabs,
-    alt,imgwidth
+    alt,imgwidth ,children
 }: ReusableSectionprops) {
     return (
-        <div
-            className={` relative flex flex-col gap-[50px] rotate-0 opacity-100 w-[83.125%]  max-2xl:w-[88.89%] max-lg:w-full max-lg:overflow-x-auto max-lg:scroll-smooth 
-        border-t-2  border-l-2   border-r-2 border-dashed pt-20 border-dark-15 overflow-hidden
+    <section className="mt-[100px] border-2 border-dashed border-dark-15">
+            <div
+            className={` relative flex flex-col w-full gap-[50px] rotate-0 opacity-100    max-lg:overflow-x-auto max-lg:scroll-smooth 
+        border-b-2 border-dashed pt-20 border-dark-15 overflow-hidden
         pr-[300px] pb-20 pl-20
         max-2xl:gap-10
         max-2xl:pt-[60px]
         max-2xl:pr-[250px]
-        max-2xl:pb-[60px] max-2xl:pl-[60px] max-lg:gap-[30px]  max-lg:pt-[30px] max-lg:pr-[20px] max-lg:pb-[30px] max-lg:pl-[20px]`}
+        max-2xl:pb-[60px] max-2xl:pl-[60px] max-lg:gap-[30px]  max-lg:pt-[30px] max-lg:pr-[20px] max-lg:pb-[30px] max-lg:pl-[20px] `}
         >
             <div
                 className={`font-robotom  flex flex-col gap-[30px] max-2xl:gap-6 max-lg:gap-5`}
             >
-                <h2 className="font-medium text-5xl leading-[100%] tracking-normal uppercase max-2xl:text-[38px] max-lg:text-[28px]">
+                <h2 className={`font-medium text-5xl leading-[100%] tracking-normal uppercase max-2xl:text-[38px] max-lg:text-[28px] `}>
                     {heading}
                 </h2>
-                <p className="text-gray-40 font-normal text-lg   leading-[150%] tracking-normal max-2xl:text-base max-lg:text-sm">
+                <p className={`text-gray-40 font-normal text-lg   leading-[150%] tracking-normal max-2xl:text-base max-lg:text-sm `}>
                     {text}
                 </p>
             </div>
@@ -45,7 +46,11 @@ function ReusableSection({
                     onChange={(tab) => onChange(tab)}
                 />
             )}
+            <div className="">
+  {children}
+</div>
         </div>
+    </section>
     );
 }
 

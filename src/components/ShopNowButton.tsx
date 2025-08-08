@@ -6,14 +6,15 @@ import Line4 from "../assets/images/home/Line4.png";
 import { NavLink } from "react-router-dom";
 interface ShopNowButtonProps {
   hasBorder: boolean;
+  hasFullWidth: boolean;
 }
-function ShopNowButton({ hasBorder }: ShopNowButtonProps) {
+function ShopNowButton({ hasBorder, hasFullWidth }: ShopNowButtonProps) {
   return (
     <NavLink
       to={"#"}
-      className={`relative flex flex-row items-center justify-center 2xl:w-[159px] 2xl:h-[63px] w-[128px] h-[49px] bg-dark-12 rounded-xl text-sm 2xl:text-lg font-roboto cursor-pointer ${
+      className={`relative flex flex-row items-center justify-center 2xl:w-[159px] sm:w-[128px] 2xl:h-[63px] h-[49px] bg-dark-12 rounded-xl text-sm 2xl:text-lg font-roboto cursor-pointer ${
         hasBorder ? "border border-Very-Dark-Gray border-dashed" : "border-0"
-      }`}
+      }${hasFullWidth ? "w-full" : "w-[128px]"}`}
     >
       Shop Now
       <div className="pl-[6px]">

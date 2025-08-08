@@ -4,80 +4,82 @@ import { IoIosArrowRoundDown } from "react-icons/io";
 import Cards, { ShowImageType } from "../components/Cards";
 
 function Home() {
-   const Card = useSelector(((state: any) => state.cards.cardone))
-    const Card2 = useSelector(((state: any) => state.cards.cardtwo))
-     const [showbtn , setshowbtn] = useState<boolean >(false)
-   const [numbercard , setnumbercard]= useState<number> (6)
-     useEffect(() => {
+  const Card = useSelector((state: any) => state.cards.cardone);
+  const Card2 = useSelector((state: any) => state.cards.cardtwo);
+  const [showbtn, setshowbtn] = useState<boolean>(false);
+  const [numbercard, setnumbercard] = useState<number>(6);
+
+  useEffect(() => {
     const handleResize = () => {
-       if(window.innerWidth <= 600){
-      setshowbtn(true)
-      setnumbercard(3)
-      console.log(true)
-    }
-    else{
-        setshowbtn(false)
-        setnumbercard(6)
-        }
-        };
-    handleResize()
-    window.addEventListener ("resize" , handleResize)
+      if (window.innerWidth <= 600) {
+        setshowbtn(true);
+        setnumbercard(3);
+      } else {
+        setshowbtn(false);
+        setnumbercard(6);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const showallcards = () => {
+    if (numbercard === 3) {
+      setnumbercard(6);
+    } else {
+      setnumbercard(3);
+    }
   };
-    },[])
-    
- 
-  const showallcards = () =>{
-    if(numbercard == 3){
-      setnumbercard(6)
-    }
-    else{
-      setnumbercard(3)
-    }
-  }
+
   return (
     <div>
-         <div className="flex flex-wrap justify-center">
-       {Array.isArray(Card) &&
-        Card.slice(0 , numbercard).map((item , index) => (
-              <Cards
-                key={index}
-                index={index}
-                showimage = {ShowImageType.one}
-                img={item.img}
-                img2={item.img2}
-                title={item.title}
-                description={item.description}
-                />
-        ))  
-      }
+      <div className="flex flex-wrap justify-center">
+        {Array.isArray(Card) &&
+          Card.slice(0, numbercard).map((item, index) => (
+            <Cards
+              key={index}
+              index={index}
+              showimage={ShowImageType.one}
+              img={item.img}
+              img2={item.img2}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
 
-      {showbtn &&
-       <button className="text-gray-70 border border-dashed border-dark-20  py-[30px] px-[125.5px] w-full flex items-center justify-center gap-x-2.5 ransition-all"
-        onClick={() => showallcards() }
-        >View All 
-        <IoIosArrowRoundDown   className={`text-gray-70 transform transition-transform duration-500
-         ${numbercard <= 3 ? "" : "rotate-180"}
-         hover:translate-8 `}/>
-      </button>}
-     </div>
-       <div className="flex flex-wrap justify-center">
-       {Array.isArray(Card2) &&
-        Card2.map((item , index) => (
-          <Cards
-          key={index}
-          index={index}
-          showimage = {ShowImageType.two}
-          steps={item.steps}
-          title={item.title}
-          description={item.description}
-     />
-        ))  
-      }
-     </div>
+        {showbtn && (
+          <button
+            className="text-gray-70 border border-dashed border-dark-20 py-[30px] px-[125.5px] w-full flex items-center justify-center gap-x-2.5 transition-all"
+            onClick={showallcards}
+          >
+            View All
+            <IoIosArrowRoundDown
+              className={`text-gray-70 transform transition-transform duration-500 ${
+                numbercard <= 3 ? "" : "rotate-180"
+              } hover:translate-8`}
+            />
+          </button>
+        )}
+      </div>
+
+      <div className="flex flex-wrap justify-center">
+        {Array.isArray(Card2) &&
+          Card2.map((item, index) => (
+            <Cards
+              key={index}
+              index={index}
+              showimage={ShowImageType.two}
+              steps={item.steps}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+      </div>
     </div>
-  )
+  );
 }
-export default Home
 
+export default Home;

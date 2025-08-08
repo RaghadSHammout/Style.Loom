@@ -3,12 +3,14 @@ import Line1 from "../assets/images/home/Line1.png";
 import Line2 from "../assets/images/home/Line2.png";
 import Line3 from "../assets/images/home/Line3.png";
 import Line4 from "../assets/images/home/Line4.png";
+import { NavLink } from "react-router-dom";
 interface ShopNowButtonProps {
   hasBorder: boolean;
 }
 function ShopNowButton({ hasBorder }: ShopNowButtonProps) {
   return (
-    <button
+    <NavLink
+      to={"#"}
       className={`relative flex flex-row items-center justify-center 2xl:w-[159px] 2xl:h-[63px] w-[128px] h-[49px] bg-dark-12 rounded-xl text-sm 2xl:text-lg font-roboto cursor-pointer ${
         hasBorder ? "border border-Very-Dark-Gray border-dashed" : "border-0"
       }`}
@@ -45,7 +47,7 @@ function ShopNowButton({ hasBorder }: ShopNowButtonProps) {
           alt="Line1"
         />
       )}
-    </button>
+    </NavLink>
   );
 }
 

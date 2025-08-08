@@ -13,3 +13,10 @@ export interface ReusableSectionprops extends Partial<FilterTabsProps> {
     showTabs?: boolean;
       children?: React.ReactNode;
 }
+export interface CallToActionProps {
+  heading: string;
+  text: string;
+  image: string;
+  alt: string;
+
+}

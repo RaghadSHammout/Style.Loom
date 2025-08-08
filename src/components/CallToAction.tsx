@@ -1,10 +1,4 @@
-interface CallToActionProps {
-  heading: string;
-  text: string;
-  image: string;
-  alt: string;
-
-}
+import type { CallToActionProps } from "../types";
 function CallToAction({ heading, text, image, alt }: CallToActionProps) {
   return (
     <div className="relative overflow-hidden bg-brown-70  flex items-center justify-between gap-[150px] rotate-0 opacity-100  rounded-[20px]  py-[100px] pr-[142px] pl-[100px] 

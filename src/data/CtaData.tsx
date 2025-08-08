@@ -1,4 +1,4 @@
-import Abstract2 from "../../assets/images/home/Abstract Design (2).webp"
+import Abstract2 from "../assets/images/home/Abstract Design (2).webp"
 
 export const CtaData  = {
   heading: "elevate your wardrobe",

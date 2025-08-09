@@ -1,6 +1,6 @@
-import Abstract1 from "../../assets/images/home/Abstract Design.webp"
-import Abstract2 from "../../assets/images/home/Abstract Design (3).png"
-import Abstract3 from "../../assets/images/home/Abstract Design (1).webp"
+import Abstract1 from "../assets/images/home/Abstract Design.webp"
+import Abstract2 from "../assets/images/home/Abstract Design (3).png"
+import Abstract3 from "../assets/images/home/Abstract Design (1).webp"
 
 
  export const sectionData = {

@@ -57,7 +57,7 @@ function ReusableSection({
           />
         )}
       </div>
-      <div className="">{children}</div>
+      <div>{children}</div>
     </section>
   );
 }

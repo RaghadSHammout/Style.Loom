@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
+import dashboardReducer from "./slices/dashboardSlice"; // <-- تأكدي من المسار
+
 import cardsReducer from './slice/index';
 import navReducer from './slices/index';
 
 export const store = configureStore({
   reducer: {
+        dashboard: dashboardReducer, 
+
     cards: cardsReducer,
     nav: navReducer,
   },

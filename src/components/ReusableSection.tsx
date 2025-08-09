@@ -9,7 +9,7 @@ function ReusableSection({
     activeTab,
     onChange,
     showTabs,
-    alt,imgwidth
+    alt,imgwidth, children
 }: ReusableSectionprops) {
     return (
         <div
@@ -45,6 +45,7 @@ function ReusableSection({
                     onChange={(tab) => onChange(tab)}
                 />
             )}
+              <div className="">{children}</div>
         </div>
     );
 }

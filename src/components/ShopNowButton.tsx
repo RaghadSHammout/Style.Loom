@@ -7,14 +7,21 @@ import { NavLink } from "react-router-dom";
 interface ShopNowButtonProps {
   hasBorder: boolean;
   hasFullWidth: boolean;
+  inHeroSection: boolean;
 }
-function ShopNowButton({ hasBorder, hasFullWidth }: ShopNowButtonProps) {
+function ShopNowButton({
+  hasBorder,
+  hasFullWidth,
+  inHeroSection,
+}: ShopNowButtonProps) {
   return (
     <NavLink
       to={"#"}
       className={`relative flex flex-row items-center justify-center 2xl:w-[159px] sm:w-[128px] 2xl:h-[63px] h-[49px] bg-dark-12 rounded-xl text-sm 2xl:text-lg font-roboto cursor-pointer ${
         hasBorder ? "border border-Very-Dark-Gray border-dashed" : "border-0"
-      }${hasFullWidth ? "w-full" : "w-[128px]"}`}
+      }${hasFullWidth ? "w-full" : "w-[128px]"} ${
+        inHeroSection ? "w-[128px]" : "w-full"
+      }`}
     >
       Shop Now
       <div className="pl-[6px]">

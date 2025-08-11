@@ -1,36 +1,36 @@
 import type { Product } from "../types";
-import product1 from "../../assets/images/home/Image (1).webp"
-import product2 from "../../assets/images/home/Image (12).webp"
-import product3 from "../../assets/images/home/Image (2).webp"
-import product4 from "../../assets/images/home/Image (3).webp"
-import product5 from "../../assets/images/home/Image (4).webp"
-import product6 from "../../assets/images/home/Image (5).webp"
-import product7 from "../../assets/images/Products/Shape.webp"
-import product8 from "../../assets/images/Products/Shape (3).webp"
-import product9 from "../../assets/images/Products/Shape (1).webp"
-import product10 from "../../assets/images/Products/Shape (2).webp"
-import product11 from "../../assets/images/Products/Shape (4).webp"
-import product12 from "../../assets/images/Products/5.webp"
-import product13 from "../../assets/images/Products/6.webp"
-import product14 from "../../assets/images/Products/7.webp"
-import product15 from "../../assets/images/Products/8.webp"
-import product16 from "../../assets/images/Products/9.webp"
-import product17 from "../../assets/images/Products/10.webp"
-import product18 from "../../assets/images/Products/11.webp"
-import product19 from "../../assets/images/Products/12.webp"
-import product20 from "../../assets/images/Products/13.webp"
-import product21 from "../../assets/images/Products/14.webp"
-import product22 from "../../assets/images/Products/15.webp"
-import product23 from "../../assets/images/Products/16.webp"
-import product24 from "../../assets/images/Products/17.webp"
-import product25 from "../../assets/images/Products/18.webp"
-import product26 from "../../assets/images/Products/19.webp"
+import product1 from "../assets/images/home/Image (1).webp"
+import product2 from "../assets/images/home/Image (12).webp"
+import product3 from "../assets/images/home/Image (2).webp"
+import product4 from "../assets/images/home/Image (3).webp"
+import product5 from "../assets/images/home/Image (4).webp"
+import product6 from "../assets/images/home/Image (5).webp"
+import product7 from "../assets/images/Products/Shape.webp"
+import product8 from "../assets/images/Products/Shape (3).webp"
+import product9 from "../assets/images/Products/Shape (1).webp"
+import product10 from "../assets/images/Products/Shape (2).webp"
+import product11 from "../assets/images/Products/Shape (4).webp"
+import product12 from "../assets/images/Products/5.webp"
+import product13 from "../assets/images/Products/6.webp"
+import product14 from "../assets/images/Products/7.webp"
+import product15 from "../assets/images/Products/8.webp"
+import product16 from "../assets/images/Products/9.webp"
+import product17 from "../assets/images/Products/10.webp"
+import product18 from "../assets/images/Products/11.webp"
+import product19 from "../assets/images/Products/12.webp"
+import product20 from "../assets/images/Products/13.webp"
+import product21 from "../assets/images/Products/14.webp"
+import product22 from "../assets/images/Products/15.webp"
+import product23 from "../assets/images/Products/16.webp"
+import product24 from "../assets/images/Products/17.webp"
+import product25 from "../assets/images/Products/18.webp"
+import product26 from "../assets/images/Products/19.webp"
 
 
 export const ProductsCardsData: Product[] = [
     {
         id: 1,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product1,
         category: "Womenswear",
         ProductName: "Timeless A-line Evening Dress",
@@ -40,7 +40,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 2,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product2,
         category: "Womenswear",
         ProductName: "Floral Bloom Maxi Dress",
@@ -50,7 +50,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 3,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product3,
         category: "Womenswear",
         ProductName: "Elegant Evening Gown",
@@ -60,7 +60,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 4,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product4,
         category: "Accessories",
         ProductName: "Urban Chic Handbag",
@@ -70,7 +70,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 5,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product5,
         category: "Accessories",
         ProductName: "Sophisticate Sun Hat",
@@ -80,7 +80,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 6,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product6,
         category: "Womenswear",
         ProductName: "Boho Chic Printed Scarf",
@@ -90,7 +90,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 7,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product1,
         category: "Womenswear",
         ProductName: "Timeless A-line Evening Dress",
@@ -100,7 +100,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 8,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product2,
         category: "Womenswear",
         ProductName: "Floral Bloom Maxi Dress",
@@ -110,7 +110,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 9,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product7,
         category: "Accessories",
         ProductName: "Wide-Brim Bucket Hat",
@@ -120,7 +120,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 10,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product5,
         category: "Accessories",
         ProductName: "Sophisticate Sun Hat",
@@ -130,7 +130,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 11,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product8,
         category: "Accessories",
         ProductName: "Timeless Fedora",
@@ -140,7 +140,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 12,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product5,
         category: "Accessories",
         ProductName: "Sophisticate Sun Hat",
@@ -150,7 +150,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 13,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product9,
         category: "Hand Bag",
         ProductName: "Bold Backpack",
@@ -160,7 +160,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 14,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product10,
         category: "Hand Bag",
         ProductName: "Night Out Glam",
@@ -170,7 +170,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 15,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product11,
         category: "Hand Bag",
         ProductName: "Urban Chic Handbag",
@@ -180,7 +180,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 16,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product11,
         category: "Hand Bag",
         ProductName: "Bold Backpack",
@@ -190,7 +190,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 17,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product10,
         category: "Hand Bag",
         ProductName: "Night Out Glam",
@@ -200,7 +200,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 18,
-        type: "Woman",
+        type: "Womens",
         ProductImage: product9,
         category: "Hand Bag",
         ProductName: "Urban Chic Handbag",
@@ -210,7 +210,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 19,
-        type: "Man",
+        type: "Mens",
         ProductImage: product12,
         category: "Menswear",
         ProductName: "Classic Linen Shirt",
@@ -220,7 +220,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 20,
-        type: "Man",
+        type: "Mens",
         ProductImage: product13,
         category: "Menswear",
         ProductName: "Tailored Blazer",
@@ -230,7 +230,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 21,
-        type: "Man",
+        type: "Mens",
         ProductImage: product14,
         category: "Menswear",
         ProductName: "Casual Chino Pants",
@@ -240,7 +240,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 22,
-        type: "Man",
+        type: "Mens",
         ProductImage: product12,
         category: "Menswear",
         ProductName: "Classic Linen Shirt",
@@ -250,7 +250,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 23,
-        type: "Man",
+        type: "Mens",
         ProductImage: product13,
         category: "Menswear",
         ProductName: "Tailored Blazer",
@@ -260,7 +260,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 24,
-        type: "Man",
+        type: "Mens",
         ProductImage: product14,
         category: "Menswear",
         ProductName: "Casual Chino Pants",
@@ -270,7 +270,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 25,
-        type: "Man",
+        type: "Mens",
         ProductImage: product15,
         category: "Accessories",
         ProductName: "Leather Belt",
@@ -280,7 +280,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 26,
-        type: "Man",
+        type: "Mens",
         ProductImage: product16,
         category: "Accessories",
         ProductName: "Minimalist Watch",
@@ -290,7 +290,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 27,
-        type: "Man",
+        type: "Mens",
         ProductImage: product17,
         category: "Accessories",
         ProductName: "Sunglasses",
@@ -300,7 +300,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 28,
-        type: "Man",
+        type: "Mens",
         ProductImage: product15,
         category: "Accessories",
         ProductName: "Leather Belt",
@@ -310,7 +310,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 29,
-        type: "Man",
+        type: "Mens",
         ProductImage: product16,
         category: "Accessories",
         ProductName: "Minimalist Watch",
@@ -320,7 +320,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 30,
-        type: "Man",
+        type: "Mens",
         ProductImage: product17,
         category: "Accessories",
         ProductName: "Sunglasses",
@@ -330,7 +330,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 31,
-        type: "Man",
+        type: "Mens",
         ProductImage: product18,
         category: "Shoes",
         ProductName: "Leather Oxford Shoes",
@@ -340,7 +340,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 32,
-        type: "Man",
+        type: "Mens",
         ProductImage: product19,
         category: "Shoes",
         ProductName: "Casual Loafers",
@@ -350,7 +350,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 33,
-        type: "Man",
+        type: "Mens",
         ProductImage: product20,
         category: "Shoes",
         ProductName: "Sporty Sneakers",
@@ -360,7 +360,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 34,
-        type: "Man",
+        type: "Mens",
         ProductImage: product18,
         category: "Shoes",
         ProductName: "Leather Oxford Shoes",
@@ -370,7 +370,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 35,
-        type: "Man",
+        type: "Mens",
         ProductImage: product19,
         category: "Shoes",
         ProductName: "Casual Loafers",
@@ -380,7 +380,7 @@ export const ProductsCardsData: Product[] = [
     },
     {
         id: 36,
-        type: "Man",
+        type: "Mens",
         ProductImage: product20,
         category: "Shoes",
         ProductName: "Sporty Sneakers",

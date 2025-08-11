@@ -14,15 +14,40 @@
   --color-gray-40: #676665;
   --color-gray-50: #81807E;
   --color-gray-70: #B3B3B2;
-  --color-gray-80: #CCCCCC
-    /* brown */
-    --color-brown-60:#AE9B84;
+  --color-gray-80: #CCCCCC;
+  --color-Very-Dark-Gray: #404040;
+  /* brown */
+  --color-brown-60: #AE9B84;
   --color-brown-70: #C2B4A3;
   --color-brown-80: #D6CDC2;
   /* green */
   --color-green: #8AF265;
   --color-green-dark: #152011;
+  --breakpoint-my-media: 1430px;
 
+}
+
+@layer utilities {
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .font-robotmono {
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    height: 0px;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer utilities {

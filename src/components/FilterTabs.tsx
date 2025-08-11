@@ -1,7 +1,12 @@
 import type { FilterTabsProps } from "../types"
 
 
-export default function FilterTabs({ tabs, onChange, activeTab, type }: FilterTabsProps) {
+export default function FilterTabs<T extends string>({
+    tabs,
+    onChange,
+    activeTab,
+    type,
+}: FilterTabsProps<T>) {
     return (
         <div className="FilterTabs flex items-center gap-[10px] lg:gap-[14px] overflow-x-auto scroll-smooth w-full">
             {

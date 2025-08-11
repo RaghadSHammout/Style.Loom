@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { IoIosArrowRoundDown } from "react-icons/io";
 import Cards, { ShowImageType } from "../components/Cards";
 import ReusableSection from "../components/ReusableSection";
+import TestmonialsCards from "../components/TestmonialsCards";
 import {
   sectionData,
   sectionData1,
@@ -89,6 +90,9 @@ function Home() {
               />
             ))}
         </div>
+      </ReusableSection>
+     <ReusableSection {...sectionData3}>
+        <TestmonialsCards />
       </ReusableSection>
     </div>
   );

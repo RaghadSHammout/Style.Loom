@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { IoIosArrowRoundDown } from "react-icons/io";
-import Cards, { ShowImageType } from "../components/Cards";
+import Cards from "../components/Cards";
 import ReusableSection from "../components/ReusableSection";
 import {
   sectionData,
@@ -10,6 +10,7 @@ import {
   sectionData3,
   sectionData4,
 } from "../data/ReusableSectionData";
+import { ShowImageType } from "../types";
 function Home() {
   const Card = useSelector((state: any) => state.cards.cardone);
   const Card2 = useSelector((state: any) => state.cards.cardtwo);
@@ -43,7 +44,7 @@ function Home() {
 
   return (
       // انا عاطية بادينغ للقياس1920 ل home
-    <div className="pr-[162px] pl-[162px]">
+    <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
       <ReusableSection {...sectionData1}>
         <div className="flex flex-wrap justify-center">
           {Array.isArray(Card) &&

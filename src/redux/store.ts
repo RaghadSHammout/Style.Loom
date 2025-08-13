@@ -1,16 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dashboardReducer from "./slices/dashboardSlice"; // <-- تأكدي من المسار
 
-import cardsReducer from "./slice/index";
-import navReducer from "./slices/index";
-import testmonialsReducer from "./testmonials/index";
+import productReducer from "./slices/productSlice";        
+import dashboardReducer from "./slices/dashboardSlice";
+
+import cardsReducer from "./slice";                        
+import navReducer from "./slices";                         
+import testmonialsReducer from "./testmonials";            
 
 export const store = configureStore({
   reducer: {
+    product: productReducer,       
     dashboard: dashboardReducer,
     cards: cardsReducer,
     nav: navReducer,
-    testmonials: testmonialsReducer,
+    testmonials: testmonialsReducer, 
   },
 });
 

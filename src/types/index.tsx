@@ -60,3 +60,24 @@ export interface CallToActionProps {
   image: string;
   alt: string;
 }
+
+export interface ReusableSectionTwo {
+  title: string;
+  btn: string;
+  children: React.ReactNode;
+}
+export enum ShowImageType {
+  one = "one",
+  two = "two",
+  three = "three",
+}
+
+export interface CardsProps {
+  img?: string;
+  img2?: string;
+  title: string;
+  description: string;
+  showimage: ShowImageType;
+  steps?: string;
+  index?: number;
+}

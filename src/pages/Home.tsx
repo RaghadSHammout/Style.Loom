@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { IoIosArrowRoundDown } from "react-icons/io";
-import Cards, { ShowImageType } from "../components/Cards";
+import Cards from "../components/Cards";
 import ReusableSection from "../components/ReusableSection";
 import TestmonialsCards from "../components/TestmonialsCards";
 
@@ -10,8 +10,8 @@ import {
   sectionData1,
   sectionData2,
   sectionData3,
-  sectionData4,
 } from "../data/ReusableSectionData";
+import { ShowImageType } from "../types";
 
 import type { RootState } from "../redux/store";
 import type { FilterType } from "../types";
@@ -59,10 +59,8 @@ function Home() {
     showTabs: true,
   };
 
-  // انا عاطية بادينغ للقياس 1920 ل home
   return (
-    <div className="pr-[162px] pl-[162px]">
-      {/* القسم 1 */}
+    <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
       <ReusableSection {...sectionData1}>
         <div className="flex flex-wrap justify-center">
           {Array.isArray(Card) &&
@@ -110,6 +108,7 @@ function Home() {
             ))}
         </div>
       </ReusableSection>
+
       <ReusableSection {...sectionData}>
         <div className="grid grid-cols-1 my-media:grid-cols-2 2xl:grid-cols-3 gap-[0] place-items-center">
           {filteredProducts.map((product) => (
@@ -121,9 +120,7 @@ function Home() {
       <ReusableSection {...sectionData3}>
         <TestmonialsCards />
       </ReusableSection>
-
     </div>
   );
 }
-
 export default Home;

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { IoIosArrowRoundDown } from "react-icons/io";
 import Cards, { ShowImageType } from "../components/Cards";
 import ReusableSection from "../components/ReusableSection";
+import TestmonialsCards from "../components/TestmonialsCards";
+
 import {
   baseSectionData,
   sectionData1,
@@ -10,14 +12,17 @@ import {
   sectionData3,
   sectionData4,
 } from "../data/ReusableSectionData";
+
 import type { RootState } from "../redux/store";
 import type { FilterType } from "../types";
 import { setActiveType } from "../redux/slices/productSlice";
 import { ProductTabsData } from "../data/FilterTabsData";
 import ProductCard from "../components/ProductCard";
+
 function Home() {
   const Card = useSelector((state: any) => state.cards.cardone);
   const Card2 = useSelector((state: any) => state.cards.cardtwo);
+
   const [showbtn, setshowbtn] = useState<boolean>(false);
   const [numbercard, setnumbercard] = useState<number>(6);
 
@@ -33,33 +38,31 @@ function Home() {
     };
     handleResize();
     window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const showallcards = () => {
-    if (numbercard === 3) {
-      setnumbercard(6);
-    } else {
-      setnumbercard(3);
-    }
+    setnumbercard((prev) => (prev === 3 ? 6 : 3));
   };
-  //For Product Section (For Tas & Filtering)
+
   const dispatch = useDispatch();
   const activeType = useSelector((state: RootState) => state.product.activeType);
-  const filteredProducts = useSelector((state: RootState) => state.product.filteredProducts);
+  const filteredProducts = useSelector(
+    (state: RootState) => state.product.filteredProducts
+  );
 
   const sectionData = {
     ...baseSectionData,
     tabs: ProductTabsData,
     activeTab: activeType,
     onChange: (tab: FilterType) => dispatch(setActiveType(tab)),
+    showTabs: true,
   };
 
+  // انا عاطية بادينغ للقياس 1920 ل home
   return (
-    // انا عاطية بادينغ للقياس1920 ل home
     <div className="pr-[162px] pl-[162px]">
+      {/* القسم 1 */}
       <ReusableSection {...sectionData1}>
         <div className="flex flex-wrap justify-center">
           {Array.isArray(Card) &&
@@ -82,14 +85,16 @@ function Home() {
             >
               View All
               <IoIosArrowRoundDown
-                className={`text-gray-70 transform transition-transform duration-500 ${numbercard <= 3 ? "" : "rotate-180"
-                  } hover:translate-8`}
+                className={`text-gray-70 transform transition-transform duration-500 ${
+                  numbercard <= 3 ? "" : "rotate-180"
+                } hover:translate-8`}
               />
             </button>
           )}
         </div>
       </ReusableSection>
 
+      {/* القسم 2 */}
       <ReusableSection {...sectionData2}>
         <div className="flex flex-wrap justify-center">
           {Array.isArray(Card2) &&
@@ -112,6 +117,11 @@ function Home() {
           ))}
         </div>
       </ReusableSection>
+
+      <ReusableSection {...sectionData3}>
+        <TestmonialsCards />
+      </ReusableSection>
+
     </div>
   );
 }

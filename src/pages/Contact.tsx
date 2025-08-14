@@ -5,44 +5,44 @@ import { ShowImageType } from "../types"
 
 
 function Contact() {
-  
- const Card3 = useSelector(((state: any) => state.cards.cardthree))
+
+  const Card3 = useSelector(((state: any) => state.cards.cardthree))
   return (
     <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
       <ReusableSectionTwo
-      title="Return Policy" 
-      btn= "Read Return Policy">
-         <div className="flex flex-wrap justify-center">
-        {Array.isArray(Card3) &&
-          Card3.slice(0 , 3).map((item , index) => (
-            <Cards
-            key={index}
-            index = {index}
-            showimage = {ShowImageType.three}
-          img={item.img}
-            title={item.title}
-            description={item.description}
-          />
-              ))  
-            }
+        title="Return Policy"
+        btn="Read Return Policy">
+        <div className="flex flex-wrap justify-center">
+          {Array.isArray(Card3) &&
+            Card3.slice(0, 3).map((item, index) => (
+              <Cards
+                key={index}
+                index={index}
+                showimage={ShowImageType.three}
+                img={item.img}
+                title={item.title}
+                description={item.description}
+              />
+            ))
+          }
         </div>
       </ReusableSectionTwo>
       <ReusableSectionTwo
-      title="Cancellation Policy" 
-      btn= "Read Cancellation Policy ">
+        title="Cancellation Policy"
+        btn="Read Cancellation Policy ">
         <div className="flex flex-wrap justify-center">
           {Array.isArray(Card3) &&
-            Card3.slice(3 , 6).map((item , index) => (
+            Card3.slice(3, 6).map((item, index) => (
               <Cards
-              key={index}
-              index = {index}
-              showimage = {ShowImageType.three}
-            img={item.img}
-              title={item.title}
-              description={item.description}
+                key={index}
+                index={index}
+                showimage={ShowImageType.three}
+                img={item.img}
+                title={item.title}
+                description={item.description}
               />
-                  ))  
-                }
+            ))
+          }
         </div>
       </ReusableSectionTwo>
     </div>

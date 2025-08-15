@@ -6,6 +6,9 @@ export type FilterFaqType = FaqType | "All";
 
 export type TabUnionType = FilterType | FilterFaqType;
 
+export type TabDetail = { title: string; description: string };
+export type TabDetailsMap = { [key in FilterType]: TabDetail };
+
 export interface FilterTabsProps<T extends string = string> {
   tabs: T[];
   activeTab: T;

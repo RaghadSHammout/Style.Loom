@@ -4,6 +4,7 @@ import { IoIosArrowRoundDown } from "react-icons/io";
 import Cards from "../components/Cards";
 import ReusableSection from "../components/ReusableSection";
 import TestmonialsCards from "../components/TestmonialsCards";
+import HeroSection from "../components/HeroSection";
 
 import {
   baseSectionData,
@@ -46,7 +47,9 @@ function Home() {
   };
 
   const dispatch = useDispatch();
-  const activeType = useSelector((state: RootState) => state.product.activeType);
+  const activeType = useSelector(
+    (state: RootState) => state.product.activeType
+  );
   const filteredProducts = useSelector(
     (state: RootState) => state.product.filteredProducts
   );
@@ -61,6 +64,7 @@ function Home() {
 
   return (
     <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
+      <HeroSection />
       <ReusableSection {...sectionData1}>
         <div className="flex flex-wrap justify-center">
           {Array.isArray(Card) &&

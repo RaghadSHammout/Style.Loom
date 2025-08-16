@@ -10,7 +10,11 @@ function CallToAction({ heading, text, image, alt }: CallToActionProps) {
   max-lg:px-[30px] 
   max-lg:py-[50px] 
   max-lg:gap-[30px]
-  max-md:flex-col ">
+  max-md:flex-col
+  mx-[168px]
+  max-2xl:mx-[80px]
+  max-md:mx-[14px]
+  ">
       <div className="font-roboto flex flex-col gap-4 z-10  max-2xl:gap-3">
       <h2 className=" text-primarybg font-medium  text-[58px] leading-[120%] tracking-[0%] uppercase max-2xl:text-[48px] max-lg:text-[38px]">{heading}</h2>
       <p className="text-dark-12 font-normal text-lg leading-[150%] tracking-[0%]   max-2xl:text-base  max-sm:text-sm">{text}</p>

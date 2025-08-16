@@ -1,9 +1,10 @@
-import { configureStore } from "reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import dashboardReducer from "./slices/dashboardSlice";
 import productReducer from "./slices/productSlice";
 
-import cardsReducer from "./slice";
-import navReducer from "./slices";
+import cardsReducer from "./slice";                 
+import CardContactReducer from "./slice/CardContact";
+import navReducer from "./slices";                  
 import testmonialsReducer from "./testmonials";
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
     cards: cardsReducer,
     nav: navReducer,
     testmonials: testmonialsReducer,
+    CardContact: CardContactReducer, 
   },
 });
 

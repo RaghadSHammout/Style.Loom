@@ -3,6 +3,7 @@ import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 import { useSelector } from 'react-redux';
 import type { RootState } from '../redux/store'; 
+import ButtonLightDark from "./ButtonLightDark";
 
 function NavBar() {
   const { navLinks, btn } = useSelector((state: RootState) => state.nav);
@@ -54,7 +55,7 @@ const logo =  <svg
                 fill="currentColor"
               />
         </svg>;
-const market= <svg
+const market = <svg
               width="24"
               height="25"
               viewBox="0 0 24 25"
@@ -79,25 +80,25 @@ const HamburgerMenu=  <svg width="28" height="28" viewBox="0 0 28 28" fill="none
         </svg>
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   return (
-    <nav className={`w-full flex justify-center items-end  px-[62px] max-2xl:px-3.5  max-lg:px-4 fixed z-50 `}>
-<div className="w-[70px] h-[70px] relative flex justify-center items-center  mr-[30px]  max-2xl:w-[46px]  max-2xl:h-[46px]  max-2xl:mr-5 max-lg:hidden ">
+    <nav className={`w-full dark:bg-primarybg bg-white flex justify-center items-end  px-[62px] max-2xl:px-3.5  max-lg:px-4 fixed z-50`}>
+<div className="w-[70px] h-[70px] relative flex justify-center items-center  mr-[30px]  max-2xl:w-[46px]  max-2xl:h-[46px]  max-2xl:mr-5 max-xl:hidden ">
 <div className="absolute bottom-0 left-0 h-0 w-[40px] border-b border-dashed border-Very-Dark-Gray  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
 <div className="absolute top-1/2 right-0 h-[40px] w-[40px] -translate-y-1/2 border-r border-dashed border-Very-Dark-Gray  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
 </div>
-<div className={`font-robotmono w-full flex justify-between items-center font-normal text-lg leading-[1.5] opacity-100 tracking-normal text-center p-[30px] relative border-dashed border-b border-dark-15 max-2xl:p-6 max-lg:pt-10 max-lg:pb-5 max-lg:px-0 max-2xl:text-sm`}>
+<div className={`font-robotmono w-full flex justify-between items-center font-normal text-lg leading-[1.5] opacity-100 tracking-normal text-center p-[30px] relative  border-dashed border-b border-dark-15 max-2xl:p-6 max-lg:pt-10 max-lg:pb-5 max-lg:px-0 max-2xl:text-sm `}>
 <div
-  className={`flex gap-[14px] transition-all duration-300 ease-in-out ${
-   menuOpen ? " max-lg:flex-col max-lg:absolute max-lg:top-[125px] max-lg:left-0 max-lg:right-0 max-lg:bg-dark-10 max-lg:z-50 max-lg:py-4 max-lg:px-6 border-[1px] border-primarybg" : "max-lg:hidden"}`}
+  className={`flex items-center  gap-[14px] transition-all duration-300 ease-in-out   z-10 ${
+   menuOpen ? " max-lg:flex-col max-lg:absolute max-lg:text-white max-lg:top-[110px] max-lg:left-0 max-lg:right-0 max-lg:bg-dark-10/85 backdrop-blur-lg max-lg:rounded-t-2xl max-lg:shadow-2xl max-lg:ring-1  max-lg:ring-white/10 max-lg:py-5 max-lg:px-5 " : "max-lg:hidden"}`}
 >
   {navLinks.map(({ label, path }) => (
     <NavLink
       key={path}
       to={path}
       className={({ isActive }) =>
-        `h-[63px] flex  rounded-[12px] max-2xl:rounded-[8px] max-2xl:h-[49px] max-lg:w-fit ${
+        `h-[63px] flex  rounded-[12px] max-2xl:rounded-[8px] max-2xl:h-[49px] max-lg:w-full ${
           isActive
-            ? "bg-dark-10 px-[30px] py-[18px] max-2xl:px-[24px] max-2xl:py-[14px] max-lg:bg-primarybg"
-            : "px-[24px] py-[18px] border border-dashed border-dark-15 max-2xl:px-5 max-2xl:py-[14px]"}`}>
+            ? `bg-dark-10 px-[30px] py-[18px] max-2xl:px-[24px] max-2xl:py-[14px] max-lg:bg-white/10  shadow-sm `
+            : `px-[24px] py-[18px] border border-dashed max-lg:border-white/20 hover:border-white/35 hover:bg-white/5 dark:border-dark-15  max-2xl:px-5 max-2xl:py-[14px] `}`}>
       {label}
     </NavLink>
   ))}
@@ -108,27 +109,30 @@ const HamburgerMenu=  <svg width="28" height="28" viewBox="0 0 28 28" fill="none
       </NavLink>
 </div>
 <div className={`flex gap-3.5 justify-center items-center ${menuOpen ?  "max-lg:flex " : "max-lg:hidden"}`}>
-    <button className={`bg-dark-10 p-[18px] rounded-[12px] opacity-100 flex justify-center items-center max-2xl:p-[14px] max-2xl:rounded-[8px] max-2xl:h-[48px]  max-2xl:w-[48px]  ${menuOpen ?  "max-lg:h-[56px]  max-lg:w-[56px]  " : ""}`}>
+    <button className={`bg-dark-10 text-white  p-[18px] rounded-[12px] opacity-100 flex justify-center items-center max-2xl:p-[14px] max-2xl:rounded-[8px] max-2xl:h-[48px]  max-2xl:w-[48px]  ${menuOpen ?  "max-lg:h-[56px]  max-lg:w-[56px]  " : ""}`}>
      {market}
         </button>
-      <button className={`${menuOpen ? "transition-all duration-300 ease-in-out w-full max-lg:flex max-lg:flex-col max-lg:absolute  max-lg:top-[269px]  max-lg:left-0 right-0 max-lg:bg-dark-10 max-lg:z-50 max-lg:py-4 max-lg:px-6" : "max-lg:hidden"}`}>
+      <button className={`${menuOpen ? "flex justify-center items-center  transition-all duration-300 ease-in-out w-full max-lg:flex max-lg:flex-col max-lg:absolute  max-lg:top-[311px]  max-lg:left-0 right-0 max-lg:bg-dark-10/85 backdrop-blur-lg  max-lg:shadow-2xl  max-lg:py-5 max-lg:px-5  max-lg:z-50  shadow-md  hover:-translate-y-0.5 " : "max-lg:hidden"}`}>
     <NavLink
               to={"/contact"}
-              className={`w-[136px] h-[63px] flex justify-center items-center bg-brown-60 text-primarybg px-[30px] py-[18px] rounded-[12px]  max-2xl:py-[14px] max-2xl:rounded-[8px] max-2xl:h-[49px] max-2xl:w-[119px] `}>
+              className={`w-[136px] h-[63px] flex justify-center items-center bg-brown-60 text-primarybg px-[30px] py-[18px] rounded-[12px]  max-2xl:py-[14px] max-2xl:rounded-[8px] max-2xl:h-[49px] max-2xl:w-[119px] max-lg:w-full`}>
              {btn}
       </NavLink>
           </button>
-          
+      <div className={`${menuOpen ? "flex justify-center items-center transition-all duration-300 ease-in-out w-full  max-lg:absolute  max-lg:top-[391px]  max-lg:left-0 right-0 max-lg:bg-dark-10/85 backdrop-blur-lg  max-lg:rounded-b-2xl max-lg:shadow-2xl  max-lg:py-5 max-lg:px-5  " : "max-lg:hidden"}`}>
+          <ButtonLightDark/>
+          </div>
 </div>
-<div onClick={() => setMenuOpen(!menuOpen)} className=" lg:hidden max-lg:flex w-[56px] h-[56px] flex justify-center items-center rotate-0 opacity-100 rounded-[10px] p-[14px] gap-[10px] bg-[#C2B4A3]">
+<div onClick={() => setMenuOpen(!menuOpen)} className=" lg:hidden max-lg:flex flex justify-center items-center rotate-0 opacity-100 rounded-[10px] p-[14px] bg-[#C2B4A3]">
       {menuOpen ? (
         <IoClose className="w-7 h-7 text-dark-10" />   
           ):(
       HamburgerMenu
   )}
+
 </div>
 </div>
-<div className="w-[70px] h-[70px] relative flex justify-center items-center ml-[30px]  max-2xl:w-[46px]  max-2xl:h-[46px]  max-2xl:ml-5 max-lg:hidden">
+<div className="w-[70px] h-[70px] relative flex justify-center items-center ml-[30px]  max-2xl:w-[46px]  max-2xl:h-[46px]  max-2xl:ml-5 max-xl:hidden">
         <div className="absolute bottom-0 right-0 w-[40px] h-0  border-b border-dashed border-Very-Dark-Gray  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
         <div className="absolute top-1/2 left-0 h-[40px] w-[40px] -translate-y-1/2 border-l border-dashed border-Very-Dark-Gray  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
 </div>

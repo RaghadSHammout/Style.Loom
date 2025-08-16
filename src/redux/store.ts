@@ -2,7 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import productReducer from "./slices/productSlice";        
 
-import cardsReducer from "./slice";                        
+import cardsReducer from "./slice/index"; 
+import  CardContactReducer from "./slice/CardContact"                 
 import navReducer from "./slices";                         
 import testmonialsReducer from "./testmonials";            
 
@@ -12,6 +13,7 @@ export const store = configureStore({
     cards: cardsReducer,
     nav: navReducer,
     testmonials: testmonialsReducer, 
+    CardContact:CardContactReducer
   },
 });
 

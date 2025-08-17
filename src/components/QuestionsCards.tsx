@@ -32,6 +32,8 @@ function QuestionsCards({ filteredFaqs }: QuestionsCardsProps) {
           currentPage * itemsPerPage,
           (currentPage + 1) * itemsPerPage
         );
+  const displayedFaqsInMobile =
+    isMobile && !showTestimonials ? filteredFaqs.slice(0, 3) : filteredFaqs;
 
   const pageCount = Math.ceil(filteredFaqs.length / itemsPerPage);
 
@@ -42,17 +44,19 @@ function QuestionsCards({ filteredFaqs }: QuestionsCardsProps) {
   return (
     <div className="relative font-roboto">
       <div className="grid lg:grid-cols-2 sm:grid-cols-2 grid-cols-1">
-        {displayedFaqs.map((faq, index) => (
-          <QuestionCard
-            key={index}
-            faq={faq}
-            length={filteredFaqs.length}
-            index={index}
-          />
-        ))}
+        {(!isMobile ? displayedFaqs : displayedFaqsInMobile).map(
+          (faq, index) => (
+            <QuestionCard
+              key={index}
+              faq={faq}
+              length={filteredFaqs.length}
+              index={index}
+            />
+          )
+        )}
       </div>
 
-      {filteredFaqs.length > itemsPerPage && (
+      {!isMobile && filteredFaqs.length > itemsPerPage && (
         <ReactPaginate
           previousLabel={"Previous"}
           nextLabel={"Next"}
@@ -62,10 +66,10 @@ function QuestionsCards({ filteredFaqs }: QuestionsCardsProps) {
           pageRangeDisplayed={5}
           onPageChange={handlePageClick}
           containerClassName={"flex justify-center p-[30px] space-x-1"}
-          pageClassName={"pagination-item px-4 py-2 border-1 font-roboto border-dark-15 border-dashed cursor-pointer rounded hover:bg-brown-70 hover:border-0"}
-          pageLinkClassName={
-            "px-0 py-0"
+          pageClassName={
+            "pagination-item px-4 py-2 border-1 font-roboto border-dark-15 border-dashed cursor-pointer rounded hover:bg-brown-70 hover:border-0"
           }
+          pageLinkClassName={"px-0 py-0"}
           previousClassName={"pagination-item flex justify-center"}
           previousLinkClassName={
             "px-4 py-2 border-1 font-roboto border-dark-15 border-dashed cursor-pointer rounded hover:bg-brown-70 hover:border-0"

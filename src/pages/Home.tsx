@@ -79,7 +79,7 @@ function Home() {
     onChange: (tab: FilterFaqType) => faqDispatch(setActiveTab(tab)),
   };
   return (
-    <div className="2xl:px-[162px] lg:px-[80px] px-[16px] py-[50px]">
+    <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
       <ReusableSection {...sectionData1}>
         <div className="flex flex-wrap justify-center">
           {Array.isArray(Card) &&

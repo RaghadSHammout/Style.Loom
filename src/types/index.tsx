@@ -6,6 +6,26 @@ export type FilterFaqType = FaqType | "All";
 
 export type TabUnionType = FilterType | FilterFaqType;
 
+export interface FaqItem {
+  id: number;
+  categorey: FaqType;
+  question: string;
+  answer: string;
+}
+
+//I am nour i added this interfaces to define the array of questions in questions section
+export interface FAQ {
+  id: number;
+  categorey: string;
+  question: string;
+  answer: string;
+}
+
+export interface QuestionsCardsProps {
+  filteredFaqs: FAQ[]; // Define the prop as an array of FAQ
+}
+///////////////////////////////////////////////////////////////////////////////////////////
+
 export interface FilterTabsProps<T extends string = string> {
   tabs: T[];
   activeTab: T;

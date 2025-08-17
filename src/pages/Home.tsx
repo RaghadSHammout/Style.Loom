@@ -4,12 +4,14 @@ import { IoIosArrowRoundDown } from "react-icons/io";
 import Cards from "../components/Cards";
 import ReusableSection from "../components/ReusableSection";
 import TestmonialsCards from "../components/TestmonialsCards";
+import QuestionsCards from "../components/QuestionsCards";
 
 import {
   baseSectionData,
   sectionData1,
   sectionData2,
   sectionData3,
+  baseFaqData,
 } from "../data/ReusableSectionData";
 import { ShowImageType } from "../types";
 
@@ -18,13 +20,22 @@ import type { FilterType } from "../types";
 import { setActiveType } from "../redux/slices/productSlice";
 import { ProductTabsData } from "../data/FilterTabsData";
 import ProductCard from "../components/ProductCard";
-
+import type { FilterFaqType } from "../types";
+import { tabsFaq } from "../data/FilterTabsData";
+import { setActiveTab } from "../redux/questions";
 function Home() {
   const Card = useSelector((state: any) => state.cards.cardone);
   const Card2 = useSelector((state: any) => state.cards.cardtwo);
 
   const [showbtn, setshowbtn] = useState<boolean>(false);
   const [numbercard, setnumbercard] = useState<number>(6);
+
+  //For FAQ section
+  const faqDispatch = useDispatch();
+  const activeTab = useSelector((state: RootState) => state.faq.activeTab);
+  const filteredFaqs = useSelector(
+    (state: RootState) => state.faq.filteredFaqs
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,7 +57,9 @@ function Home() {
   };
 
   const dispatch = useDispatch();
-  const activeType = useSelector((state: RootState) => state.product.activeType);
+  const activeType = useSelector(
+    (state: RootState) => state.product.activeType
+  );
   const filteredProducts = useSelector(
     (state: RootState) => state.product.filteredProducts
   );
@@ -58,9 +71,15 @@ function Home() {
     onChange: (tab: FilterType) => dispatch(setActiveType(tab)),
     showTabs: true,
   };
-
+  //Question Section
+  const sectionData4 = {
+    ...baseFaqData,
+    tabs: tabsFaq,
+    activeTab,
+    onChange: (tab: FilterFaqType) => faqDispatch(setActiveTab(tab)),
+  };
   return (
-    <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
+    <div className="2xl:px-[162px] lg:px-[80px] px-[16px] py-[50px]">
       <ReusableSection {...sectionData1}>
         <div className="flex flex-wrap justify-center">
           {Array.isArray(Card) &&
@@ -119,6 +138,9 @@ function Home() {
 
       <ReusableSection {...sectionData3}>
         <TestmonialsCards />
+      </ReusableSection>
+      <ReusableSection {...sectionData4}>
+        <QuestionsCards filteredFaqs={filteredFaqs} />
       </ReusableSection>
     </div>
   );

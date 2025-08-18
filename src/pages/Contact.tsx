@@ -3,6 +3,8 @@ import Cards from "../components/Cards"
 import ReusableSectionTwo from "../components/ReusableSectionTwo"
 import { ShowImageType } from "../types"
 import CardContact from "../components/CardContact"
+import ReusableSection from "../components/ReusableSection"
+import { sectionData4 } from "../data/ReusableSectionData"
 
 
 function Contact() {
@@ -10,7 +12,7 @@ function Contact() {
   const contact = useSelector(((state : any) => state.CardContact.list))
   return (
     <section className="2xl:px-[162px] lg:px-[80px] px-[16px]">
-      
+      <ReusableSection {...sectionData4}></ReusableSection>
       <div className=" border-2 border-dashed border-dark-15 rounded-[14px] sm:rounded-2xl 2xl:rounded-[20px]">
       <h3 className="hidden sm:block p-10 2xl:p-[50px] font-roboto font-medium text-2xl 2xl:text-3xl text-white border-b-2 border-dashed border-dark-15">Contact Information</h3>
       <div className="flex flex-wrap items-center">

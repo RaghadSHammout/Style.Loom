@@ -42,8 +42,13 @@ const initialState = {
       country: "Delhi, India",
       desc: "Perfect fit and exceptional quality. These jeans have become my go-to for casual and chic outings.",
     },
-
-  
+    {
+      id: 6,
+      image: image6,
+      name: "Rodriguez",
+      country: "Mexico City, Mexico",
+      desc: "Stylish sneakers that don't compromise on comfort. StyleLoom knows how to balance fashion and functionality.",
+    },
   ],
 };
 const testmonialsSlice = createSlice({

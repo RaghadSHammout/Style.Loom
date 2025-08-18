@@ -10,7 +10,8 @@ function Contact() {
   const contact = useSelector(((state : any) => state.CardContact.list))
   return (
     <section className="2xl:px-[162px] lg:px-[80px] px-[16px]">
-    <div className=" border-2 border-dashed border-dark-15 rounded-[14px] sm:rounded-2xl 2xl:rounded-[20px]">
+      
+      <div className=" border-2 border-dashed border-dark-15 rounded-[14px] sm:rounded-2xl 2xl:rounded-[20px]">
       <h3 className="hidden sm:block p-10 2xl:p-[50px] font-roboto font-medium text-2xl 2xl:text-3xl text-white border-b-2 border-dashed border-dark-15">Contact Information</h3>
       <div className="flex flex-wrap items-center">
         {
@@ -66,6 +67,8 @@ function Contact() {
         </div>
       </ReusableSectionTwo>
     </div>
+
+  
     </section>
   )
 }

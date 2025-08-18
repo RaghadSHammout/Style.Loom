@@ -44,8 +44,8 @@ function Home() {
 
   return (
       // انا عاطية بادينغ للقياس1920 ل home
-    <div className="pr-[20px] pl-[20px] py-[50px]">
-      {/* <ReusableSection {...sectionData1}>
+    <div className="pr-[162px] pl-[162px]">
+      <ReusableSection {...sectionData1}>
         <div className="flex flex-wrap justify-center">
           {Array.isArray(Card) &&
             Card.slice(0, numbercard).map((item, index) => (
@@ -90,7 +90,7 @@ function Home() {
               />
             ))}
         </div>
-      </ReusableSection> */}
+      </ReusableSection>
      <ReusableSection {...sectionData3}>
         <TestmonialsCards />
       </ReusableSection>

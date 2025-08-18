@@ -7,11 +7,12 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="bg-primarybg min-h-screen text-white">
+    <div className="min-h-screen  text-white dark:bg-primarybg dark:text-white">
       <NavBar />
       <HeroSection />
       <Outlet />
 
+      {/* for footer CTA */}
       <CallToAction
         heading={CtaData.heading}
         text={CtaData.text}

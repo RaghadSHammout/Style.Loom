@@ -8,7 +8,7 @@ interface CardContact {
 function CardContact({img , img2 , title , btn , index} : CardContact) {
   return (
     <div className={`p-[30px] sm:p-[50px] 2xl:p-[60px] relative  sm:w-[33.33359375%] 2xl:w-[33.333333%] w-full flex flex-col items-center justify-center overflow-hidden
-    ${index === 1 || index === 2 ? 'sm:border-r-2 border-b-2  border-dashed border-dark-15 ' : ''}`}>
+    ${index === 1 || index === 2 ? 'sm:border-r-2 sm:border-b-0 border-b-2  border-dashed border-dark-15 ' : ''}`}>
         <div className="flex items-center">
             <img src={img} alt="" className="mb-6 sm:mb-10 2xl:mb-[50px]" />
             <img src={img2} alt="" className="absolute 2xl:top-0 2xl:right-0 sm:top-[-20px] sm:right-0 sm:w-[130px] top-0 right-0 w-[100px] 2xl:w-[145px] " />

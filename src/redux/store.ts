@@ -1,21 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
-
 import productReducer from "./slices/productSlice";
-import dashboardReducer from "./slices/dashboardSlice";
-
+import heroSlice from "./HeroTabs";
 import cardsReducer from "./slice";
+import CardContactReducer from "./slice/CardContact";
 import navReducer from "./slices";
 import testmonials from "./testmonials";
+import testmonialsReducer from "./testmonials";
 import faqReducer from "./questions";
+
 
 export const store = configureStore({
   reducer: {
     product: productReducer,
-    dashboard: dashboardReducer,
     cards: cardsReducer,
     nav: navReducer,
-    testmonials: testmonials,
+    testmonials: testmonialsReducer,
+    heroSlice: heroSlice,
+    CardContact: CardContactReducer,
     faq: faqReducer,
+
   },
 });
 

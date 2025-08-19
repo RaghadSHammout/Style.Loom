@@ -5,6 +5,7 @@ import Cards from "../components/Cards";
 import ReusableSection from "../components/ReusableSection";
 import TestmonialsCards from "../components/TestmonialsCards";
 import QuestionsCards from "../components/QuestionsCards";
+import HeroSection from "../components/HeroSection";
 
 import {
   baseSectionData,
@@ -24,8 +25,8 @@ import type { FilterFaqType } from "../types";
 import { tabsFaq } from "../data/FilterTabsData";
 import { setActiveTab } from "../redux/questions";
 function Home() {
-  const Card = useSelector((state: any) => state.cards.cardone);
-  const Card2 = useSelector((state: any) => state.cards.cardtwo);
+  const cardOne = useSelector((state: RootState) => state.cards.cardone);
+  const Card2   = useSelector((state: RootState) => state.cards.cardtwo);
 
   const [showbtn, setshowbtn] = useState<boolean>(false);
   const [numbercard, setnumbercard] = useState<number>(6);
@@ -80,20 +81,20 @@ function Home() {
   };
   return (
     <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
+      <HeroSection />
       <ReusableSection {...sectionData1}>
         <div className="flex flex-wrap justify-center">
-          {Array.isArray(Card) &&
-            Card.slice(0, numbercard).map((item, index) => (
-              <Cards
-                key={index}
-                index={index}
-                showimage={ShowImageType.one}
-                img={item.img}
-                img2={item.img2}
-                title={item.title}
-                description={item.description}
-              />
-            ))}
+          {cardOne.slice(0, numbercard).map((item, index) => (
+            <Cards
+              key={item.id ?? index}
+              index={index}
+              showimage={ShowImageType.one}
+              img={item.img}
+              img2={item.img2}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
 
           {showbtn && (
             <button
@@ -128,6 +129,7 @@ function Home() {
         </div>
       </ReusableSection>
 
+      {/* Products */}
       <ReusableSection {...sectionData}>
         <div className="grid grid-cols-1 my-media:grid-cols-2 2xl:grid-cols-3 gap-[0] place-items-center">
           {filteredProducts.map((product) => (
@@ -136,6 +138,7 @@ function Home() {
         </div>
       </ReusableSection>
 
+      {/* Testimonials */}
       <ReusableSection {...sectionData3}>
         <TestmonialsCards />
       </ReusableSection>

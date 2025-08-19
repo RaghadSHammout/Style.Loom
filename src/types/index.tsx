@@ -13,7 +13,6 @@ export interface FaqItem {
   answer: string;
 }
 
-//I am nour i added this interfaces to define the array of questions in questions section
 export interface FAQ {
   id: number;
   categorey: string;
@@ -22,9 +21,11 @@ export interface FAQ {
 }
 
 export interface QuestionsCardsProps {
-  filteredFaqs: FAQ[]; // Define the prop as an array of FAQ
+  filteredFaqs: FAQ[]; 
 }
-///////////////////////////////////////////////////////////////////////////////////////////
+
+export type TabDetail = { title: string; description: string };
+export type TabDetailsMap = { [key in FilterType]: TabDetail };
 
 export interface FilterTabsProps<T extends string = string> {
   tabs: T[];
@@ -86,6 +87,7 @@ export interface ReusableSectionTwo {
   btn: string;
   children: React.ReactNode;
 }
+
 export enum ShowImageType {
   one = "one",
   two = "two",

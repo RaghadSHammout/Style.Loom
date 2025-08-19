@@ -13,17 +13,23 @@ function Contact() {
     <section className="2xl:px-[162px] lg:px-[80px] px-[16px]">
       <ReusableSection {...sectionContactData}>
         <h3 className="hidden sm:block p-10 2xl:p-[50px] font-roboto font-medium text-2xl 2xl:text-3xl text-white border-b-2 border-dashed border-dark-15">Contact Information</h3>
-      <div className="flex flex-wrap items-center">
+      <div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">
         {
           Array.isArray(contact) && 
-          contact.map((item , index) => (
+          contact.map((item , index , arr) => (
              <CardContact
              key={index}
              index={item.id}
              img = {item.imgone}
              img2= {item.imgtwo}
              title={item.title}
-             btn= {item.infobtn}/> 
+             btn= {item.infobtn}
+             className={
+          arr.length === 3 && index === 2 
+            ? "md:col-span-2 xl:col-span-1"
+            : ""
+            }
+        /> 
           ))
         }
       </div>
@@ -32,9 +38,9 @@ function Contact() {
       <ReusableSectionTwo
         title="Return Policy"
         btn="Read Return Policy">
-        <div className="flex flex-wrap justify-center">
+        <div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">
           {Array.isArray(Card3) &&
-            Card3.slice(0, 3).map((item, index) => (
+            Card3.slice(0, 3).map((item, index, arr) => (
               <Cards
                 key={index}
                 index={index}
@@ -42,6 +48,11 @@ function Contact() {
                 img={item.img}
                 title={item.title}
                 description={item.description}
+                  className={
+          arr.length === 3 && index === 2 
+            ? "md:col-span-2 xl:col-span-1"
+            : ""
+            }
               />
             ))
           }
@@ -50,9 +61,9 @@ function Contact() {
       <ReusableSectionTwo
         title="Cancellation Policy"
         btn="Read Cancellation Policy ">
-        <div className="flex flex-wrap justify-center">
+        <div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">
           {Array.isArray(Card3) &&
-            Card3.slice(3, 6).map((item, index) => (
+            Card3.slice(3, 6).map((item, index , arr) => (
               <Cards
                 key={index}
                 index={index}
@@ -60,6 +71,11 @@ function Contact() {
                 img={item.img}
                 title={item.title}
                 description={item.description}
+                  className={
+              arr.length === 3 && index === 2 
+            ? "md:col-span-2 xl:col-span-1"
+            : ""
+            }
               />
             ))
           }

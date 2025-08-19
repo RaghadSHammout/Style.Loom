@@ -62,7 +62,7 @@ function Home() {
   return (
     <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
       <ReusableSection {...sectionData1}>
-        <div className="flex flex-wrap justify-center">
+        <div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">
           {Array.isArray(Card) &&
             Card.slice(0, numbercard).map((item, index) => (
               <Cards
@@ -78,10 +78,11 @@ function Home() {
 
           {showbtn && (
             <button
-              className="text-gray-70 border border-dashed border-dark-20 py-[30px] px-[125.5px] w-full flex items-center justify-center gap-x-2.5 transition-all"
+              className="text-gray-70 border border-dashed border-dark-20 py-[30px]  w-full flex items-center justify-center gap-x-2.5 transition-all"
               onClick={showallcards}
             >
-              View All
+              {numbercard <= 3 ? " View All" : " less All"}
+             
               <IoIosArrowRoundDown
                 className={`text-gray-70 transform transition-transform duration-500 ${
                   numbercard <= 3 ? "" : "rotate-180"
@@ -94,7 +95,8 @@ function Home() {
 
       {/* القسم 2 */}
       <ReusableSection {...sectionData2}>
-        <div className="flex flex-wrap justify-center">
+        {/* <div className="flex flex-wrap justify-center"> */}
+        <div className="grid grid-cols-1 xl:grid-cols-4 md:grid-cols-2">
           {Array.isArray(Card2) &&
             Card2.map((item, index) => (
               <Cards

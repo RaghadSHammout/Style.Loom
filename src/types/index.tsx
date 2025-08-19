@@ -80,4 +80,5 @@ export interface CardsProps {
   showimage: ShowImageType;
   steps?: string;
   index?: number;
+    className:string
 }

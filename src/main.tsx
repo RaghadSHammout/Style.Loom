@@ -8,6 +8,7 @@ import Products from './pages/Products.tsx'
 import Contact from './pages/Contact.tsx'
 import { Provider } from 'react-redux'
 import { store } from './redux/store.ts'
+import Dashboard from './pages/Dashboard.tsx'
 const routers = createBrowserRouter([
   {
      path: "/",
@@ -24,6 +25,10 @@ const routers = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact/>,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard/>,
       },
     ],
   }

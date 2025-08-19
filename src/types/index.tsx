@@ -6,6 +6,24 @@ export type FilterFaqType = FaqType | "All";
 
 export type TabUnionType = FilterType | FilterFaqType;
 
+export interface FaqItem {
+  id: number;
+  categorey: FaqType;
+  question: string;
+  answer: string;
+}
+
+export interface FAQ {
+  id: number;
+  categorey: string;
+  question: string;
+  answer: string;
+}
+
+export interface QuestionsCardsProps {
+  filteredFaqs: FAQ[]; 
+}
+
 export type TabDetail = { title: string; description: string };
 export type TabDetailsMap = { [key in FilterType]: TabDetail };
 
@@ -69,6 +87,7 @@ export interface ReusableSectionTwo {
   btn: string;
   children: React.ReactNode;
 }
+
 export enum ShowImageType {
   one = "one",
   two = "two",

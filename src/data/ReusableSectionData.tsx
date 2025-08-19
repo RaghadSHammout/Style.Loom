@@ -36,9 +36,9 @@ export const sectionData3 = {
   showTabs: false,
 };
 
-export const sectionData4 = {
+export const baseFaqData = {
   image: Abstract2,
-  alt: "Abstract1",
+  alt: "Abstract2",
   imgwidth: "h-[360px] max-2xl:h-[262px]",
   heading: "Have Questions? We Have Answers.",
   text: "Ease into the world of StyleLoom with clarity. Our FAQs cover a spectrum of topics.",
@@ -46,6 +46,7 @@ export const sectionData4 = {
   activeTab: "Shipping",
   showTabs: true,
 };
+
 export const sectionContactData = {
   image: AbstractContact,
   imgwidth: " h-[273px] max-2xl:h-[213px] ",

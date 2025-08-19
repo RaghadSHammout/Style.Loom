@@ -30,7 +30,7 @@ function HeroSection() {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 grid-cols-1 bg-primarybg w-full border border-Very-Dark-Gray border-t-0 border-dashed rounded-bl-[20px] rounded-br-[20px]">
+      <div className="grid sm:grid-cols-2 grid-cols-1  w-full border border-Very-Dark-Gray border-t-0 border-dashed rounded-bl-[20px] rounded-br-[20px]">
         <div className="2xl:px-[80px] xl:px-[60px] lg:px-[40px] px-[20px] sm:py-[80px] pt-[50px] pb-[20px] sm:border-r-1 sm:border-b-0 border-b-1 border-Very-Dark-Gray border-dashed">
           <div className="flex flex-row lg:gap-6 md:gab-4 gap-3">
             {tabsArray.map((tab, index) => (

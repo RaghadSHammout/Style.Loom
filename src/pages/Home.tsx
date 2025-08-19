@@ -1,21 +1,42 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { IoIosArrowRoundDown } from "react-icons/io";
-import Cards, { ShowImageType } from "../components/Cards";
+import Cards from "../components/Cards";
 import ReusableSection from "../components/ReusableSection";
 import TestmonialsCards from "../components/TestmonialsCards";
+import QuestionsCards from "../components/QuestionsCards";
+import HeroSection from "../components/HeroSection";
+
 import {
-  sectionData,
+  baseSectionData,
   sectionData1,
   sectionData2,
   sectionData3,
-  sectionData4,
+  baseFaqData,
 } from "../data/ReusableSectionData";
+import { ShowImageType } from "../types";
+
+import type { RootState } from "../redux/store";
+import type { FilterType } from "../types";
+import { setActiveType } from "../redux/slices/productSlice";
+import { ProductTabsData } from "../data/FilterTabsData";
+import ProductCard from "../components/ProductCard";
+import type { FilterFaqType } from "../types";
+import { tabsFaq } from "../data/FilterTabsData";
+import { setActiveTab } from "../redux/questions";
 function Home() {
-  const Card = useSelector((state: any) => state.cards.cardone);
-  const Card2 = useSelector((state: any) => state.cards.cardtwo);
+  const cardOne = useSelector((state: RootState) => state.cards.cardone);
+  const Card2   = useSelector((state: RootState) => state.cards.cardtwo);
+
   const [showbtn, setshowbtn] = useState<boolean>(false);
   const [numbercard, setnumbercard] = useState<number>(6);
+
+  //For FAQ section
+  const faqDispatch = useDispatch();
+  const activeTab = useSelector((state: RootState) => state.faq.activeTab);
+  const filteredFaqs = useSelector(
+    (state: RootState) => state.faq.filteredFaqs
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,36 +50,51 @@ function Home() {
     };
     handleResize();
     window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const showallcards = () => {
-    if (numbercard === 3) {
-      setnumbercard(6);
-    } else {
-      setnumbercard(3);
-    }
+    setnumbercard((prev) => (prev === 3 ? 6 : 3));
   };
 
+  const dispatch = useDispatch();
+  const activeType = useSelector(
+    (state: RootState) => state.product.activeType
+  );
+  const filteredProducts = useSelector(
+    (state: RootState) => state.product.filteredProducts
+  );
+
+  const sectionData = {
+    ...baseSectionData,
+    tabs: ProductTabsData,
+    activeTab: activeType,
+    onChange: (tab: FilterType) => dispatch(setActiveType(tab)),
+    showTabs: true,
+  };
+  //Question Section
+  const sectionData4 = {
+    ...baseFaqData,
+    tabs: tabsFaq,
+    activeTab,
+    onChange: (tab: FilterFaqType) => faqDispatch(setActiveTab(tab)),
+  };
   return (
-      // انا عاطية بادينغ للقياس1920 ل home
-    <div className="pr-[162px] pl-[162px]">
+    <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
+      <HeroSection />
       <ReusableSection {...sectionData1}>
         <div className="flex flex-wrap justify-center">
-          {Array.isArray(Card) &&
-            Card.slice(0, numbercard).map((item, index) => (
-              <Cards
-                key={index}
-                index={index}
-                showimage={ShowImageType.one}
-                img={item.img}
-                img2={item.img2}
-                title={item.title}
-                description={item.description}
-              />
-            ))}
+          {cardOne.slice(0, numbercard).map((item, index) => (
+            <Cards
+              key={item.id ?? index}
+              index={index}
+              showimage={ShowImageType.one}
+              img={item.img}
+              img2={item.img2}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
 
           {showbtn && (
             <button
@@ -76,6 +112,7 @@ function Home() {
         </div>
       </ReusableSection>
 
+      {/* القسم 2 */}
       <ReusableSection {...sectionData2}>
         <div className="flex flex-wrap justify-center">
           {Array.isArray(Card2) &&
@@ -91,11 +128,24 @@ function Home() {
             ))}
         </div>
       </ReusableSection>
-     <ReusableSection {...sectionData3}>
+
+      {/* Products */}
+      <ReusableSection {...sectionData}>
+        <div className="grid grid-cols-1 my-media:grid-cols-2 2xl:grid-cols-3 gap-[0] place-items-center">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} {...product} />
+          ))}
+        </div>
+      </ReusableSection>
+
+      {/* Testimonials */}
+      <ReusableSection {...sectionData3}>
         <TestmonialsCards />
+      </ReusableSection>
+      <ReusableSection {...sectionData4}>
+        <QuestionsCards filteredFaqs={filteredFaqs} />
       </ReusableSection>
     </div>
   );
 }
-
 export default Home;

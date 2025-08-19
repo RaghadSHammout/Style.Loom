@@ -1,31 +1,18 @@
-export enum ShowImageType {
-  one = "one",
-  two = "two",
-  three = "three",
-}
-
-interface CardsProps {
-  img?: string;
-  img2?: string;
-  title: string;
-  description: string;
-  showimage: ShowImageType;
-  steps?: string;
-  index?: number;
-}
+import { ShowImageType, type CardsProps } from "../types";
 
 function Cards({ img, img2, title, description, showimage, steps, index }: CardsProps) {
   return (
     <div
-      className={`border-2 border-dashed border-dark-15 w-full hover:translate-1.5 hover:shadow-xl/30
-      ${showimage === ShowImageType.one ? "p-[30px] sm:p-[50px] 2xl:p-[60px] sm:w-[29.6298611%] 2xl:w-[27.708333%] overflow-hidden" : ""}
-      ${showimage === ShowImageType.two ? 'p-[30px] sm:p-10  2xl:p-[50px] sm:w-[22.2222%]  2xl:w-[20.78125%]' : ''}
-      ${showimage === ShowImageType.three ? 'flex items-center gap-x-5 p-5 sm:p-[30px] 2xl:p-10 sm:w-[29.6298611%]  2xl:w-[27.708333%]' : ''}
-      ${showimage === ShowImageType.one && index !== undefined && index < 3 ? "sm:border-b-0" : ""}
-      ${showimage === ShowImageType.one && index !== undefined && (index === 1 || index === 4) ? "sm:border-l-0 sm:border-r-0" : ""}
-      ${showimage === ShowImageType.one && index !== undefined && (index === 1 || index === 2 || index === 3 || index === 4 || index === 5) ? "border-t-0 sm:border-t-2" : ""}
-      ${showimage === ShowImageType.two && index !== undefined && (index === 1 || index === 2 || index === 3) ? "sm:border-l-0 border-t-0 sm:border-t-2" : ""}
-      ${showimage === ShowImageType.three && index !== undefined && (index === 1 || index === 2) ? "sm:border-l-0 border-t-0 sm:border-t-2" : ""}
+      className={`  w-full hover:translate-1.5 hover:shadow-xl/30
+      ${showimage === ShowImageType.one ? "p-[30px] sm:p-[50px] 2xl:p-[60px] sm:w-[33.33359375%] 2xl:w-[33.3333%] overflow-hidden" : ""}
+      ${showimage === ShowImageType.two ? 'p-[30px] sm:p-10  2xl:p-[50px] sm:w-[25%] ' : ''}
+      ${showimage === ShowImageType.three ? 'flex items-center gap-x-5 p-5 sm:p-[30px] 2xl:p-10 sm:w-[33.33359375%] 2xl:w-[33.3333%]' : ''}
+      ${showimage === ShowImageType.one && index !== undefined && index < 3 ? "sm:border-b-2 border-dashed border-dark-15" : ""}
+      ${showimage === ShowImageType.one  && index !== undefined && index > 0 ? "sm:border-0 border-t-2 border-dashed border-dark-15" : ""}
+      ${showimage === ShowImageType.one && index !== undefined && (index === 1 || index === 4) ? "sm:border-x-2 border-dashed border-dark-15" : ""}
+      ${showimage === ShowImageType.two && index !== undefined && (index === 1 || index === 2 || index === 3) ? "sm:border-l-2 border-dashed border-dark-15 " : ""}
+      ${showimage === ShowImageType.two && index !== undefined && index > 0 ? "sm:border-t-0 border-t-2 border-dashed border-dark-15" : ""}
+       ${showimage === ShowImageType.three && index !== undefined && (index === 0 || index === 1) ? "sm:border-r-2 border-b-2 sm:border-b-0 border-dashed border-dark-15 " : ""}
       `}
     >
       <div className="flex relative">

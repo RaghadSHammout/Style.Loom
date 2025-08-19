@@ -1,6 +1,7 @@
 import Abstract1 from "../assets/images/home/Abstract Design.webp";
 import Abstract2 from "../assets/images/home/Abstract Design (3).png";
 import Abstract3 from "../assets/images/home/Abstract Design (1).webp";
+import AbstractContact from "../assets/images/contact/Abstract Design.webp";
 
 export const baseSectionData = {
   image: Abstract1,
@@ -35,14 +36,22 @@ export const sectionData3 = {
   showTabs: false,
 };
 
-export const sectionData4 = {
+export const baseFaqData = {
   image: Abstract2,
-  alt: "Abstract1",
+  alt: "Abstract2",
   imgwidth: "h-[360px] max-2xl:h-[262px]",
   heading: "Have Questions? We Have Answers.",
   text: "Ease into the world of StyleLoom with clarity. Our FAQs cover a spectrum of topics.",
   tabs: ["All", "Ordering", "Shipping", "Returns", "Support"],
   activeTab: "Shipping",
-  onChange: (tab: string) => setActiveTab(tab),
   showTabs: true,
+};
+
+export const sectionContactData = {
+  image: AbstractContact,
+  imgwidth: " h-[273px] max-2xl:h-[213px] ",
+  alt: "Abstract2",
+  heading: "Your Partner in Every Step of Your Fashion Journey.",
+  text: "24/7 Assistance for Seamless Shopping and Unmatched Customer Satisfaction.",
+  showTabs: false,
 };

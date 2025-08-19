@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="min-h-screen dark:bg-primarybg dark:text-white">
       <NavBar />
-      <HeroSection />
+      {/* <HeroSection /> */}
       <Outlet />
 
       <CallToAction

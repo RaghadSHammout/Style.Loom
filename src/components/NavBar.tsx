@@ -4,10 +4,15 @@ import { useState } from "react";
 import { useSelector } from 'react-redux';
 import type { RootState } from '../redux/store'; 
 import ButtonLightDark from "./ButtonLightDark";
+import { GrClose } from "react-icons/gr";
 
 function NavBar() {
   const { navLinks, btn } = useSelector((state: RootState) => state.nav);
-const logo =  <svg
+  const [isOpenPop , setisOpenPop] = useState<boolean>(false)
+  const OpenPop = () => {
+    setisOpenPop(!isOpenPop)
+  }
+  const logo =  <svg
               width="152"
               height="29"
               viewBox="0 0 152 29"
@@ -109,10 +114,12 @@ const HamburgerMenu=  <svg width="28" height="28" viewBox="0 0 28 28" fill="none
       </NavLink>
 </div>
 <div className={`flex gap-3.5 justify-center items-center ${menuOpen ?  "max-lg:flex " : "max-lg:hidden"}`}>
-    <button className={`bg-dark-10 text-white  p-[18px] rounded-[12px] opacity-100 flex justify-center items-center max-2xl:p-[14px] max-2xl:rounded-[8px] max-2xl:h-[48px]  max-2xl:w-[48px]  ${menuOpen ?  "max-lg:h-[56px]  max-lg:w-[56px]  " : ""}`}>
+    <button
+     className={`bg-dark-10 text-white  p-[18px] rounded-[12px] opacity-100 flex justify-center items-center max-2xl:p-[14px] max-2xl:rounded-[8px] max-2xl:h-[48px]  max-2xl:w-[48px]  ${menuOpen ?  "max-lg:h-[56px]  max-lg:w-[56px]  " : ""}`}
+     onClick={OpenPop}>
      {market}
-        </button>
-      <button className={`${menuOpen ? "flex justify-center items-center  transition-all duration-300 ease-in-out w-full max-lg:flex max-lg:flex-col max-lg:absolute  max-lg:top-[311px]  max-lg:left-0 right-0 max-lg:bg-dark-10/85 backdrop-blur-lg  max-lg:shadow-2xl  max-lg:py-5 max-lg:px-5  max-lg:z-50  shadow-md  hover:-translate-y-0.5 " : "max-lg:hidden"}`}>
+    </button>
+    <button className={`${menuOpen ? "flex justify-center items-center  transition-all duration-300 ease-in-out w-full max-lg:flex max-lg:flex-col max-lg:absolute  max-lg:top-[311px]  max-lg:left-0 right-0 max-lg:bg-dark-10/85 backdrop-blur-lg  max-lg:shadow-2xl  max-lg:py-5 max-lg:px-5  max-lg:z-50  shadow-md  hover:-translate-y-0.5 " : "max-lg:hidden"}`}>
     <NavLink
               to={"/contact"}
               className={`w-[136px] h-[63px] flex justify-center items-center bg-brown-60 text-primarybg px-[30px] py-[18px] rounded-[12px]  max-2xl:py-[14px] max-2xl:rounded-[8px] max-2xl:h-[49px] max-2xl:w-[119px] max-lg:w-full`}>
@@ -136,6 +143,23 @@ const HamburgerMenu=  <svg width="28" height="28" viewBox="0 0 28 28" fill="none
         <div className="absolute bottom-0 right-0 w-[40px] h-0  border-b border-dashed border-Very-Dark-Gray  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
         <div className="absolute top-1/2 left-0 h-[40px] w-[40px] -translate-y-1/2 border-l border-dashed border-Very-Dark-Gray  max-2xl:w-[26.29px]  max-2xl:h-[26.29px]"></div>
 </div>
+{
+  isOpenPop && 
+  <div className="w-full h-screen bg-dark-15 fixed inset-0  z-[10000] flex justify-center items-center">
+    <div className="border-2 border-dashed border-gray-40 rounded-3xl p-10">
+      <div className="w-full flex items-center justify-between bg-gray-40 p-10 border-2 border-dashed border-gray-40 rounded-3xl">
+        <h3 className="font-normal font-robotmono text-[16px] sm:text-lg 2xl:text-2xl text-white ">shopping</h3>
+        <button onClick={() => setisOpenPop(false)}><GrClose /></button>
+      </div>
+      <div>
+        <div>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+}
 </nav>
 );
 }

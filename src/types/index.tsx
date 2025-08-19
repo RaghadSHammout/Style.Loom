@@ -21,7 +21,7 @@ export interface FAQ {
 }
 
 export interface QuestionsCardsProps {
-  filteredFaqs: FAQ[]; 
+  filteredFaqs: FAQ[];
 }
 
 export type TabDetail = { title: string; description: string };
@@ -102,4 +102,5 @@ export interface CardsProps {
   showimage: ShowImageType;
   steps?: string;
   index?: number;
+  className?: string;
 }

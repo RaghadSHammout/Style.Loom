@@ -14,7 +14,7 @@ function ReusableSection<T extends string = string>({
   children,
 }: ReusableSectionprops<T>) {
   return (
-    <section className="border-2 border-dashed border-dark-15">
+    <section className="border-2 border-dashed border-dark-15 mb-[100px] max-2xl:mb-[80px] max-md:mb-[50px]">
       <div
         className={`relative flex flex-col w-full gap-[50px] rotate-0 opacity-100 max-lg:overflow-x-auto max-lg:scroll-smooth 
         border-b-2 border-dashed border-dark-15 pt-20 overflow-hidden

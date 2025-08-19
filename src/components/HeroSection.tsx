@@ -34,7 +34,8 @@ function HeroSection() {
   }, []);
 
   return (
-    <div>
+    <div className="2xl:px-[162px] lg:px-[80px] px-[16px] pb-[100px]  max-2xl:pb-[80px] max-md:pb-[50px]">
+
       <div className="flex flex-col items-center justify-center relative">
         <img
           className="2xl:h-[624px] lg:h-[442px] md:h-[300px] h-[250px] w-full rounded-tl-[20px] rounded-tr-[20px]"

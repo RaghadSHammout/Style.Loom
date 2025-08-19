@@ -64,7 +64,7 @@ export default function () {
         <div className="border-b-2 border-dashed custom-dash border-(--color-dark-15) px-[162px] py-[80px] max-2xl:px-[80px] max-2xl:py-[60px] max-md:px-[16px] max-md:py-[40px] flex gap-[80px] max-2xl:gap-[50px] flex-wrap max-md:items-start justify-between">
           <div className="flex flex-col justify-center gap-[30px] max-2xl:gap-[24px]">
             <h3 className='font-medium text-[22px] max-2xl:text-[18px]'>Home</h3>
-            <ul className='flex'>
+            <ul className='flex flex-wrap max-md:gap-[10px]'>
               <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px] text-(--color-gray-40)">Why Us <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
               <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px]  text-(--color-gray-40)">About Us <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
               <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px]  text-(--color-gray-40)">Testimonials <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
@@ -73,7 +73,7 @@ export default function () {
           </div>
           <div className="flex flex-col justify-center gap-[30px] max-2xl:gap-[24px]">
             <h3 className='font-medium text-[22px] max-2xl:text-[18px]'>Products</h3>
-            <ul className='flex'>
+            <ul className='flex flex-wrap max-md:gap-[10px]'>
               <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px] max-md:text-[14px] text-(--color-gray-40)">Menswear <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
               <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px] max-md:text-[14px] text-(--color-gray-40)">Womenswear <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
               <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px] max-md:text-[14px] text-(--color-gray-40)">Kidswear </li>

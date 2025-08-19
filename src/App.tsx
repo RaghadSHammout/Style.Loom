@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="bg-primarybg min-h-screen text-white">
+    <div className="min-h-screen  dark:bg-primarybg dark:text-white">
       <NavBar />
       <Outlet />
       <CallToAction
@@ -15,7 +15,6 @@ function App() {
         image={CtaData.image}
         alt={CtaData.alt}
       />
-
       <Footer />
     </div>
   );

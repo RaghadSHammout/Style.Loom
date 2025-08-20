@@ -10,7 +10,7 @@ function Contact() {
   const Card3 = useSelector(((state: any) => state.cards.cardthree))
   const contact = useSelector(((state : any) => state.CardContact.list))
   return (
-    <section className="2xl:px-[162px] lg:px-[80px] px-[16px]">
+    <section className="2xl:px-[162px] lg:px-[80px] px-[16px] pt-[223px] max-2xl:pt-[177px] max-md:pt-[166px]">
       <ReusableSection {...sectionContactData}>
         <h3 className="hidden sm:block p-10 2xl:p-[50px] font-roboto font-medium text-2xl 2xl:text-3xl text-white border-b-2 border-dashed border-dark-15">Contact Information</h3>
       <div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">

@@ -28,8 +28,8 @@ function ShopNowButton({
   const widthClass = inHeroSection
     ? "w-[128px]"
     : hasFullWidth
-    ? "w-full"
-    : "w-[128px]";
+      ? "w-full"
+      : "w-[128px]";
   const hasBorderClass = hasBorder
     ? "border border-Very-Dark-Gray border-dashed"
     : "border-0";

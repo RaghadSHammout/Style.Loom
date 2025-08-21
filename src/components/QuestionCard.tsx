@@ -29,7 +29,7 @@ function QuestionCard({ index, faq, length }: QuestionCardProps) {
               })()}
               `}
     >
-      <div className="text-white 2xl:text-2xl xl:text-xl text-lg font-medium">
+      <div className="dark:text-white text-primarybg 2xl:text-2xl xl:text-xl text-lg font-medium">
         {faq.question}
       </div>
       <div className="text-gray-50 font-normal 2xl:mt-[40px] xl:mt-[30px] mt-[25px] 2xl:text-lg xl:text-base text-sm">

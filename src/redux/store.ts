@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productReducer from "./slices/productSlice";
 import heroSlice from "./HeroTabs";
-
 import cardsReducer from "./slice";
 import CardContactReducer from "./slice/CardContact";
-
 import navReducer from "./slices";
 import testmonialsReducer from "./testmonials";
+import faqReducer from "./questions";
+
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +16,8 @@ export const store = configureStore({
     testmonials: testmonialsReducer,
     heroSlice: heroSlice,
     CardContact: CardContactReducer,
+    faq: faqReducer,
+
   },
 });
 

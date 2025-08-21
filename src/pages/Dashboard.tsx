@@ -1,25 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
-  addDoc, collection, deleteDoc, doc,
-  onSnapshot, orderBy, query, serverTimestamp, updateDoc,
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+  serverTimestamp,
+  updateDoc,
+  Timestamp,
 } from "firebase/firestore";
 import { db } from "../firebase";
-import { setCardOne } from "../redux/slice";
+import { setCardOne, type CardOneItem } from "../redux/slice";
 
-type Card = {
-  id?: string;
-  title: string;
-  description: string;
-  img: string;
-  img2?: string;
-  createdAt?: any;
+type CardLocal = CardOneItem & {
+  createdAtServer?: any;
 };
 
 export default function Dashboard() {
   const dispatch = useDispatch();
 
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<CardLocal[]>([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [img, setImg] = useState("");
@@ -28,30 +31,55 @@ export default function Dashboard() {
   const [err, setErr] = useState<string | null>(null);
   const [editId, setEditId] = useState<string | null>(null);
 
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [isSyncing, setIsSyncing] = useState(false);
+
   useEffect(() => {
-    const col = collection(db, "cardone");
-    const q = query(col, orderBy("createdAt", "asc"));
+    const colRef = collection(db, "cardone");
+    const q = query(colRef, orderBy("createdAt", "asc"));
+
     const unsub = onSnapshot(
       q,
+      { includeMetadataChanges: true },
       (snap) => {
-        const data = snap.docs.map((d) => ({ id: d.id, ...(d.data() as any) })) as Card[];
+        type FirePayload = Omit<CardLocal, "id">;
+
+        const data: CardLocal[] = snap.docs.map((d) => {
+          const payload = d.data() as FirePayload;
+          return {
+            ...payload,     
+            id: d.id,       
+          };
+        });
+
         setCards(data);
-        dispatch(setCardOne(data));
+        dispatch(setCardOne(data)); 
+        setIsSyncing(snap.metadata.hasPendingWrites);
+        setInitialLoading(false);
       },
-      (e) => setErr(e.message || "Firestore error")
+      (e) => {
+        setErr(e.message || "Firestore error");
+        setInitialLoading(false);
+      }
     );
+
     return () => unsub();
   }, [dispatch]);
 
   const resetForm = () => {
-    setTitle(""); setDescription(""); setImg(""); setImg2("");
-    setEditId(null); setErr(null);
+    setTitle("");
+    setDescription("");
+    setImg("");
+    setImg2("");
+    setEditId(null);
+    setErr(null);
   };
 
   const isValidUrl = (u: string) => /^https?:\/\//i.test(u.trim());
 
   const handleAddOrUpdate = async () => {
     setErr(null);
+
     if (!title.trim() || !description.trim() || !img.trim()) {
       setErr("Please fill Title, Description and Img.");
       return;
@@ -63,20 +91,22 @@ export default function Dashboard() {
 
     setLoading(true);
     try {
+      const payloadBase = {
+        title: title.trim(),
+        description: description.trim(),
+        img: img.trim(),
+        img2: img2.trim() || undefined,
+      };
+
       if (editId) {
         await updateDoc(doc(db, "cardone", editId), {
-          title: title.trim(),
-          description: description.trim(),
-          img: img.trim(),
-          img2: img2.trim() || undefined,
+          ...payloadBase,
         });
       } else {
         await addDoc(collection(db, "cardone"), {
-          title: title.trim(),
-          description: description.trim(),
-          img: img.trim(),
-          img2: img2.trim() || undefined,
-          createdAt: serverTimestamp(),
+          ...payloadBase,
+          createdAt: Timestamp.now(),
+          createdAtServer: serverTimestamp(),
         });
       }
       resetForm();
@@ -96,7 +126,7 @@ export default function Dashboard() {
     }
   };
 
-  const handleEdit = (card: Card) => {
+  const handleEdit = (card: CardLocal) => {
     setEditId(card.id || null);
     setTitle(card.title);
     setDescription(card.description);
@@ -105,14 +135,41 @@ export default function Dashboard() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const skeletons = useMemo(
+    () =>
+      Array.from({ length: 3 }).map((_, i) => (
+        <div
+          key={`sk-${i}`}
+          className="animate-pulse backdrop-blur-xl bg-dark-15/80 border border-dark-20 rounded-3xl overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.4)]"
+        >
+          <div className="w-full h-56 sm:h-64 bg-dark-20" />
+          <div className="p-6">
+            <div className="h-6 bg-dark-20 rounded w-2/3 mb-3" />
+            <div className="h-4 bg-dark-20 rounded w-full mb-2" />
+            <div className="h-4 bg-dark-20 rounded w-5/6" />
+            <div className="mt-6 pt-4 border-t border-dark-20 flex gap-3">
+              <div className="h-10 w-24 bg-dark-20 rounded" />
+              <div className="h-10 w-24 bg-dark-20 rounded" />
+            </div>
+          </div>
+        </div>
+      )),
+    []
+  );
+
   return (
-    <div className="min-h-screen bg-primarybg text-white font-roboto px-6 sm:px-10 lg:px-20 py-12">
+    <div className="min-h-screen text-white font-roboto px-6 sm:px-10 lg:px-20 py-12">
       <header className="mb-12 text-center">
         <h1 className="text-5xl font-extrabold tracking-tight mb-2 text-brown-70">
           Dashboard
         </h1>
-        <p className="text-gray-70 text-base sm:text-lg">
+        <p className="text-gray-70 text-base sm:text-lg flex items-center justify-center gap-3">
           Manage your feature cards
+          {isSyncing && (
+            <span className="text-xs px-2 py-1 rounded-lg bg-dark-20 border border-dark-30">
+              Syncing…
+            </span>
+          )}
         </p>
       </header>
 
@@ -187,43 +244,49 @@ export default function Dashboard() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 my-media:grid-cols-3 gap-8 sm:gap-10">
-          {cards.map((c) => (
-            <article
-              key={c.id}
-              className="group backdrop-blur-xl bg-dark-15/80 border border-dark-20 rounded-3xl overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.4)] hover:shadow-[0_28px_70px_rgba(0,0,0,0.55)] hover:scale-[1.02] transition-all duration-300 flex flex-col"
-            >
-              {c.img && (
-                <img src={c.img} alt="" className="w-full h-56 sm:h-64 object-cover" />
-              )}
-              <div className="p-6 flex-1 flex flex-col">
-                <h4 className="text-xl sm:text-2xl font-bold mb-2">{c.title}</h4>
-                <p className="text-gray-50 text-sm sm:text-base flex-1">{c.description}</p>
+        {initialLoading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 my-media:grid-cols-3 gap-8 sm:gap-10">
+            {skeletons}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 my-media:grid-cols-3 gap-8 sm:gap-10">
+            {cards.map((c) => (
+              <article
+                key={c.id}
+                className="group backdrop-blur-xl bg-dark-15/80 border border-dark-20 rounded-3xl overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.4)] hover:shadow-[0_28px_70px_rgba(0,0,0,0.55)] hover:scale-[1.02] transition-all duration-300 flex flex-col"
+              >
+                {c.img && (
+                  <img src={c.img} alt="" className="w-full h-56 sm:h-64 object-cover" />
+                )}
+                <div className="p-6 flex-1 flex flex-col">
+                  <h4 className="text-xl sm:text-2xl font-bold mb-2">{c.title}</h4>
+                  <p className="text-gray-50 text-sm sm:text-base flex-1">{c.description}</p>
 
-                <div className="flex items-center justify-between gap-3 mt-6 pt-4 border-t border-dark-20">
-                  <button
-                    onClick={() => handleEdit(c)}
-                    className="px-4 py-2 rounded-lg font-semibold bg-brown-70 text-dark-12 hover:opacity-90 transition"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(c.id)}
-                    className="px-4 py-2 rounded-lg font-semibold bg-dark-20 hover:bg-dark-30 text-red-400 transition"
-                  >
-                    Delete
-                  </button>
+                  <div className="flex items-center justify-between gap-3 mt-6 pt-4 border-t border-dark-20">
+                    <button
+                      onClick={() => handleEdit(c)}
+                      className="px-4 py-2 rounded-lg font-semibold bg-brown-70 text-dark-12 hover:opacity-90 transition"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(c.id)}
+                      className="px-4 py-2 rounded-lg font-semibold bg-dark-20 hover:bg-dark-30 text-red-400 transition"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
 
-          {cards.length === 0 && (
-            <p className="text-gray-70 col-span-full text-center text-base sm:text-lg">
-              No cards yet
-            </p>
-          )}
-        </div>
+            {cards.length === 0 && (
+              <p className="text-gray-70 col-span-full text-center text-base sm:text-lg">
+                No cards yet
+              </p>
+            )}
+          </div>
+        )}
       </section>
     </div>
   );

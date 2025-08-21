@@ -34,7 +34,8 @@ function HeroSection() {
   }, []);
 
   return (
-    <div>
+    <div className="pb-[100px] max-2xl:pb-[80px] max-md:pb-[50px]">
+
       <div className="flex flex-col items-center justify-center relative">
         <img
           className="2xl:h-[624px] lg:h-[442px] md:h-[300px] h-[250px] w-full rounded-tl-[20px] rounded-tr-[20px]"
@@ -67,6 +68,7 @@ function HeroSection() {
           </div>
 
           <div className="dark:text-white text-primarybg 2xl:text-5xl lg:text-4xl text-[28px] font-medium uppercase 2xl:mt-[30px] lg:mt-[20px] mt-[16px] font-roboto">
+
             {tabDetails[activeTab].title}
           </div>
           <div className="overflow-y-auto text-gray-40 2xl:text-lg xl:text-base text-[12px] font-normal 2xl:mt-[30px] lg:mt-[20px] mt-[16px] font-roboto">

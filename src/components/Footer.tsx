@@ -6,16 +6,11 @@ import twitterIcon from '../assets/images/home/twitter.png'
 import logo from '../assets/images/home/Logo.png'
 import arrow from '../assets/images/home/arrow.png'
 
-
-
-
-
-
 export default function () {
   return (
     <>
       <footer>
-        <div className="py-[50px] max-2xl:py-[40px] max-md:py-[30px] border-y-2 border-dashed custom-dash border-(--color-dark-15) py-4">
+        <div className="py-[50px] max-2xl:py-[40px] max-md:py-[30px] border-y-2 border-dashed custom-dash border-(--color-dark-15) mt-[100px] max-2xl:mt-[80px] max-md:mt-[50px]">
           <div className="overflow-x-auto hide-scrollbar">
             <ul className='flex flex-nowrap justify-between items-center gap-[16px] max-2xl:gap-[12px] max-md:py-[30px] whitespace-nowrap'>
               <img src={footerVector} alt="logo" className="w-[60px]  h-[60px] max-2xl:w-[50px] max-2xl:h-[50px] max-md:w-[40px] max-md:h-[40px]" />
@@ -65,10 +60,10 @@ export default function () {
           <div className="flex flex-col justify-center gap-[30px] max-2xl:gap-[24px]">
             <h3 className='font-medium text-[22px] max-2xl:text-[18px]'>Home</h3>
             <ul className='flex flex-wrap max-md:gap-[10px]'>
-              <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px] text-(--color-gray-40)">Why Us <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
-              <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px]  text-(--color-gray-40)">About Us <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
-              <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px]  text-(--color-gray-40)">Testimonials <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
-              <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px]  text-(--color-gray-40)">FAQ’s</li>
+              <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px] max-md:text-[14px] text-(--color-gray-40)">Why Us <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
+              <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px] max-md:text-[14px]  text-(--color-gray-40)">About Us <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
+              <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px] max-md:text-[14px]  text-(--color-gray-40)">Testimonials <span className='text-[var(--color-dark-15)] px-[10px]'>•</span></li>
+              <li className="whitespace-nowrap text-[20px] max-2xl:text-[16px] max-md:text-[14px]  text-(--color-gray-40)">FAQ’s</li>
             </ul>
           </div>
           <div className="flex flex-col justify-center gap-[30px] max-2xl:gap-[24px]">

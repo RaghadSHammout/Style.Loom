@@ -81,7 +81,7 @@ function Home() {
     onChange: (tab: FilterFaqType) => faqDispatch(setActiveTab(tab)),
   };
   return (
-    <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
+    <div className="2xl:px-[162px] lg:px-[80px] px-[16px] pt-[183.8px] max-2xl:pt-[137px] max-md:pt-[146px]">
       <HeroSection />
       <ReusableSection {...sectionData1}>
 

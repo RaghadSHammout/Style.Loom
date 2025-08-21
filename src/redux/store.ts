@@ -4,7 +4,6 @@ import heroSlice from "./HeroTabs";
 import cardsReducer from "./slice";
 import CardContactReducer from "./slice/CardContact";
 import navReducer from "./slices";
-// import testmonials from "./testmonials";
 import testmonialsReducer from "./testmonials";
 import faqReducer from "./questions";
 

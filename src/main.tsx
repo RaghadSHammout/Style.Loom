@@ -9,36 +9,41 @@ import Contact from './pages/Contact.tsx'
 import { Provider } from 'react-redux'
 import { store } from './redux/store.ts'
 import Dashboard from './pages/Dashboard.tsx'
+import ProductOpen from './pages/ProductOpen.tsx'
 const routers = createBrowserRouter([
   {
-     path: "/",
-    element: <App/>,
+    path: "/",
+    element: <App />,
     children: [
       {
         path: "",
-        element: <Home/>,
+        element: <Home />,
       },
       {
         path: "/products",
-        element: <Products/>,
+        element: <Products />,
       },
       {
         path: "/contact",
-        element: <Contact/>,
+        element: <Contact />,
       },
       {
         path: "/dashboard",
-        element: <Dashboard/>,
+        element: <Dashboard />,
       },
+      {
+        path: "/product/:id",
+        element: <ProductOpen />
+      }
     ],
   }
 ],
- {
-    basename: "/Style.Loom-x3", 
+  {
+    basename: "/Style.Loom-x3",
   }
 )
 createRoot(document.getElementById('root')!).render(
-    <StrictMode>
+  <StrictMode>
     <Provider store={store}>
       <RouterProvider router={routers} />
     </Provider>

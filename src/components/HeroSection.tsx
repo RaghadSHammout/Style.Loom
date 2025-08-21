@@ -42,10 +42,11 @@ function HeroSection() {
           src={heroImage}
           alt="Hero Image"
         />
-        <div className="flex flex-row items-center justify-center 2xl:w-[198px] 2xl:h-[101px] lg:w-[165px] lg:h-[80px] w-[145px] h-[65px] rounded-tl-[20px] rounded-tr-[20px] bg-primarybg absolute lg:top-[95%] md:top-[93%] top-[90%]">
+        <div className="flex flex-row items-center justify-center 2xl:w-[198px] 2xl:h-[101px] lg:w-[165px] lg:h-[80px] w-[145px] h-[65px] rounded-tl-[20px] rounded-tr-[20px] dark:bg-primarybg bg-white absolute lg:top-[95%] md:top-[93%] top-[90%]">
           <ShopNowButton
             hasBorder={true}
-            hasFullWidth={false}
+            hasFullWidthInCard={false}
+            hasFullWidthInCallsection={false}
             hasDarkBack={true}
             inHeroSection={true}
             arrowIcon={true}
@@ -55,9 +56,8 @@ function HeroSection() {
         </div>
       </div>
 
-<div className="grid sm:grid-cols-2 grid-cols-1 w-full border-2 border-dark-15 border-t-0 border-dashed rounded-bl-[20px] rounded-br-[20px]">
-  <div className="2xl:px-[80px] xl:px-[60px] lg:px-[40px] lg:min-h-[450px] md:min-h-[420px] px-[20px] sm:py-[80px] pt-[50px] pb-[20px] sm:border-r-2 sm:border-b-0 border-b-2 border-dark-15 border-dashed">
-
+      <div className="grid sm:grid-cols-2 grid-cols-1 w-full border-2 border-dark-15 border-t-0 border-dashed rounded-bl-[20px] rounded-br-[20px]">
+        <div className="2xl:px-[80px] xl:px-[60px] lg:px-[40px] lg:min-h-[450px] md:min-h-[420px] px-[20px] sm:py-[80px] pt-[50px] pb-[20px] sm:border-r-2 sm:border-b-0 border-b-2 border-dark-15 border-dashed">
           <div className="flex flex-row lg:gap-6 md:gab-4 gap-3">
             <FilterTabs<FilterType>
               tabs={["All", "Mens", "Womens", "Kids"]}
@@ -67,7 +67,8 @@ function HeroSection() {
             />
           </div>
 
-          <div className="text-white 2xl:text-5xl lg:text-4xl text-[28px] font-medium uppercase 2xl:mt-[30px] lg:mt-[20px]  font-roboto">
+          <div className="dark:text-white text-primarybg 2xl:text-5xl lg:text-4xl text-[28px] font-medium uppercase 2xl:mt-[30px] lg:mt-[20px] mt-[16px] font-roboto">
+
             {tabDetails[activeTab].title}
           </div>
           <div className="overflow-y-auto text-gray-40 2xl:text-lg xl:text-base text-[12px] font-normal 2xl:mt-[30px] lg:mt-[20px] mt-[16px] font-roboto">
@@ -77,7 +78,7 @@ function HeroSection() {
 
         <div className="grid grid-cols-2 font-roboto">
           <div className="flex flex-col justify-center items-start lg:px-[50px] px-[30px] 2xl:py-[65px] lg:py-[55px] py-[40px] border-r-2 border-b-2 border-dark-15 border-dashed">
-            <div className="flex flex-row items-center justify-center text-white">
+            <div className="flex flex-row items-center justify-center dark:text-white text-primarybg">
               <div className="2xl:text-[50px] lg:text-[34px] text-[30px] font-medium">
                 {firstNumber}
               </div>
@@ -90,7 +91,7 @@ function HeroSection() {
             </div>
           </div>
           <div className="flex flex-col justify-center items-start lg:px-[50px] px-[30px] 2xl:py-[65px] lg:py-[55px] py-[40px] border-b-2 border-dark-15 border-dashed">
-            <div className="flex flex-row items-center justify-center text-white">
+            <div className="flex flex-row items-center justify-center dark:text-white text-primarybg">
               <div className="2xl:text-[50px] lg:text-[34px] text-[30px] font-medium">
                 {secNumber}
               </div>
@@ -104,7 +105,7 @@ function HeroSection() {
           </div>
 
           <div className="flex flex-col justify-center items-start lg:px-[50px] px-[30px] 2xl:py-[65px] lg:py-[55px] py-[40px] border-r-2 border-dark-15 border-dashed">
-            <div className="flex flex-row items-center justify-center text-white">
+            <div className="flex flex-row items-center justify-center dark:text-white text-primarybg">
               <div className="2xl:text-[50px] lg:text-[34px] text-[30px] font-medium">
                 30
               </div>
@@ -118,7 +119,7 @@ function HeroSection() {
           </div>
 
           <div className="flex flex-col justify-center items-start lg:px-[50px] px-[30px] 2xl:py-[65px] lg:py-[55px] py-[40px]">
-            <div className="flex flex-row items-center justify-center text-white">
+            <div className="flex flex-row items-center justify-center dark:text-white text-primarybg">
               <div className="2xl:text-[50px] lg:text-[34px] text-[30px] font-medium">
                 95
               </div>

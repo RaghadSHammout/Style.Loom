@@ -116,7 +116,6 @@ function Home() {
           ))}
         </div>
       </ReusableSection>
-
       <ReusableSection {...sectionData3}>
         <TestmonialsCards />
       </ReusableSection>

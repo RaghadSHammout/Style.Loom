@@ -48,6 +48,7 @@ export interface ReusableSectionprops<T extends string = string>
   image?: string;
   alt?: string;
   imgwidth?: string;
+hight?: string;
   text?: string;
   heading: string;
   showTabs?: boolean;

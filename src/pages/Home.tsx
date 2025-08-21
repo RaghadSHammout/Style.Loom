@@ -84,8 +84,8 @@ function Home() {
       <HeroSection />
       <ReusableSection {...sectionData1}>
 
-        <div className="flex flex-wrap justify-center">
-          {cardOne.slice(0, numbercard).map((item, index) => (
+<div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">
+            {cardOne.slice(0, numbercard).map((item, index) => (
             <Cards
               key={item.id ?? index}
               index={index}

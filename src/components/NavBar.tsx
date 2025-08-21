@@ -7,6 +7,17 @@ import ButtonLightDark from "./ButtonLightDark";
 import { GrClose } from "react-icons/gr";
 
 function NavBar() {
+  const [subtotal, setSubtotal] = useState<number>(100);   
+  const [discount, setDiscount] = useState<number>(0);   
+  const [total, setTotal] = useState<number>(subtotal);  
+
+  const handleDiscountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+    setDiscount(value);
+    const newTotal = subtotal - value;
+    setTotal(newTotal >= 0 ? newTotal : 0);    
+  };
+
   const { navLinks, btn } = useSelector((state: RootState) => state.nav);
   const [isOpenPop , setisOpenPop] = useState<boolean>(false)
   const OpenPop = () => {
@@ -145,16 +156,31 @@ const HamburgerMenu=  <svg width="28" height="28" viewBox="0 0 28 28" fill="none
 </div>
 {
   isOpenPop && 
-  <div className="w-full h-screen bg-dark-15 fixed inset-0  z-[10000] flex justify-center items-center">
-    <div className="border-2 border-dashed border-gray-40 rounded-3xl p-10">
-      <div className="w-full flex items-center justify-between bg-gray-40 p-10 border-2 border-dashed border-gray-40 rounded-3xl">
-        <h3 className="font-normal font-robotmono text-[16px] sm:text-lg 2xl:text-2xl text-white ">shopping</h3>
+  <div className="p-4 w-full h-screen bg-dark-15 fixed inset-0  z-[10000] flex justify-center items-center">
+    <div className="border-2 border-dashed border-gray-40 rounded-3xl 2xl:p-10 p-2.5">
+      <div className="w-full flex items-center justify-between bg-gray-40 2xl:p-10 p-2.5 border-2 border-dashed border-gray-40 rounded-3xl">
+        <h3 className="font-normal font-robotmono text-[16px] sm:text-lg 2xl:text-3xl text-white ">shopping cart</h3>
         <button onClick={() => setisOpenPop(false)}><GrClose /></button>
       </div>
       <div>
-        <div>
-          
+        <div className="w-full p-10">
+          <p className="font-normal font-robotmono text-[16px] sm:text-lg 2xl:text-4xl text-red-400">shopping is't possible right now.</p>
         </div>
+        <div className="border-y-1 2xl:py-10 py-2.5 border-gray-40">
+          <h2 className="mb-4 font-normal font-robotmono text-[16px] sm:text-lg 2xl:text-3xl text-white flex items-center justify-between">Subtotal: <span>{subtotal}</span></h2>
+          <label className="font-normal font-robotmono text-[16px] sm:text-lg 2xl:text-3xl text-white">
+            Discount: 
+            <input 
+              type="number" 
+              value={discount} 
+              onChange={handleDiscountChange} 
+              placeholder="enter discount"
+
+            />
+          </label>
+        </div>
+        <h2 className=" my-4 font-normal font-robotmono text-[16px] sm:text-lg 2xl:text-3xl text-white flex items-center justify-between">Total: <span>{total}</span></h2>
+        <button className="font-normal font-robotmono text-[16px] sm:text-lg 2xl:text-3xl text-white  w-full  bg-gray-40 2xl:p-10 p-2.5 border-2 border-dashed border-gray-40 rounded-3xl">checkout</button>
       </div>
 
     </div>

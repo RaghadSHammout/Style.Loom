@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { ProductsCardsData } from "../../data/ProductsCardsData";
 import type { FilterType, ProductState } from "../../types";
+import { groupByCategory } from "../../utils/groupByCategory";
 
 const initialState: ProductState = {
     allProducts: ProductsCardsData,
@@ -9,11 +10,14 @@ const initialState: ProductState = {
         .filter(product => product.type === "Womens")
         .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
         .slice(0, 6),
+    activeTypeForSections: "Womens",
+    filteredSections: [],
 };
 const productSlice = createSlice({
     name: 'product',
     initialState,
     reducers: {
+        //Reducer For Fitering in Home page
         setActiveType(state, action: PayloadAction<FilterType>) {
             state.activeType = action.payload;
 
@@ -31,8 +35,22 @@ const productSlice = createSlice({
                 state.filteredProducts = filtered;
             }
         },
+        //Reducer For Fitering in Proucts Page
+        setFilteredSections(state, action: PayloadAction<FilterType>) {
+            state.activeTypeForSections = action.payload;
+
+            const products = action.payload === "All"
+                ? state.allProducts
+                : state.allProducts.filter(p => p.type === action.payload);
+            const grouped = groupByCategory(products);
+
+            state.filteredSections = grouped.map(group => ({
+                category: group.category,
+                products: group.products,
+                showAll: false,
+            }));
+        }
     },
 });
-
-export const { setActiveType } = productSlice.actions;
+export const { setActiveType, setFilteredSections } = productSlice.actions;
 export default productSlice.reducer;

@@ -7,7 +7,7 @@ interface QuestionCardProps {
 function QuestionCard({ index, faq, length }: QuestionCardProps) {
   return (
     <div
-      className={`flex flex-col justify-center 2xl:p-[60px] xl:p-[50px] p-[30px] border-2 border-dark-15 border-dashed
+      className={`flex flex-col justify-center 2xl:h-[226px] xl:h-[214px] 2xl:p-[60px] xl:p-[50px] p-[30px] border-2 border-dark-15 border-dashed
                  ${
                    index % 2 === 0
                      ? "border-t-0 border-l-0 sm:border-r-2 border-r-0"

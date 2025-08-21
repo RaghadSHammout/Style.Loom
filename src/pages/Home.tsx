@@ -20,13 +20,14 @@ import type { RootState } from "../redux/store";
 import type { FilterType } from "../types";
 import { setActiveType } from "../redux/slices/productSlice";
 import { ProductTabsData } from "../data/FilterTabsData";
-import ProductCard from "../components/ProductCard";
 import type { FilterFaqType } from "../types";
 import { tabsFaq } from "../data/FilterTabsData";
 import { setActiveTab } from "../redux/questions";
+import ProductsHomeContainer from "../components/ProductsHomeContainer";
+
 function Home() {
   const cardOne = useSelector((state: RootState) => state.cards.cardone);
-  const Card2   = useSelector((state: RootState) => state.cards.cardtwo);
+  const Card2 = useSelector((state: RootState) => state.cards.cardtwo);
 
   const [showbtn, setshowbtn] = useState<boolean>(false);
   const [numbercard, setnumbercard] = useState<number>(6);
@@ -103,11 +104,10 @@ function Home() {
               onClick={showallcards}
             >
               {numbercard <= 3 ? " View All" : " less All"}
-             
+
               <IoIosArrowRoundDown
-                className={`text-gray-70 transform transition-transform duration-500 ${
-                  numbercard <= 3 ? "" : "rotate-180"
-                } hover:translate-8`}
+                className={`text-gray-70 transform transition-transform duration-500 ${numbercard <= 3 ? "" : "rotate-180"
+                  } hover:translate-8`}
               />
             </button>
           )}
@@ -134,11 +134,7 @@ function Home() {
 
       {/* Products */}
       <ReusableSection {...sectionData}>
-        <div className="grid grid-cols-1 my-media:grid-cols-2 2xl:grid-cols-3 gap-[0] place-items-center">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} {...product} />
-          ))}
-        </div>
+        <ProductsHomeContainer products={filteredProducts} />
       </ReusableSection>
 
       {/* Testimonials */}

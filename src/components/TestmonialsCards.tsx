@@ -86,7 +86,7 @@ function TestmonialsCards() {
                       />
                     </div>
                     <div className="ml-[12px]">
-                      <div className="text-white font-medium 2xl:text-xl xl:text-lg text-base">
+                      <div className="dark:text-white text-primarybg font-medium 2xl:text-xl xl:text-lg text-base">
                         {testmonial.name}
                       </div>
                       <div className="mt-[4px] text-gray-40 font-normal 2xl:text-lg xl:text-base text-sm">

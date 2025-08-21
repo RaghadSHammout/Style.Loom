@@ -106,7 +106,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-primarybg text-white font-roboto px-6 sm:px-10 lg:px-20 py-12">
+    <div className="min-h-screen  font-roboto px-6 sm:px-10 lg:px-20 py-12">
       <header className="mb-12 text-center">
         <h1 className="text-5xl font-extrabold tracking-tight mb-2 text-brown-70">
           Dashboard
@@ -116,7 +116,7 @@ export default function Dashboard() {
         </p>
       </header>
 
-      <section className="max-w-5xl mx-auto backdrop-blur-xl bg-dark-15/80 border border-dark-20 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] p-8 sm:p-10 mb-16">
+      <section className="max-w-5xl mx-auto backdrop-blur-xl bg-dark-15/0 border border-dark-20 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] p-8 sm:p-10 mb-16">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl sm:text-3xl font-semibold text-brown-70">
             {editId ? "Edit Card" : "Add New Card"}
@@ -191,7 +191,7 @@ export default function Dashboard() {
           {cards.map((c) => (
             <article
               key={c.id}
-              className="group backdrop-blur-xl bg-dark-15/80 border border-dark-20 rounded-3xl overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.4)] hover:shadow-[0_28px_70px_rgba(0,0,0,0.55)] hover:scale-[1.02] transition-all duration-300 flex flex-col"
+              className="group backdrop-blur-xl bg-dark-15/0 border border-dark-20 rounded-3xl overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.4)] hover:shadow-[0_28px_70px_rgba(0,0,0,0.55)] hover:scale-[1.02] transition-all duration-300 flex flex-col"
             >
               {c.img && (
                 <img src={c.img} alt="" className="w-full h-56 sm:h-64 object-cover" />

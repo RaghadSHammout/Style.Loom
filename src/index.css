@@ -52,3 +52,32 @@
     -ms-overflow-style: none;     /* IE/Edge legacy */
   }
 }
+/*scrollbar for project*/
+::-webkit-scrollbar {
+  width: 10px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-Very-Dark-Gray); 
+  border-radius: 8px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-40);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--color-dark-12); 
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-brown-80); 
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brown-60);
+}

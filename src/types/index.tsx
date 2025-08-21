@@ -68,6 +68,7 @@ export interface ReusableSectionprops<T extends string = string>
   extends Partial<FilterTabsProps<T>> {
   image?: string;
   alt?: string;
+  hight?: string;
   imgwidth?: string;
   text?: string;
   heading: string;

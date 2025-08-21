@@ -9,10 +9,12 @@ import Contact from './pages/Contact.tsx'
 import { Provider } from 'react-redux'
 import { store } from './redux/store.ts'
 import Dashboard from './pages/Dashboard.tsx'
+import ErrorPage from './pages/ErrorPage.tsx'
 const routers = createBrowserRouter([
   {
      path: "/",
     element: <App/>,
+    errorElement:<ErrorPage/>,
     children: [
       {
         path: "",

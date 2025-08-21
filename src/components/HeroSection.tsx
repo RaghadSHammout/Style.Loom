@@ -44,7 +44,8 @@ function HeroSection() {
         <div className="flex flex-row items-center justify-center 2xl:w-[198px] 2xl:h-[101px] lg:w-[165px] lg:h-[80px] w-[145px] h-[65px] rounded-tl-[20px] rounded-tr-[20px] bg-primarybg absolute lg:top-[95%] md:top-[93%] top-[90%]">
           <ShopNowButton
             hasBorder={true}
-            hasFullWidth={false}
+            hasFullWidthInCard={false}
+            hasFullWidthInCallsection={false}
             hasDarkBack={true}
             inHeroSection={true}
             arrowIcon={true}

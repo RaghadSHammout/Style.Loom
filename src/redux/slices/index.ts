@@ -18,7 +18,7 @@ const initialState: NavState = {
   navLinks: [
     { label: "Home", path: "/" },
     { label: "Products", path: "/products" },
-     { label: "Dashboard", path: "/dashboard" },
+    { label: "Dashboard", path: "/dashboard" },
   ],
   btn: "Contact",
   mode: initialTheme,

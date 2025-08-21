@@ -1,31 +1,23 @@
-export enum ShowImageType {
-  one = "one",
-  two = "two",
-  three = "three",
-}
+import { ShowImageType, type CardsProps } from "../types";
 
-interface CardsProps {
-  img?: string;
-  img2?: string;
-  title: string;
-  description: string;
-  showimage: ShowImageType;
-  steps?: string;
-  index?: number;
-}
-
-function Cards({ img, img2, title, description, showimage, steps, index }: CardsProps) {
+function Cards({ img, img2, title, description, showimage, steps, index, className }: CardsProps) {
   return (
     <div
-      className={`border-2 border-dashed border-dark-15 w-full hover:translate-1.5 hover:shadow-xl/30
-      ${showimage === ShowImageType.one ? "p-[30px] sm:p-[50px] 2xl:p-[60px] sm:w-[29.6298611%] 2xl:w-[27.708333%] overflow-hidden" : ""}
-      ${showimage === ShowImageType.two ? 'p-[30px] sm:p-10  2xl:p-[50px] sm:w-[22.2222%]  2xl:w-[20.78125%]' : ''}
-      ${showimage === ShowImageType.three ? 'flex items-center gap-x-5 p-5 sm:p-[30px] 2xl:p-10 sm:w-[29.6298611%]  2xl:w-[27.708333%]' : ''}
-      ${showimage === ShowImageType.one && index !== undefined && index < 3 ? "sm:border-b-0" : ""}
-      ${showimage === ShowImageType.one && index !== undefined && (index === 1 || index === 4) ? "sm:border-l-0 sm:border-r-0" : ""}
-      ${showimage === ShowImageType.one && index !== undefined && (index === 1 || index === 2 || index === 3 || index === 4 || index === 5) ? "border-t-0 sm:border-t-2" : ""}
-      ${showimage === ShowImageType.two && index !== undefined && (index === 1 || index === 2 || index === 3) ? "sm:border-l-0 border-t-0 sm:border-t-2" : ""}
-      ${showimage === ShowImageType.three && index !== undefined && (index === 1 || index === 2) ? "sm:border-l-0 border-t-0 sm:border-t-2" : ""}
+      className={`  hover:translate-1.5 hover:shadow-xl/30
+        ${className}
+      ${showimage === ShowImageType.one ? "p-[30px] sm:p-[50px] 2xl:p-[60px]  overflow-hidden" : ""}
+      ${showimage === ShowImageType.two ? 'p-[30px] sm:p-10  2xl:p-[50px] ' : ''}
+      ${showimage === ShowImageType.three ? 'flex items-center gap-x-5 p-5 sm:p-[30px] 2xl:p-10 ' : ''}
+      ${showimage === ShowImageType.one && index !== undefined && index < 3 ? " xl:border-b-2  border-dashed border-dark-15" : ""}
+      ${showimage === ShowImageType.one && index !== undefined && index < 4 ? " md:border-b-2 xl:border-b-0 border-dashed border-dark-15" : ""}
+      ${showimage === ShowImageType.one && index !== undefined && index < 5 ? " border-b-2 md:border-b-0 border-dashed border-dark-15" : ""}
+      ${showimage === ShowImageType.one && index !== undefined && (index === 1 || index === 3 || index === 5) ? "md:border-l-2 xl:border-l-0 border-dashed border-dark-15 " : ""}
+      ${showimage === ShowImageType.one && index !== undefined && (index === 1 || index === 2 || index === 4 || index === 5) ? "xl:border-l-2  border-dashed border-dark-15 " : ""}
+      ${showimage === ShowImageType.two && index !== undefined && (index === 1 || index === 2 || index === 3) ? "xl:border-l-2 border-dashed border-dark-15 " : ""}
+      ${showimage === ShowImageType.two && index !== undefined && index < 3 ? " border-b-2 md:border-b-0 border-dashed border-dark-15" : ""}
+      ${showimage === ShowImageType.two && index !== undefined && (index === 1 || index === 3) ? " md:border-l-2 xl:border-l-0 border-dashed border-dark-15" : ""}
+      ${showimage === ShowImageType.two && index !== undefined && (index === 0 || index === 1) ? " md:border-b-2 xl:border-b-0 border-dashed border-dark-15" : ""}
+      ${showimage === ShowImageType.three && index !== undefined && (index === 0 || index === 1) ? "sm:border-r-2 border-b-2 xl:border-b-0 border-dashed border-dark-15 " : ""}
       `}
     >
       <div className="flex relative">

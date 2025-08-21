@@ -39,7 +39,7 @@ function ShopNowButton({
     ? "border border-Very-Dark-Gray border-dashed"
     : "border-0";
   const backgroundClass = hasDarkBack
-    ? "bg-dark-12 text-white"
+    ? "dark:bg-dark-12 bg-white dark:text-white"
     : "bg-brown-70 text-primarybg";
   const largerWidthClass = largerWidth
     ? "2xl:w-[181px] sm:w-[134px] w-[149px]"

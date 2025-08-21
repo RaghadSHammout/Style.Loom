@@ -35,7 +35,7 @@ useEffect(() => {
   }, [navigation.state]);
 
   return (
-    <div className="min-h-screen dark:bg-primarybg dark:text-white">
+    <div className="dark:bg-primarybg min-h-screen dark:text-white">
       {showBar && <TopBarLoader blur allowClicks={false} zIndexClass="z-[9999]" />}
       <NavBar />
       <Outlet />

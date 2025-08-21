@@ -137,7 +137,6 @@ function Home() {
         <ProductsHomeContainer products={filteredProducts} />
       </ReusableSection>
 
-      {/* Testimonials */}
       <ReusableSection {...sectionData3}>
         <TestmonialsCards />
       </ReusableSection>

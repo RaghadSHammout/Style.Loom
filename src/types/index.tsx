@@ -107,14 +107,16 @@ export interface GroupedCategory {
 }
 
 export interface ReusableSectionprops<T extends string = string>
-    extends Partial<FilterTabsProps<T>> {
-    image?: string;
-    alt?: string;
-    imgwidth?: string;
-    text?: string;
-    heading: string;
-    showTabs?: boolean;
-    children?: React.ReactNode;
+  extends Partial<FilterTabsProps<T>> {
+  image?: string;
+  alt?: string;
+  imgwidth?: string;
+hight?: string;
+  text?: string;
+  heading: string;
+  showTabs?: boolean;
+  children?: React.ReactNode;
+
 }
 
 export interface CallToActionProps {

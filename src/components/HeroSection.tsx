@@ -55,8 +55,9 @@ function HeroSection() {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 grid-cols-1 bg-primarybg w-full border-2 border-dark-15 border-t-0 border-dashed rounded-bl-[20px] rounded-br-[20px]">
-        <div className="2xl:px-[80px] xl:px-[60px] lg:px-[40px] lg:min-h-[450px] md:min-h-[420px] px-[20px] sm:py-[80px] pt-[50px] pb-[20px] sm:border-r-2 sm:border-b-0 border-b-2 border-dark-15 border-dashed">
+<div className="grid sm:grid-cols-2 grid-cols-1 w-full border-2 border-dark-15 border-t-0 border-dashed rounded-bl-[20px] rounded-br-[20px]">
+  <div className="2xl:px-[80px] xl:px-[60px] lg:px-[40px] lg:min-h-[450px] md:min-h-[420px] px-[20px] sm:py-[80px] pt-[50px] pb-[20px] sm:border-r-2 sm:border-b-0 border-b-2 border-dark-15 border-dashed">
+
           <div className="flex flex-row lg:gap-6 md:gab-4 gap-3">
             <FilterTabs<FilterType>
               tabs={["All", "Mens", "Womens", "Kids"]}

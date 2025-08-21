@@ -8,7 +8,8 @@ import { NavLink } from "react-router-dom";
 
 interface ShopNowButtonProps {
   hasBorder: boolean;
-  hasFullWidth: boolean;
+  hasFullWidthInCard: boolean;
+  hasFullWidthInCallsection: boolean;
   inHeroSection?: boolean;
   hasDarkBack: boolean;
   arrowIcon: boolean;
@@ -18,7 +19,8 @@ interface ShopNowButtonProps {
 
 function ShopNowButton({
   hasBorder,
-  hasFullWidth,
+  hasFullWidthInCard,
+  hasFullWidthInCallsection,
   inHeroSection,
   hasDarkBack,
   arrowIcon,
@@ -27,17 +29,23 @@ function ShopNowButton({
 }: ShopNowButtonProps) {
   const widthClass = inHeroSection
     ? "w-[128px]"
-    : hasFullWidth
+    : hasFullWidthInCard
     ? "w-full"
+    : hasFullWidthInCallsection
+    ? "lg:w-[128px] w-full"
     : "w-[128px]";
+
+
   const hasBorderClass = hasBorder
     ? "border border-Very-Dark-Gray border-dashed"
     : "border-0";
   const backgroundClass = hasDarkBack
-    ? "bg-dark-12"
+    ? "dark:bg-dark-12 bg-white dark:text-white"
     : "bg-brown-70 text-primarybg";
   const largerWidthClass = largerWidth
     ? "2xl:w-[181px] sm:w-[134px] w-[149px]"
+    : hasFullWidthInCallsection
+    ? "lg:w-[128px] w-full"
     : "2xl:w-[159px] sm:w-[128px]";
 
   return (

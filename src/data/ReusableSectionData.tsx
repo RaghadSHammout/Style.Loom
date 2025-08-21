@@ -5,6 +5,7 @@ import AbstractContact from "../assets/images/contact/Abstract Design.webp";
 import AbstractProducts from "../assets/images/Products/AbstractProducts.png"
 import AbstractData from "../assets/images/home/AbstractData.png"
 
+
 export const baseSectionData = {
   image: Abstract1,
   alt: "Abstract1",
@@ -46,6 +47,7 @@ export const baseFaqData = {
   alt: "Abstract1",
   hight: "2xl:h-[386px] lg:h-[302px] ",
   imgwidth:"2xl:h-[370px]  lg:h-[280px]",
+
   heading: "Have Questions? We Have Answers.",
   text: "Ease into the world of StyleLoom with clarity. Our FAQs cover a spectrum of topics.",
   tabs: ["All", "Ordering", "Shipping", "Returns", "Support"],
@@ -70,4 +72,13 @@ export const SectionDataProducts = {
   heading: "Explore the Latest Trends and Timeless Classics",
   text: "Dive into the world of fashion excellence at StyleLoom. Our curated selection brings together the latest trends and timeless classics",
   showTabs: true,
+
 };
+<!-- export const ProductsSection = {
+  image: Abstract1,
+  alt: "Abstract1",
+  imgwidth: "h-[316px] max-2xl:h-[446px]",
+  heading: "Explore the Latest Trends and Timeless Classics",
+  text: "Dive into the world of fashion excellence at StyleLoom. Our curated selection brings together the latest trends and timeless classics",
+  showTabs: true,
+} -->

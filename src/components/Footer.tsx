@@ -6,11 +6,6 @@ import twitterIcon from '../assets/images/home/twitter.png'
 import logo from '../assets/images/home/Logo.png'
 import arrow from '../assets/images/home/arrow.png'
 
-
-
-
-
-
 export default function () {
   return (
     <>

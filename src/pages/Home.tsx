@@ -20,13 +20,14 @@ import type { RootState } from "../redux/store";
 import type { FilterType } from "../types";
 import { setActiveType } from "../redux/slices/productSlice";
 import { ProductTabsData } from "../data/FilterTabsData";
-import ProductCard from "../components/ProductCard";
 import type { FilterFaqType } from "../types";
 import { tabsFaq } from "../data/FilterTabsData";
 import { setActiveTab } from "../redux/questions";
+import ProductsHomeContainer from "../components/ProductsHomeContainer";
+
 function Home() {
   const cardOne = useSelector((state: RootState) => state.cards.cardone);
-  const Card2   = useSelector((state: RootState) => state.cards.cardtwo);
+  const Card2 = useSelector((state: RootState) => state.cards.cardtwo);
 
   const [showbtn, setshowbtn] = useState<boolean>(false);
   const [numbercard, setnumbercard] = useState<number>(6);
@@ -80,12 +81,12 @@ function Home() {
     onChange: (tab: FilterFaqType) => faqDispatch(setActiveTab(tab)),
   };
   return (
-    <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
+    <div className="2xl:px-[162px] lg:px-[80px] px-[16px] pt-[183.8px] max-2xl:pt-[137px] max-md:pt-[146px]">
       <HeroSection />
       <ReusableSection {...sectionData1}>
 
-        <div className="flex flex-wrap justify-center">
-          {cardOne.slice(0, numbercard).map((item, index) => (
+<div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">
+            {cardOne.slice(0, numbercard).map((item, index) => (
             <Cards
               key={item.id ?? index}
               index={index}
@@ -103,11 +104,10 @@ function Home() {
               onClick={showallcards}
             >
               {numbercard <= 3 ? " View All" : " less All"}
-             
+
               <IoIosArrowRoundDown
-                className={`text-gray-70 transform transition-transform duration-500 ${
-                  numbercard <= 3 ? "" : "rotate-180"
-                } hover:translate-8`}
+                className={`text-gray-70 transform transition-transform duration-500 ${numbercard <= 3 ? "" : "rotate-180"
+                  } hover:translate-8`}
               />
             </button>
           )}
@@ -134,14 +134,9 @@ function Home() {
 
       {/* Products */}
       <ReusableSection {...sectionData}>
-        <div className="grid grid-cols-1 my-media:grid-cols-2 2xl:grid-cols-3 gap-[0] place-items-center">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} {...product} />
-          ))}
-        </div>
+        <ProductsHomeContainer products={filteredProducts} />
       </ReusableSection>
 
-      {/* Testimonials */}
       <ReusableSection {...sectionData3}>
         <TestmonialsCards />
       </ReusableSection>

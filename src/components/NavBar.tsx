@@ -11,7 +11,6 @@ import { logo, market, HamburgerMenu } from "../data/NavImg";
 function NavBar() {
   const { navLinks, btn } = useSelector((state: RootState) => state.nav);
 
-  // منطق السلة
   const [subtotal, setSubtotal] = useState<number>(100);
   const [discount, setDiscount] = useState<number>(0);
   const [total, setTotal] = useState<number>(subtotal);
@@ -44,7 +43,6 @@ function NavBar() {
             : "shadow-none bg-white dark:bg-primarybg"
         }`}
     >
-      {/* زخارف اليسار */}
       <div
         className={`w-[70px] h-[70px] relative flex justify-center items-center mr-[30px]
           max-2xl:w-[46px] max-2xl:h-[46px] max-2xl:mr-5 max-xl:hidden
@@ -54,13 +52,11 @@ function NavBar() {
         <div className="absolute top-1/2 right-0 h-[40px] w-[40px] -translate-y-1/2 border-r border-dashed border-Very-Dark-Gray max-2xl:w-[26.29px] max-2xl:h-[26.29px]" />
       </div>
 
-      {/* المحتوى */}
       <div
         className={`font-robotmono w-full flex justify-between items-center min-h-[96px] font-normal text-lg leading-[1.5] opacity-100 tracking-normal text-center p-[30px] relative max-2xl:p-6 max-lg:pt-10 max-lg:pb-5 max-lg:px-0 max-2xl:text-sm ${
           scrolled ? "shadow-none" : "border-dashed border-b border-dark-15"
         }`}
       >
-        {/* روابط */}
         <div
           className={`flex items-center gap-[14px] transition-all duration-300 ease-in-out z-10 ${
             menuOpen
@@ -85,12 +81,10 @@ function NavBar() {
           ))}
         </div>
 
-        {/* الشعار */}
         <div className={`${menuOpen ? "max-lg:hidden" : ""}`}>
           <NavLink to={""}>{logo}</NavLink>
         </div>
 
-        {/* أزرار يمين */}
         <div className={`flex gap-3.5 justify-center items-center ${menuOpen ? "max-lg:flex" : "max-lg:hidden"}`}>
           <button
             className={`bg-dark-10 text-white shadow-xl hover:-translate-y-0.5 p-[18px] rounded-[12px] opacity-100 flex justify-center items-center max-2xl:p-[14px] max-2xl:rounded-[8px] max-2xl:h-[48px] max-2xl:w-[48px] ${
@@ -127,7 +121,6 @@ function NavBar() {
           </div>
         </div>
 
-        {/* زر الموبايل */}
         <div
           onClick={() => setMenuOpen(!menuOpen)}
           className="lg:hidden max-lg:flex flex justify-center items-center rotate-0 opacity-100 rounded-[10px] p-[14px] bg-[#C2B4A3]"
@@ -136,7 +129,6 @@ function NavBar() {
         </div>
       </div>
 
-      {/* زخارف اليمين */}
       <div
         className={`w-[70px] h-[70px] relative flex justify-center items-center ml-[30px]
           max-2xl:w-[46px] max-2xl:h-[46px] max-2xl:ml-5 max-xl:hidden
@@ -146,7 +138,6 @@ function NavBar() {
         <div className="absolute top-1/2 left-0 h-[40px] w-[40px] -translate-y-1/2 border-l border-dashed border-Very-Dark-Gray max-2xl:w-[26.29px] max-2xl:h-[26.29px]" />
       </div>
 
-      {/* مودال السلة */}
       {isOpenPop && (
         <div className="p-4 w-full h-screen bg-dark-15 fixed inset-0 z-[10000] flex justify-center items-center">
           <div className="border-2 border-dashed border-gray-40 rounded-3xl 2xl:p-10 p-2.5">

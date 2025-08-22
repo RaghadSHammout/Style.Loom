@@ -74,11 +74,11 @@ export const SectionDataProducts = {
   showTabs: true,
 
 };
-<!-- export const ProductsSection = {
+ export const ProductsSection = {
   image: Abstract1,
   alt: "Abstract1",
   imgwidth: "h-[316px] max-2xl:h-[446px]",
   heading: "Explore the Latest Trends and Timeless Classics",
   text: "Dive into the world of fashion excellence at StyleLoom. Our curated selection brings together the latest trends and timeless classics",
   showTabs: true,
-} -->
+}

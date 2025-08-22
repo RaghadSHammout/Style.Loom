@@ -26,7 +26,7 @@ function CallToAction({ heading, text, image, alt }: CallToActionProps) {
           {text}
         </p>
       </div>
-      <div className="text-white flex items-center justify-center 2xl:w-[198px] 2xl:h-[101px] lg:w-[165px] lg:h-[80px] w-full h-[65px] rounded-tl-[20px] rounded-tr-[20px] z-10">
+      <div className="text-black dark:text-white flex items-center justify-center 2xl:w-[198px] 2xl:h-[101px] lg:w-[165px] lg:h-[80px] w-full h-[65px] rounded-tl-[20px] rounded-tr-[20px] z-10">
         <ShopNowButton
           hasBorder={false}
           hasFullWidthInCard={false}

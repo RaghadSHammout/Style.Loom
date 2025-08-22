@@ -9,7 +9,7 @@ export default function FilterTabs<T extends string>({
 }: FilterTabsProps<T>) {
     return (
         <div className={`FilterTabs flex items-center gap-[10px] 2xl:gap-[14px]   
-        ${type === 'Hero' ? 'flex-wrap ' : 'overflow-x-auto scroll-smooth w-full'}`}>
+        ${type === 'Hero' ? 'flex-wrap ' : 'overflow-x-auto sm:overflow-x-visible scroll-smooth w-full'}`}>
             {
                 tabs.map((tab) => {
                     return (

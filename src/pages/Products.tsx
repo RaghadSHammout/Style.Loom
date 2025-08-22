@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import ReusableSection from "../components/ReusableSection"
 import { ProductTabsData } from "../data/FilterTabsData";
-import { ProductsSection } from "../data/ReusableSectionData";
+import { SectionDataProducts } from "../data/ReusableSectionData";
 import type { RootState } from "../redux/store";
 import type { FilterType } from "../types";
 import { setFilteredSections } from "../redux/slices/productSlice";
@@ -24,8 +24,8 @@ function Products() {
     dispatch(setFilteredSections(activeTab));
   }, [dispatch]);
 
-  const sectionProductsData = {
-    ...ProductsSection,
+  const ProductsSection = {
+    ...SectionDataProducts,
     tabs: ProductTabsData,
     activeTab,
     onChange: handleTabChange,
@@ -35,7 +35,7 @@ function Products() {
   return (
 
     <div className="p-[16px] md:p[80px] 2xl:p-[162px] ">
-      <ReusableSection {...sectionProductsData}>
+      <ReusableSection {...ProductsSection}>
         {sections.map((section) => (
           <ProductsContainer
             key={section.category}

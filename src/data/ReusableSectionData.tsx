@@ -74,6 +74,7 @@ export const SectionDataProducts = {
   showTabs: true,
 
 };
+
  export const ProductsSection = {
   image: Abstract1,
   alt: "Abstract1",

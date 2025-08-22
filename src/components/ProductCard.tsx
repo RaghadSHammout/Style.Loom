@@ -5,7 +5,7 @@ import ShopNowButton from "./ShopNowButton";
 import { motion } from 'framer-motion';
 
 
-export default function ProductCard({ id, ProductImage, category, ProductName, Fitvalue, Pricevalue }: ProductCardProps) {
+export default function ProductCard({ id, ProductImage, category, ProductName, Fitvalue, Pricevalue, borderClass }: ProductCardProps) {
     return (
         <Link to={`/product/${id}`} className="block" >
             <motion.div
@@ -13,7 +13,7 @@ export default function ProductCard({ id, ProductImage, category, ProductName, F
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`ProductCard  hover:translate-1.5 hover:shadow-xl/30  hover:border-transparent  flex  flex-col gap-[20px] md:gap-[24px] 2xl:gap-[30px] h-full max-w-[358px] sm:max-w-[426.67px] 2xl:max-w-[532px]  px-[20px] pt-[20px] pb-[30px] 2xl:p-[30px] border-[1px] md:border-[1.5px] 2xl:border-2 border-dashed border-dark-15`}
+                className={`ProductCard  hover:translate-1.5 hover:shadow-xl/30 ${borderClass ?? ''} hover:border-transparent  flex  flex-col gap-[20px] md:gap-[24px] 2xl:gap-[30px] h-full max-w-[358px] sm:max-w-[426.67px] 2xl:max-w-[532px]  px-[20px] pt-[20px] pb-[30px] 2xl:p-[30px] border-[1px] md:border-[1.5px] 2xl:border-2 border-dashed border-dark-15`}
             >
                 <img src={ProductImage} alt="ProductImage" className="w-full" />
                 <div className="flex flex-col gap-[20px] md:gap-[16px] 2xl:gap-[20px] w-full">

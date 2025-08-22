@@ -60,6 +60,7 @@ export interface ProductCardProps {
     ProductName: string;
     Fitvalue: string;
     Pricevalue: string;
+    borderClass?: string; 
 }
 
 export interface FitPriceRowProps {
@@ -153,7 +154,8 @@ export interface CardsProps {
 
 export interface ActionButtonProps {
     Label: string;
-    IconImage: string;
+    IconImage?: string;
+    IconImage2?:React.ElementType;
     onClick?: () => void;
     hasFullWidth: boolean;
     hasNoBorder: boolean;

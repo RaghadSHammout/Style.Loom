@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // Dashboard.tsx
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -296,4 +294,3 @@ export default function Dashboard() {
     </div>
   );
 }
->>>>>>> 1416520e0e2c82a881a86035c55b7f2a3b889adf

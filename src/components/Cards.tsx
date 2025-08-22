@@ -45,6 +45,7 @@ function Cards({ img, img2, title, description, showimage, steps, index, classNa
 
         <h3
           className={`font-roboto font-medium dark:text-white text-primarybg mb-2.5 sm:mb-3 2xl:mb-[16px] leading-[150%] ${(showimage === ShowImageType.one || showimage === ShowImageType.three) ? 'text-lg sm:text-xl 2xl:text-2xl ' : ""}
+
             ${showimage === ShowImageType.two ? 'text-xl sm:text-[22px] 2xl:text-[28px]' : ''}`}
         >
           {title}

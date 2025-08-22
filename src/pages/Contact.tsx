@@ -1,24 +1,28 @@
-import { useSelector } from "react-redux"
-import Cards from "../components/Cards"
-import ReusableSectionTwo from "../components/ReusableSectionTwo"
-import { ShowImageType } from "../types"
-import CardContact from "../components/CardContact"
+import { useSelector } from "react-redux";
+import Cards from "../components/Cards";
+import ReusableSectionTwo from "../components/ReusableSectionTwo";
+import { ShowImageType } from "../types";
+import CardContact from "../components/CardContact";
 import { sectionContactData } from "../data/ReusableSectionData";
-import ReusableSection from "../components/ReusableSection"
-import PageTransitionWrapper from "../components/PageTransitionWrapper"
+import ReusableSection from "../components/ReusableSection";
+import PageTransitionWrapper from "../components/PageTransitionWrapper";
+import type { RootState } from "../redux/store";
 
 function Contact() {
-  const Card3 = useSelector(((state: any) => state.cards.cardthree))
-  const contact = useSelector(((state: any) => state.CardContact.list))
+  const Card3 = useSelector((state: RootState) => state.cards.cardthree);
+  const contact = useSelector((state: RootState) => state.CardContact.list);
+
   return (
     <PageTransitionWrapper>
-      <section className="2xl:px-[162px] lg:px-[80px] px-[16px]">
+      <section className="2xl:px-[162px] lg:px-[80px] px-[16px] pt-[223px] max-2xl:pt-[177px] max-md:pt-[166px]">
         <ReusableSection {...sectionContactData}>
-          <h3 className="hidden sm:block p-10 2xl:p-[50px] font-roboto font-medium text-2xl 2xl:text-3xl text-white border-b-2 border-dashed border-dark-15">Contact Information</h3>
-          <div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">
-            {
-              Array.isArray(contact) &&
-              contact.map((item, index, arr) => (
+          <h3 className="hidden sm:block p-10 2xl:p-[50px] font-roboto font-medium text-2xl 2xl:text-3xl dark:text-white text-primarybg border-b-2 border-dashed border-dark-15">
+            Contact Information
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+            {Array.isArray(contact) &&
+              contact.map((item: any, index: number, arr: any[]) => (
                 <CardContact
                   key={index}
                   index={item.id}
@@ -32,17 +36,15 @@ function Contact() {
                       : ""
                   }
                 />
-              ))
-            }
+              ))}
           </div>
         </ReusableSection>
-        <div >
-          <ReusableSectionTwo
-            title="Return Policy"
-            btn="Read Return Policy">
-            <div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">
+
+        <div>
+          <ReusableSectionTwo title="Return Policy" btn="Read Return Policy">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
               {Array.isArray(Card3) &&
-                Card3.slice(0, 3).map((item, index, arr) => (
+                Card3.slice(0, 3).map((item: any, index: number, arr: any[]) => (
                   <Cards
                     key={index}
                     index={index}
@@ -56,16 +58,17 @@ function Contact() {
                         : ""
                     }
                   />
-                ))
-              }
+                ))}
             </div>
           </ReusableSectionTwo>
+
           <ReusableSectionTwo
             title="Cancellation Policy"
-            btn="Read Cancellation Policy ">
-            <div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">
+            btn="Read Cancellation Policy "
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
               {Array.isArray(Card3) &&
-                Card3.slice(3, 6).map((item, index, arr) => (
+                Card3.slice(3, 6).map((item: any, index: number, arr: any[]) => (
                   <Cards
                     key={index}
                     index={index}
@@ -79,16 +82,13 @@ function Contact() {
                         : ""
                     }
                   />
-                ))
-              }
+                ))}
             </div>
           </ReusableSectionTwo>
         </div>
-
-
       </section>
     </PageTransitionWrapper>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

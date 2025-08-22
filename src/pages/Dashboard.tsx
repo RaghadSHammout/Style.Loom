@@ -1,4 +1,3 @@
-// Dashboard.tsx
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -161,7 +160,7 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="min-h-screen font-roboto px-6 sm:px-10 lg:px-20 py-12">
+    <div className="min-h-screen font-roboto px-6 sm:px-10 lg:px-20 py-[200px]">
       <header className="mb-12 text-center">
         <h1 className="text-5xl font-extrabold tracking-tight mb-2 text-brown-70">
           Dashboard

@@ -3,7 +3,7 @@ import ShopNowButton from "./ShopNowButton";
 function CallToAction({ heading, text, image, alt }: CallToActionProps) {
   return (
     <div
-      className="relative overflow-hidden bg-brown-70  flex items-center justify-between gap-[150px] rotate-0 opacity-100  rounded-[20px]  py-[100px] pr-[142px] pl-[100px] 
+      className="relative overflow-hidden bg-brown-70  flex items-center justify-between gap-[150px] rotate-0 opacity-100  rounded-[20px] mb-[100px]  py-[100px] pr-[142px] pl-[100px] 
    max-2xl:rounded-[16px] 
   max-2xl:pr-[120px] 
   max-2xl:pl-[80px]

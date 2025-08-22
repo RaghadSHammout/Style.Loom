@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import ButtonLightDark from "./ButtonLightDark";
@@ -10,12 +10,18 @@ import { logo, market, HamburgerMenu } from "../data/NavImg";
 function NavBar() {
   const { navLinks, btn } = useSelector((state: RootState) => state.nav);
 
-  const [isOpenPop, setisOpenPop] = useState<boolean>(false);
+  const [isOpenPop, setIsOpenPop] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const [showAnim, setShowAnim] = useState(false);
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -24,36 +30,37 @@ function NavBar() {
   }, []);
 
   useEffect(() => {
-    if (isOpenPop) {
-      const prev = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      // next tick -> animate
-      const t = requestAnimationFrame(() => setShowAnim(true));
-      // focus trap start focus
-      const tf = setTimeout(() => closeBtnRef.current?.focus(), 40);
-      return () => {
-        document.body.style.overflow = prev;
-        cancelAnimationFrame(t);
-        clearTimeout(tf);
-        setShowAnim(false);
-      };
-    }
+    if (!isOpenPop) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const raf = requestAnimationFrame(() => setShowAnim(true));
+    const tf = setTimeout(() => closeBtnRef.current?.focus(), 40);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      cancelAnimationFrame(raf);
+      clearTimeout(tf);
+      setShowAnim(false);
+    };
   }, [isOpenPop]);
 
   useEffect(() => {
     if (!isOpenPop) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setisOpenPop(false);
+      if (e.key === "Escape") setIsOpenPop(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpenPop]);
 
-  const OpenPop = () => setisOpenPop(true);
+  const handleCloseMenu = () => setMenuOpen(false);
+  const openCart = () => {
+    setIsOpenPop(true);
+    handleCloseMenu();
+  };
 
   return (
     <nav
-      className={`w-full flex justify-center items-center px-[62px]
+      className={`w-full flex justify-center items-end px-[62px]
         max-2xl:px-3.5 max-lg:px-4 fixed top-0 left-0 right-0 z-[1000]
         ${
           scrolled
@@ -63,8 +70,8 @@ function NavBar() {
     >
       <div
         className={`w-[70px] h-[70px] relative flex justify-center items-center mr-[30px]
-          max-2xl:w-[46px] max-2xl:h-[46px] max-2xl:mr-5 max-xl:hidden
-          ${scrolled ? "invisible" : ""}`}
+                    max-2xl:w-[46px] max-2xl:h-[46px] max-2xl:mr-5 max-xl:hidden 
+                    ${scrolled ? "hidden" : ""}`}
       >
         <div className="absolute bottom-0 left-0 h-0 w-[40px] border-b border-dashed border-Very-Dark-Gray max-2xl:w-[26.29px]" />
         <div className="absolute top-1/2 right-0 h-[40px] w-[40px] -translate-y-1/2 border-r border-dashed border-Very-Dark-Gray max-2xl:w-[26.29px] max-2xl:h-[26.29px]" />
@@ -86,6 +93,7 @@ function NavBar() {
             <NavLink
               key={path}
               to={path}
+              onClick={handleCloseMenu}
               className={({ isActive }) =>
                 `h-[63px] flex hover:-translate-y-0.5 hover:shadow-lg rounded-[12px] max-2xl:rounded-[8px] max-2xl:h-[49px] max-lg:w-full ${
                   isActive
@@ -99,25 +107,31 @@ function NavBar() {
           ))}
         </div>
 
+        {/* Logo */}
         <div className={`${menuOpen ? "max-lg:hidden" : ""}`}>
-          <NavLink to={""}>{logo}</NavLink>
+          <NavLink to="/" onClick={handleCloseMenu}>
+            {logo}
+          </NavLink>
         </div>
 
+        {/* Right controls (Cart + CTA + Theme) */}
         <div
           className={`flex gap-3.5 justify-center items-center ${
             menuOpen ? "max-lg:flex" : "max-lg:hidden"
           }`}
         >
+          {/* Cart button */}
           <button
             className={`relative bg-dark-10 text-white shadow-xl hover:-translate-y-0.5 p-[18px] rounded-[12px] opacity-100 flex justify-center items-center max-2xl:p-[14px] max-2xl:rounded-[8px] max-2xl:h-[48px] max-2xl:w-[48px] ${
               menuOpen ? "max-lg:h-[56px] max-lg:w-[56px]" : ""
             }`}
-            onClick={OpenPop}
+            onClick={openCart}
             aria-label="Open cart"
           >
             {market}
           </button>
 
+          {/* CTA */}
           <button
             className={`${
               menuOpen
@@ -126,6 +140,7 @@ function NavBar() {
             }`}
           >
             <NavLink
+              onClick={handleCloseMenu}
               to={"/contact"}
               className={`shadow-xl hover:-translate-y-0.5 w-[136px] h-[63px] flex justify-center items-center bg-brown-60 text-primarybg px-[30px] py-[18px] rounded-[12px] max-2xl:py-[14px] max-2xl:rounded-[8px] max-2xl:h-[49px] max-2xl:w-[119px] max-lg:w-full`}
             >
@@ -133,6 +148,7 @@ function NavBar() {
             </NavLink>
           </button>
 
+          {/* Theme toggle */}
           <div
             className={`${
               menuOpen
@@ -144,8 +160,9 @@ function NavBar() {
           </div>
         </div>
 
+        {/* Mobile menu toggle */}
         <div
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen((v) => !v)}
           className="lg:hidden max-lg:flex flex justify-center items-center rotate-0 opacity-100 rounded-[10px] p-[14px] bg-[#C2B4A3]"
           aria-label="Toggle menu"
         >
@@ -153,25 +170,29 @@ function NavBar() {
         </div>
       </div>
 
+      {/* Right decoration */}
       <div
-        className={`w-[70px] h-[70px] relative flex justify-center items-center ml-[30px]
-          max-2xl:w-[46px] max-2xl:h-[46px] max-2xl:ml-5 max-xl:hidden
-          ${scrolled ? "invisible" : ""}`}
+        className={`w-[70px] h-[70px] relative flex justify-center items-center ml-[30px] max-2xl:w-[46px] max-2xl:h-[46px] max-2xl:ml-5 max-xl:hidden ${
+          scrolled ? "hidden" : ""
+        }`}
       >
         <div className="absolute bottom-0 right-0 w-[40px] h-0 border-b border-dashed border-Very-Dark-Gray max-2xl:w-[26.29px]" />
         <div className="absolute top-1/2 left-0 h-[40px] w-[40px] -translate-y-1/2 border-l border-dashed border-Very-Dark-Gray max-2xl:w-[26.29px] max-2xl:h-[26.29px]" />
       </div>
 
+      {/* Centered Cart Popup (always empty state for now) */}
       {isOpenPop && (
         <div className="fixed inset-0 z-[10000] flex items-center justify-center" role="dialog" aria-modal="true">
+          {/* Backdrop with fade */}
           <button
-            onClick={() => setisOpenPop(false)}
+            onClick={() => setIsOpenPop(false)}
             aria-label="Close cart backdrop"
             className={`absolute inset-0 transition-opacity duration-300 ${
               showAnim ? "opacity-100" : "opacity-0"
             } bg-black/40 backdrop-blur-[2px]`}
           />
 
+          {/* Modal with scale+opacity */}
           <div
             className={`relative w-[min(92vw,520px)] rounded-3xl bg-dark-12 border border-dashed border-gray-40 shadow-2xl transition-[transform,opacity] duration-300 ease-out ${
               showAnim ? "opacity-100 scale-100" : "opacity-0 scale-95"
@@ -182,7 +203,7 @@ function NavBar() {
               <h3 className="font-robotmono text-lg 2xl:text-2xl text-white">Shopping Cart</h3>
               <button
                 ref={closeBtnRef}
-                onClick={() => setisOpenPop(false)}
+                onClick={() => setIsOpenPop(false)}
                 className="p-2 rounded-lg hover:bg-dark-20 text-gray-80 focus:outline-none focus:ring-2 focus:ring-brown-70"
                 aria-label="Close cart"
                 title="Close"
@@ -200,15 +221,15 @@ function NavBar() {
 
               <div className="mt-8 grid grid-cols-2 gap-3">
                 <button
-                  onClick={() => setisOpenPop(false)}
+                  onClick={() => setIsOpenPop(false)}
                   className="h-12 rounded-2xl border border-dashed border-gray-40 text-white hover:bg-dark-20"
                 >
                   Continue shopping
                 </button>
                 <NavLink
                   to="/shop"
+                  onClick={() => setIsOpenPop(false)}
                   className="h-12 rounded-2xl bg-brown-70 text-dark-10 hover:opacity-90 flex items-center justify-center"
-                  onClick={() => setisOpenPop(false)}
                 >
                   Go to shop
                 </NavLink>

@@ -34,13 +34,11 @@ function ShopNowButton({
     : hasFullWidthInCallsection
     ? "lg:w-[128px] w-full"
     : "w-[128px]";
-
-
   const hasBorderClass = hasBorder
     ? "border border-Very-Dark-Gray border-dashed"
     : "border-0";
   const backgroundClass = hasDarkBack
-    ? "dark:bg-dark-12 bg-white dark:text-white"
+    ? "dark:bg-dark-12 dark:text-white bg-white text-primarybg"
     : "bg-brown-70 text-primarybg";
   const largerWidthClass = largerWidth
     ? "2xl:w-[181px] sm:w-[134px] w-[149px]"

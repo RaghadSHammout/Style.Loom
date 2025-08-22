@@ -83,7 +83,8 @@ function Home() {
   };
   return (
     <PageTransitionWrapper>
-      <div className="2xl:px-[162px] lg:px-[80px] px-[16px]">
+<div className="pt-[223px] max-lg:pt-[185px] max-md:pt-[166px] pb-[100px] max-lg:pb-[80px] max-md:pb-[50px] 2xl:px-[162px] lg:px-[80px] px-[16px]">
+
         <HeroSection />
         <ReusableSection {...sectionData1}>
 

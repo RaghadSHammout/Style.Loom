@@ -11,7 +11,7 @@ export default function ProductOpen() {
     );
     return (
         <PageTransitionWrapper>
-            <div className="p-[16px] md:p-[80px] 2xl:p-[162px]">
+<div className="pt-[223px] max-lg:pt-[185px] max-md:pt-[166px] pb-[100px] max-lg:pb-[80px] max-md:pb-[50px] 2xl:px-[162px] lg:px-[80px] px-[16px]">
                 {product && <ProductDetails {...product} />}
 
             </div>

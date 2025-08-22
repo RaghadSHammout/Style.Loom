@@ -14,7 +14,8 @@ function Contact() {
 
   return (
     <PageTransitionWrapper>
-      <section className="2xl:px-[162px] lg:px-[80px] px-[16px] pt-[223px] max-2xl:pt-[177px] max-md:pt-[166px]">
+      <section className="pt-[223px] max-lg:pt-[185px] max-md:pt-[166px] pb-[100px] max-lg:pb-[80px] max-md:pb-[50px] 2xl:px-[162px] lg:px-[80px] px-[16px]">
+
         <ReusableSection {...sectionContactData}>
           <h3 className="hidden sm:block p-10 2xl:p-[50px] font-roboto font-medium text-2xl 2xl:text-3xl dark:text-white text-primarybg border-b-2 border-dashed border-dark-15">
             Contact Information

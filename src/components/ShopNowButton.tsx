@@ -35,9 +35,8 @@ function ShopNowButton({
     ? "lg:w-[128px] w-full"
     : "w-[128px]";
 
-
   const hasBorderClass = hasBorder
-    ? "border border-Very-Dark-Gray border-dashed"
+    ? "border border-Very-Dark-Gray border-dashed hover:border-0"
     : "border-0";
   const backgroundClass = hasDarkBack
     ? "dark:bg-dark-12 bg-white dark:text-white"
@@ -51,7 +50,7 @@ function ShopNowButton({
   return (
     <NavLink
       to="#"
-      className={`relative flex flex-row items-center justify-center 2xl:h-[63px] h-[49px] rounded-xl text-sm 2xl:text-lg font-normal font-roboto cursor-pointer
+      className={`relative flex flex-row items-center justify-center hover:bg-brown-70 hover:text-primarybg hover:border border-Very-Dark-Gray border-dashed 2xl:h-[63px] h-[49px] rounded-xl text-sm 2xl:text-lg font-normal font-roboto cursor-pointer
         ${hasBorderClass}
         ${widthClass} ${backgroundClass} ${largerWidthClass} `}
     >

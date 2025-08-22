@@ -11,7 +11,7 @@ export default function ProductDetails({ ProductName, designSummary, Status, ima
         <div className="flex flex-col rounded-[20px] border-[1.5px] 2xl:border-2 border-dashed border-dark-15  ">
             <div className="ProductDetails-Top flex flex-col md:flex-row flex-wrap md:justify-between items-start gap-[40px] 2xl:gap-[50px] py-[30px] px-[20px] sm:p-[60px] 2xl:p-[80px] border-b-[1.5px] 2xl:border-b-2 border-dashed border-dark-15">
                 <div className="flex flex-col gap-[6px] sm:gap-[10px] 2xl:gap-[14px]">
-                    <h2 className="font-medium text-[28px] sm:text-[38px] text-5xl leading-[100%] font-roboto text-white">
+                    <h2 className="font-medium text-[28px] sm:text-[38px] text-5xl leading-[100%] font-roboto dark:text-white text-dark-12">
                         {ProductName}
                     </h2>
                     <div className="flex flex-wrap items-center gap-[12px] 2xl:gap-[16px]">
@@ -32,7 +32,8 @@ export default function ProductDetails({ ProductName, designSummary, Status, ima
                     />
                     <ShopNowButton
                         hasBorder={false}
-                        hasFullWidth={false}
+                        hasFullWidthInCard={false}
+                        hasFullWidthInCallsection={false}
                         hasDarkBack={false}
                         inHeroSection={false}
                         arrowIcon={false}
@@ -44,7 +45,7 @@ export default function ProductDetails({ ProductName, designSummary, Status, ima
             </div>
             <div className="ProductDetails-Bottom">
                 <div className="Top-Side w-full border-b-[1.5px] 2xl:border-b-2 border-dashed border-dark-15 flex flex-col md:flex-row gap-[20px] 2xl:gap-[30px] ">
-                    <div className="p-[10px] md:p-[30px] 2xl:py-[50px] 2xl:px-[30px] w-full md:max-w-[742px] 2xl:max-w-[1084px] border-r-2 border-dashed border-dark-15">
+                    <div className="p-[10px] md:p-[30px] 2xl:py-[50px] 2xl:px-[30px] w-full md:max-w-[742px] 2xl:max-w-[1084px] border-r-[1.5px] 2xl:border-r-2 border-dashed border-dark-15">
                         <img src={image1} alt="image1" className="w-full h-[210px] md:h-[451px] 2xl:h-[604px] " />
                     </div>
                     <div className=" flex flex-row md:flex-col gap-[20px] md:gap-[20px] 2xl:gap-[30px] p-[10px] md:px-0 md-py-[30px] 2xl:p-[50px] w-full ">

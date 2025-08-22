@@ -198,3 +198,16 @@ export interface productsContainerProps {
     products: ProductCardProps[];
 
 }
+export interface InfinitScrollProps {
+    contentsBar: string[];
+}
+export interface FooterMediaProps {
+    AllMedia: string[];
+
+}
+export interface FooterColumnProps {
+    ColumnLink: string;
+    items?: string[];
+    isSubscrbe: boolean
+
+}

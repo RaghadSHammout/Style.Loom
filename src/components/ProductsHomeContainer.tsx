@@ -23,7 +23,7 @@ export default function ProductsHomeContainer({ products }: { products: ProductC
     const displayedProducts = isSmallScreen && !showAll ? products.slice(0, 3) : products;
     return (
         <div className="flex flex-col">
-            <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-[0] place-items-center items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[0] place-items-center items-stretch">
                 {displayedProducts.map((product) => (
                     <ProductCard key={product.id} {...product} />
                 ))}

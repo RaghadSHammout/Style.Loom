@@ -27,7 +27,7 @@ function Cards({ img, img2, title, description, showimage, steps, index, classNa
           <img
             src={img2}
             alt="background image"
-            className="absolute right-[-30px] sm:right-[-50px] 2xl:right-[-60px] top-[-80px] sm:top-[-67px] 2xl:top-[-60px]"
+            className="absolute right-[-30px] sm:right-[-50px] 2xl:right-[-60px] top-[-57px] sm:top-[-67px] 2xl:top-[-60px] w-[184px]"
           />
         }
       </div>

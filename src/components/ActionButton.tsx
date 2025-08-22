@@ -8,10 +8,10 @@ import type { ActionButtonProps } from "../types";
 export default function ActionButton({ Label, IconImage, onClick, hasFullWidth, hasNoBorder }: ActionButtonProps) {
     return (
         <button
-            className={`relative flex justify-center items-center gap-[4px] py-[14px] px-[20px] 2xl:py-[18px] 2xl:px-[24px] rounded-[8px] 2xl:rounded-[12px] border border-dashed border-Very-Dark-Gray bg-dark-12 h-[49px] 2xl:h-[63px] cursor-pointer
-                font-normal text-sm  2xl:text-lg leading-[150%] font-roboto text-white 
+            className={`relative flex justify-center items-center gap-[4px]  rounded-[8px] lg:rounded-[12px]  border-dashed border-Very-Dark-Gray  h-[49px] 2xl:h-[63px] cursor-pointer
+                font-normal text-sm  2xl:text-lg leading-[150%] font-roboto 
                 ${hasFullWidth ? "w-full sm:w-auto" : "w-auto"}
-                ${hasNoBorder ? "py-[30px] px-[20px] gap-[10px] border-dark-20" : ""}`}
+                ${hasNoBorder ? "py-[30px] px-[20px] gap-[10px] border-t-1 border-dark-20 text-gray-70" : "py-[14px] px-[20px] 2xl:py-[18px] 2xl:px-[24px] border bg-dark-12 text-white "}`}
             onClick={onClick}>
             <img src={IconImage} alt="IconImage" className="w-[20px] 2xl:w-[24px]" />
             {Label}

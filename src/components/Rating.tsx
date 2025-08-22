@@ -42,7 +42,7 @@ export default function Rating() {
     return (
         <div className="Rating flex flex-col my-media:flex-row my-media:justify-between gap-[20px] my-media:gap-[30px] 2xl:gap-[50px] w-full" >
             <div className="flex flex-row flex-wrap md:flex-col items-center gap-[20px] md:gap-[8px] 2xl:gap-[10px]">
-                <p className="font-medium text-3xl md:text-[40px] 2xl:text-[50px] leading-[150%] font-robotmono text-white">4.8</p>
+                <p className="font-medium text-3xl md:text-[40px] 2xl:text-[50px] leading-[150%] font-robotmono dark:text-white text-dark-12">4.8</p>
                 <div className="flex items-center gap-[4px] 2xl:gap-[5px]">
                     <img src={Star} alt="Star" className="w-[18px] w-[20px] 2xl:w-[24px]" />
                     <img src={Star} alt="Star" className="w-[18px] w-[20px] 2xl:w-[24px]" />

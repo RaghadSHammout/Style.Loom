@@ -32,7 +32,7 @@ export default function ProductsContainer({ category, products }: productsContai
         ? products.length
         : windowWidth < 640
             ? 1
-            : windowWidth < 1536
+            : windowWidth < 1024
                 ? 2
                 : 3;
 
@@ -57,9 +57,10 @@ export default function ProductsContainer({ category, products }: productsContai
                     />
                 </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-[0] place-items-center items-stretch border-y-[1.5px] 2xl:border-y-2 brder-dashed border-dark-15">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[0] place-items-center items-stretch border-y-[1.5px] 2xl:border-y-2 brder-dashed border-dark-15">
                 {visibleProducts.map((product) => (
-                    <ProductCard key={product.id} {...product} />
+                    <ProductCard key={product.id} {...product}
+                     />
                 ))}
 
             </div>

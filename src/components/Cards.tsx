@@ -1,9 +1,14 @@
 import { ShowImageType, type CardsProps } from "../types";
+import { motion } from 'framer-motion';
 
 function Cards({ img, img2, title, description, showimage, steps, index, className }: CardsProps) {
   return (
-    <div
-      className={`  hover:translate-1.5 hover:shadow-xl/30
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={`  hover:translate-1.5 hover:shadow-xl/30 cursor-pointer
         ${className}
       ${showimage === ShowImageType.one ? "p-[30px] sm:p-[50px] 2xl:p-[60px]  overflow-hidden" : ""}
       ${showimage === ShowImageType.two ? 'p-[30px] sm:p-10  2xl:p-[50px] ' : ''}
@@ -39,8 +44,8 @@ function Cards({ img, img2, title, description, showimage, steps, index, classNa
         }
 
         <h3
-          className={`font-roboto font-medium dark:text-white text-primarybg mb-2.5 sm:mb-3 2xl:mb-[16px] leading-[150%] ${
-            (showimage === ShowImageType.one || showimage === ShowImageType.three) ? 'text-lg sm:text-xl 2xl:text-2xl ' : ""}
+          className={`font-roboto font-medium dark:text-white text-primarybg mb-2.5 sm:mb-3 2xl:mb-[16px] leading-[150%] ${(showimage === ShowImageType.one || showimage === ShowImageType.three) ? 'text-lg sm:text-xl 2xl:text-2xl ' : ""}
+
             ${showimage === ShowImageType.two ? 'text-xl sm:text-[22px] 2xl:text-[28px]' : ''}`}
         >
           {title}
@@ -49,7 +54,7 @@ function Cards({ img, img2, title, description, showimage, steps, index, classNa
           {description}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

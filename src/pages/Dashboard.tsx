@@ -1,3 +1,4 @@
+// Dashboard.tsx
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -16,7 +17,7 @@ import { db } from "../firebase";
 import { setCardOne, type CardOneItem } from "../redux/slice";
 
 type CardLocal = CardOneItem & {
-  createdAtServer?: any;
+  createdAt?: Timestamp | null;
 };
 
 export default function Dashboard() {
@@ -36,7 +37,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     const colRef = collection(db, "cardone");
-    const q = query(colRef, orderBy("createdAt", "asc"));
+    const q = query(colRef, orderBy("createdAt", "desc"));
 
     const unsub = onSnapshot(
       q,
@@ -58,6 +59,7 @@ export default function Dashboard() {
         setInitialLoading(false);
       },
       (e) => {
+        console.error("onSnapshot error:", e);
         setErr(e.message || "Firestore error");
         setInitialLoading(false);
       }
@@ -105,12 +107,12 @@ export default function Dashboard() {
       } else {
         await addDoc(collection(db, "cardone"), {
           ...payloadBase,
-          createdAt: Timestamp.now(),
-          createdAtServer: serverTimestamp(),
+          createdAt: serverTimestamp(),
         });
       }
       resetForm();
     } catch (e: any) {
+      console.error("Save failed:", e);
       setErr(e.message || "Save failed");
     } finally {
       setLoading(false);
@@ -122,6 +124,7 @@ export default function Dashboard() {
     try {
       await deleteDoc(doc(db, "cardone", id));
     } catch (e: any) {
+      console.error("Delete failed:", e);
       setErr(e.message || "Delete failed");
     }
   };

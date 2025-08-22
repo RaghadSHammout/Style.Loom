@@ -31,7 +31,7 @@ const routers = createBrowserRouter(
       ],
     },
   ],
-  { basename: '/Style.Loom-x3' }
+  { basename: '/Style.Loom' }
 );
 
 createRoot(document.getElementById('root')!).render(

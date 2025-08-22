@@ -155,7 +155,6 @@ export interface CardsProps {
 export interface ActionButtonProps {
     Label: string;
     IconImage?: string;
-    IconImage2?:React.ElementType;
     onClick?: () => void;
     hasFullWidth: boolean;
     hasNoBorder: boolean;

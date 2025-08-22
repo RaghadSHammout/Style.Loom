@@ -1,4 +1,4 @@
-import{j as e,m as p}from"./index-DmOmjGSd.js";var o=(d=>(d.one="one",d.two="two",d.three="three",d))(o||{});function c({img:d,img2:l,title:b,description:x,showimage:t,steps:s,index:r,className:a}){return e.jsxs(p.div,{initial:{opacity:0,scale:.95,y:20},whileInView:{opacity:1,scale:1,y:0},viewport:{once:!0,amount:.3},transition:{duration:.8,ease:"easeOut"},className:`  hover:translate-1.5 hover:shadow-xl/30 cursor-pointer
+import{j as e,m as p}from"./index-BT86fkG8.js";var o=(d=>(d.one="one",d.two="two",d.three="three",d))(o||{});function c({img:d,img2:l,title:b,description:x,showimage:t,steps:s,index:r,className:a}){return e.jsxs(p.div,{initial:{opacity:0,scale:.95,y:20},whileInView:{opacity:1,scale:1,y:0},viewport:{once:!0,amount:.3},transition:{duration:.8,ease:"easeOut"},className:`  hover:translate-1.5 hover:shadow-xl/30 cursor-pointer
         ${a}
       ${t===o.one?"p-[30px] sm:p-[50px] 2xl:p-[60px]  overflow-hidden":""}
       ${t===o.two?"p-[30px] sm:p-10  2xl:p-[50px] ":""}

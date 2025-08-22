@@ -7,7 +7,6 @@ import TopBarLoader from "./components/TopBarLoader";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { startCardOneListener } from "./services/cardoneListner";
-import { AnimatePresence } from "framer-motion";
 import OutletWrapper from "./components/OutletWrapper";
 
 function App() {
@@ -39,11 +38,9 @@ function App() {
     <div className="dark:bg-primarybg min-h-screen dark:text-white">
       {showBar && <TopBarLoader blur allowClicks={false} zIndexClass="z-[9999]" />}
       <NavBar />
-      <AnimatePresence mode="wait">
         <OutletWrapper key={location.pathname}>
           <Outlet />
         </OutletWrapper>
-      </AnimatePresence>
       <CallToAction
         heading={CtaData.heading}
         text={CtaData.text}

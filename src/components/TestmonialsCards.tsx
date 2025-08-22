@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
+import { motion } from 'framer-motion';
 function TestmonialsCards() {
   const { testmonials } = useSelector((state: RootState) => state.testmonials);
   const [showTestimonials, setShowTestimonials] = useState<boolean>(false);
@@ -29,14 +30,14 @@ function TestmonialsCards() {
   const functionShowTestimonials = () => {
     setShowTestimonials((prev) => !prev);
   };
-  // Determine which FAQs to display based on pagination
+  // Determine which Testimonials to display based on pagination
   const displayedTestimonials =
     isMobile && !showTestimonials
       ? testmonials.slice(0, 3)
       : testmonials.slice(
-          currentPage * itemsPerPage,
-          (currentPage + 1) * itemsPerPage
-        );
+        currentPage * itemsPerPage,
+        (currentPage + 1) * itemsPerPage
+      );
   const displayedTestmonialsInMobile =
     isMobile && !showTestimonials ? testmonials.slice(0, 3) : testmonials;
   const pageCount = Math.ceil(testmonials.length / itemsPerPage);
@@ -45,7 +46,9 @@ function TestmonialsCards() {
     setCurrentPage(event.selected);
   };
   return (
-    <div className="relative font-roboto">
+    <div
+      className="relative font-roboto "
+    >
       <div className="grid lg:grid-cols-3 sm:grid-cols-2">
         {(!isMobile ? displayedTestimonials : displayedTestmonialsInMobile).map(
           (testmonial, index) => {
@@ -60,19 +63,23 @@ function TestmonialsCards() {
             const isWidthLessThan640 = "border-t-0 border-l-0 border-r-0";
             const noBorderBInLast3Item =
               index === testmonials.length - 1 ||
-              index === testmonials.length - 2 ||
-              index === testmonials.length - 3
+                index === testmonials.length - 2 ||
+                index === testmonials.length - 3
                 ? "lg:!border-b-0"
                 : "";
             const noBorderBInLast2Item =
               index === testmonials.length - 1 ||
-              index === testmonials.length - 2
+                index === testmonials.length - 2
                 ? "sm:!border-b-0"
                 : "";
             return (
-              <div
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
                 key={index}
-                className={`flex flex-col justify-center 2xl:h-[358px] lg:h-[312px] 2xl:p-[60px] xl:p-[50px] p-[30px] border-2 border-dark-15 border-dashed
+                className={`hover:translate-1.5 hover:shadow-xl/30 hover:border-transparent cursor-pointer flex flex-col justify-center 2xl:h-[358px] lg:h-[312px] 2xl:p-[60px] xl:p-[50px] p-[30px] border-2 border-dark-15 border-dashed
                 ${isWidthMore1024} ${inWidthLess1024More640} ${isWidthLessThan640} ${noBorderBInLast3Item} ${noBorderBInLast2Item}
                `}
               >
@@ -104,7 +111,7 @@ function TestmonialsCards() {
                 <div className="2xl:mt-[40px] xl:mt-[30px] mt-[25px] text-gray-50 2xl:text-lg xl:text-base text-sm">
                   {testmonial.desc}
                 </div>
-              </div>
+              </motion.div>
             );
           }
         )}

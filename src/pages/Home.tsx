@@ -24,6 +24,7 @@ import type { FilterFaqType } from "../types";
 import { tabsFaq } from "../data/FilterTabsData";
 import { setActiveTab } from "../redux/questions";
 import ProductsHomeContainer from "../components/ProductsHomeContainer";
+import PageTransitionWrapper from "../components/PageTransitionWrapper";
 
 function Home() {
   const cardOne = useSelector((state: RootState) => state.cards.cardone);
@@ -81,69 +82,72 @@ function Home() {
     onChange: (tab: FilterFaqType) => faqDispatch(setActiveTab(tab)),
   };
   return (
-    <div className="2xl:px-[162px] lg:px-[80px] px-[16px] pt-[183.8px] max-2xl:pt-[137px] max-md:pt-[146px]">
-      <HeroSection />
-      <ReusableSection {...sectionData1}>
+    <PageTransitionWrapper>
+<div className="pt-[223px] max-lg:pt-[185px] max-md:pt-[166px] pb-[100px] max-lg:pb-[80px] max-md:pb-[50px] 2xl:px-[162px] lg:px-[80px] px-[16px]">
 
-<div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">
-            {cardOne.slice(0, numbercard).map((item, index) => (
-            <Cards
-              key={item.id ?? index}
-              index={index}
-              showimage={ShowImageType.one}
-              img={item.img}
-              img2={item.img2}
-              title={item.title}
-              description={item.description}
-            />
-          ))}
+        <HeroSection />
+        <ReusableSection {...sectionData1}>
 
-          {showbtn && (
-            <button
-              className="text-gray-70 border border-dashed border-dark-20 py-[30px]  w-full flex items-center justify-center gap-x-2.5 transition-all"
-              onClick={showallcards}
-            >
-              {numbercard <= 3 ? " View All" : " less All"}
-
-              <IoIosArrowRoundDown
-                className={`text-gray-70 transform transition-transform duration-500 ${numbercard <= 3 ? "" : "rotate-180"
-                  } hover:translate-8`}
-              />
-            </button>
-          )}
-        </div>
-      </ReusableSection>
-
-      {/* القسم 2 */}
-      <ReusableSection {...sectionData2}>
-        {/* <div className="flex flex-wrap justify-center"> */}
-        <div className="grid grid-cols-1 xl:grid-cols-4 md:grid-cols-2">
-          {Array.isArray(Card2) &&
-            Card2.map((item, index) => (
+<div className="grid grid-cols-1  xl:grid-cols-3 md:grid-cols-2">            {cardOne.slice(0, numbercard).map((item, index) => (
               <Cards
-                key={index}
+                key={item.id ?? index}
                 index={index}
-                showimage={ShowImageType.two}
-                steps={item.steps}
+                showimage={ShowImageType.one}
+                img={item.img}
+                img2={item.img2}
                 title={item.title}
                 description={item.description}
               />
             ))}
-        </div>
-      </ReusableSection>
 
-      {/* Products */}
-      <ReusableSection {...sectionData}>
-        <ProductsHomeContainer products={filteredProducts} />
-      </ReusableSection>
+            {showbtn && (
+              <button
+                className="text-gray-70 border border-dashed border-dark-20 py-[30px]  w-full flex items-center justify-center gap-x-2.5 transition-all"
+                onClick={showallcards}
+              >
+                {numbercard <= 3 ? " View All" : " less All"}
 
-      <ReusableSection {...sectionData3}>
-        <TestmonialsCards />
-      </ReusableSection>
-      <ReusableSection {...sectionData4}>
-        <QuestionsCards filteredFaqs={filteredFaqs} />
-      </ReusableSection>
-    </div>
+                <IoIosArrowRoundDown
+                  className={`text-gray-70 transform transition-transform duration-500 ${numbercard <= 3 ? "" : "rotate-180"
+                    } hover:translate-8`}
+                />
+              </button>
+            )}
+          </div>
+        </ReusableSection>
+
+        {/* القسم 2 */}
+        <ReusableSection {...sectionData2}>
+          {/* <div className="flex flex-wrap justify-center"> */}
+          <div className="grid grid-cols-1 xl:grid-cols-4 md:grid-cols-2">
+            {Array.isArray(Card2) &&
+              Card2.map((item, index) => (
+                <Cards
+                  key={index}
+                  index={index}
+                  showimage={ShowImageType.two}
+                  steps={item.steps}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+          </div>
+        </ReusableSection>
+
+        {/* Products */}
+        <ReusableSection {...sectionData}>
+          <ProductsHomeContainer products={filteredProducts} />
+        </ReusableSection>
+
+        {/* Testimonials */}
+        <ReusableSection {...sectionData3}>
+          <TestmonialsCards />
+        </ReusableSection>
+        <ReusableSection {...sectionData4}>
+          <QuestionsCards filteredFaqs={filteredFaqs} />
+        </ReusableSection>
+      </div>
+    </PageTransitionWrapper>
   );
 }
 export default Home;

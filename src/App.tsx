@@ -6,21 +6,21 @@ import Footer from "./components/Footer";
 import TopBarLoader from "./components/TopBarLoader";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { startCardOneListener } from "./services/cardoneListner"; 
+import { startCardOneListener } from "./services/cardoneListner";
+import OutletWrapper from "./components/OutletWrapper";
 
 function App() {
   const navigation = useNavigation();
   const location = useLocation();
-  const dispatch = useDispatch(); 
-
-useEffect(() => {
-  const maybeUnsub = startCardOneListener(dispatch) as unknown;
-  return () => {
-    if (typeof maybeUnsub === "function") {
-      (maybeUnsub as () => void)();
-    }
-  };
-}, [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const maybeUnsub = startCardOneListener(dispatch) as unknown;
+    return () => {
+      if (typeof maybeUnsub === "function") {
+        (maybeUnsub as () => void)();
+      }
+    };
+  }, [dispatch]);
 
   const [showBar, setShowBar] = useState(false);
 
@@ -38,7 +38,9 @@ useEffect(() => {
     <div className="dark:bg-primarybg min-h-screen dark:text-white">
       {showBar && <TopBarLoader blur allowClicks={false} zIndexClass="z-[9999]" />}
       <NavBar />
-      <Outlet />
+        <OutletWrapper key={location.pathname}>
+          <Outlet />
+        </OutletWrapper>
       <CallToAction
         heading={CtaData.heading}
         text={CtaData.text}

@@ -60,6 +60,7 @@ export interface ProductCardProps {
     ProductName: string;
     Fitvalue: string;
     Pricevalue: string;
+    borderClass?: string; 
 }
 
 export interface FitPriceRowProps {
@@ -153,7 +154,7 @@ export interface CardsProps {
 
 export interface ActionButtonProps {
     Label: string;
-    IconImage: string;
+    IconImage?: string;
     onClick?: () => void;
     hasFullWidth: boolean;
     hasNoBorder: boolean;
@@ -196,5 +197,18 @@ export interface ProductDetailsProps {
 export interface productsContainerProps {
     category: string;
     products: ProductCardProps[];
+
+}
+export interface InfinitScrollProps {
+    contentsBar: string[];
+}
+export interface FooterMediaProps {
+    AllMedia: string[];
+
+}
+export interface FooterColumnProps {
+    ColumnLink: string;
+    items?: string[];
+    isSubscrbe: boolean
 
 }

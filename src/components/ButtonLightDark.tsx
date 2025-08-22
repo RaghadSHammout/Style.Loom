@@ -21,9 +21,11 @@ export default function ButtonLightDark() {
         type="button"
         aria-label="Toggle theme"
         onClick={() => dispatch(toggleTheme())}
-        className="flex items-center"
+         className={`
+          className="flex items-center"
+        `}
       >
-        <div
+            <div
           className={`relative w-[96px] h-[40px] rounded-full transition-colors ${
             isDark ? "bg-white" : "bg-dark-10"
           }`}
@@ -35,6 +37,7 @@ export default function ButtonLightDark() {
           />
           <img src={moon} alt="Moon" className="absolute right-4 top-[7px]" />
           <img src={sun} alt="Sun" className="absolute left-4 top-[7px]" />
+       
         </div>
       </button>
     </div>

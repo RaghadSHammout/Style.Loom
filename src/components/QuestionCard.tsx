@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 interface QuestionCardProps {
   index: number;
   faq: FAQ;
-  length: number; // length is a number
+  length: number; 
 }
 function QuestionCard({ index, faq, length }: QuestionCardProps) {
   return (
@@ -20,12 +20,10 @@ function QuestionCard({ index, faq, length }: QuestionCardProps) {
               
               ${(() => {
           if (length % 2 === 0) {
-            //Even length
             return index === length - 1 || index === length - 2
               ? "sm:border-b-0"
               : "sm:border-b-2";
           } else {
-            //Odd length
             return index === length - 1
               ? "sm:border-b-0"
               : "sm:border-b-2";

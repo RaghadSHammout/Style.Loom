@@ -24,7 +24,6 @@ function QuestionsCards({ filteredFaqs }: QuestionsCardsProps) {
     setShowTestimonials((prev) => !prev);
   };
 
-  // Determine which FAQs to display based on pagination
   const displayedFaqs =
     isMobile && !showTestimonials
       ? filteredFaqs.slice(0, 3)

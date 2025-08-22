@@ -44,11 +44,11 @@ export default function Rating() {
             <div className="flex flex-row flex-wrap md:flex-col items-center gap-[20px] md:gap-[8px] 2xl:gap-[10px]">
                 <p className="font-medium text-3xl md:text-[40px] 2xl:text-[50px] leading-[150%] font-robotmono dark:text-white text-dark-12">4.8</p>
                 <div className="flex items-center gap-[4px] 2xl:gap-[5px]">
-                    <img src={Star} alt="Star" className="w-[18px] w-[20px] 2xl:w-[24px]" />
-                    <img src={Star} alt="Star" className="w-[18px] w-[20px] 2xl:w-[24px]" />
-                    <img src={Star} alt="Star" className="w-[18px] w-[20px] 2xl:w-[24px]" />
-                    <img src={Star} alt="Star" className="w-[18px] w-[20px] 2xl:w-[24px]" />
-                    <img src={Star} alt="Star" className="w-[18px] w-[20px] 2xl:w-[24px]" />
+                    <img src={Star} alt="Star" className="w-[20px] 2xl:w-[24px]" />
+                    <img src={Star} alt="Star" className="w-[20px] 2xl:w-[24px]" />
+                    <img src={Star} alt="Star" className="w-[20px] 2xl:w-[24px]" />
+                    <img src={Star} alt="Star" className="w-[20px] 2xl:w-[24px]" />
+                    <img src={Star} alt="Star" className="w-[20px] 2xl:w-[24px]" />
                 </div>
                 <p className="font-normal text-sm md:text-base 2xl:text-lg leading-[150%] font-roboto text-gray-50 ">49 Ratings</p>
             </div>

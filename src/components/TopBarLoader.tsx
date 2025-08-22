@@ -27,23 +27,22 @@ const TopBarLoader: React.FC<Props> = ({
                 <div
                     className="h-full w-1/3 animate-[progress_1.2s_ease-in-out_infinite]"
                     style={{
-                        background: `linear-gradient(
-  90deg,
-  #AE9B84, /* brown-60 */
-  #C2B4A3, /* brown-70 */
-  #D6CDC2, /* brown-80 */
-  #AE9B84  /* brown-60 */
+                        background: `linear-gradient( 90deg,
+                                    #AE9B84, /* brown-60 */
+                                    #C2B4A3, /* brown-70 */
+                                    #D6CDC2, /* brown-80 */
+                                    #AE9B84  /* brown-60 */
 )`,
                     }}
                 />
             </div>
 
             <style>{`
-        @keyframes progress {
-          0% { transform: translateX(-100%); }
-          50% { transform: translateX(50%); width: 50%; }
-          100% { transform: translateX(200%); }
-        }
+                        @keyframes progress {
+                        0% { transform: translateX(-100%); }
+                        50% { transform: translateX(50%); width: 50%; }
+                        100% { transform: translateX(200%); }
+                        }
       `}</style>
         </div>
     );

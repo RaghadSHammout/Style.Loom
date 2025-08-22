@@ -33,7 +33,6 @@ function Home() {
   const [showbtn, setshowbtn] = useState<boolean>(false);
   const [numbercard, setnumbercard] = useState<number>(6);
 
-  //For FAQ section
   const faqDispatch = useDispatch();
   const activeTab = useSelector((state: RootState) => state.faq.activeTab);
   const filteredFaqs = useSelector(
@@ -74,7 +73,6 @@ function Home() {
     onChange: (tab: FilterType) => dispatch(setActiveType(tab)),
     showTabs: true,
   };
-  //Question Section
   const sectionData4 = {
     ...baseFaqData,
     tabs: tabsFaq,
@@ -116,9 +114,7 @@ function Home() {
           </div>
         </ReusableSection>
 
-        {/* القسم 2 */}
         <ReusableSection {...sectionData2}>
-          {/* <div className="flex flex-wrap justify-center"> */}
           <div className="grid grid-cols-1 xl:grid-cols-4 md:grid-cols-2">
             {Array.isArray(Card2) &&
               Card2.map((item, index) => (
@@ -134,12 +130,10 @@ function Home() {
           </div>
         </ReusableSection>
 
-        {/* Products */}
         <ReusableSection {...sectionData}>
           <ProductsHomeContainer products={filteredProducts} />
         </ReusableSection>
 
-        {/* Testimonials */}
         <ReusableSection {...sectionData3}>
           <TestmonialsCards />
         </ReusableSection>

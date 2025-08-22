@@ -3,7 +3,6 @@ import type { ProductCardProps } from "../types";
 import FitPriceRow from "./FitPriceRow";
 import ShopNowButton from "./ShopNowButton";
 
-//nour added index and productLength
 interface productProp {
   index: number;
   productsLength: number;

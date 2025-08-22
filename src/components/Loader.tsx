@@ -87,8 +87,8 @@ const Loader: React.FC<LoaderProps> = ({
         const tokens = React.useMemo(() => fullText.split("").map((ch, idx) => ({ ch, idx })), []);
 
         React.useEffect(() => {
-            if (prefersReduced) return; // show instantly
-            if (count >= tokens.length) return; // finished typing
+            if (prefersReduced) return;
+            if (count >= tokens.length) return; 
 
             const id = window.setTimeout(() => setCount((c) => c + 1), charDelay);
             return () => window.clearTimeout(id);

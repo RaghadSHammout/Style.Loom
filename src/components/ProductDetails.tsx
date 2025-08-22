@@ -18,7 +18,7 @@ export default function ProductDetails({ ProductName, designSummary, Status, ima
                         <p className="font-normal text-sm sm:text-lg text-[22px] leading-[150%] font-roboto text-gray-40 ">
                             {designSummary}
                         </p>
-                        <p className="font-normal text-xs sm:text-sm text-lg leading-[150%] font-roboto text-green py-[6px] px-[10px] sm:px-[16px] 2xl:py-[8px] 2xl:px-[20px] bg-green-dark rounded-[100px]">
+                        <p className="font-normal text-xs sm:text-sm leading-[150%] font-roboto text-green py-[6px] px-[10px] sm:px-[16px] 2xl:py-[8px] 2xl:px-[20px] bg-green-dark rounded-[100px]">
                             {Status}
                         </p>
                     </div>

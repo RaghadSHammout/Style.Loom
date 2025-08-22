@@ -26,7 +26,6 @@ export default function ProductsHomeContainer({
   const functionshowProducts = () => {
     setShowProducts((prev) => !prev);
   };
-  // Determine which testimonials to display based on pagination
   const displayedProducts =
     isMobile && !showProducts
       ? products.slice(0, 3)

@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     setShowBar(true);
-    const t = window.setTimeout(() => setShowBar(false), 3000);
+    const t = window.setTimeout(() => setShowBar(false), 1500);
     return () => window.clearTimeout(t);
   }, [location.key]);
 

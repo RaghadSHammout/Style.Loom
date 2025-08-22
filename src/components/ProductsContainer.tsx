@@ -1,6 +1,5 @@
 import ActionButton from "./ActionButton";
 import ArrowImg from "../assets/images/Arrow.svg";
-// import ArrowBottom from "../assets/images/ArrowBottom.svg";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";

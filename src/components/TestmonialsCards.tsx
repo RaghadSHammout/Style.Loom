@@ -30,7 +30,6 @@ function TestmonialsCards() {
   const functionShowTestimonials = () => {
     setShowTestimonials((prev) => !prev);
   };
-  // Determine which Testimonials to display based on pagination
   const displayedTestimonials =
     isMobile && !showTestimonials
       ? testmonials.slice(0, 3)
